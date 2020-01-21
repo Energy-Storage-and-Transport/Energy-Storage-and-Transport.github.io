@@ -1,7 +1,29 @@
-body {
-  background-color: white;
+html {
+  font-family: Verdana, Geneva, sans-serif;
 }
 
-h1 {
-  color: navy;
+div.block {
+  margin: 10px 0px;
+  padding: 0px 20px;
+  border: solid 2px #C81919;
+}
+
+div.block::before {
+  background-color: #C81919;
+  color: white;
+  margin: 0px -20px;
+  padding: 0px 20px 3px 20px;
+  font-variant: small-caps;
+}
+
+div.objective::before {
+  content: "tasks"; 
+}
+
+div.questions::before {
+  content: "questions to keep in mind"; 
+}
+
+div.deliverable::before {
+  content: "deliverable"; 
 }
