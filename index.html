@@ -22,10 +22,96 @@
     </p>
 
     <h2>Introduction</h2>
+
+    <h3>The energy transition: an engineering challenge</h3>
+    <p>
+    In 2015 all members of the United Nations agreed on an <a href="https://sustainabledevelopment.un.org/">Agenda for Sustainable Development</a>, aimed at transforming the world by 2030. At the core of this agenda are the 17 Sustainable Development Goals (SDGs):
+    </p>
+
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/0XTBYMfZyrM"></iframe>
+
+    <p>
+    In order to achieve these goals, fundamental changes in our energy system are required. The process of changing our energy system is referred to as the <b>energy transition</b>. Technological innovations across a wide range of disciplines are required to make our energy system sustainable.
+    </p>
+
+    <p>
+    The energy transition poses tremendous challenges for engineers, both from a technological perspective and from the vantage point of sustainability. As an engineer of the future, you are expected to develop technology to enable the energy transition, while simultaneously taking into consideration the effects that this technology has on our lives. 
+    </p>
+
+    <div id="piechart"></div>
+
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Source', 'Percentage'],
+      ['Conventional', 80.3],
+      ['Wind (on land)', 6.3],
+      ['Zon (PV)', 4.9],
+      ['Wind (at see)', 3.1],
+      ['Biomass', 5.3],
+      ['Water power', 0.1]
+    ]);
+
+      // Optional; add a title and set the width and height of the chart
+      var options = {'title':'Energy sources in The Netherlands [September 2019, www.klimaatakkoord.nl] ', 'width':550, 'height':400, 'sliceVisibilityThreshold': 0, 'pieHole': 0.3};
+
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+    </script>
+
+    <p>
+    A major technological challenge in the energy transition is to accommodate our energy system to deal with the more fluctuating nature of green energy sources compared to conventional (fossil fuel based) energy. Where conventional energy can be fully controlled, green energy depends on external factors over which we have limited control. In the current energy system, where the majority of energy still comes from fossil fuels, the fluctuations in green energy production are leveled out by conventional energy production. 
+    </p>
+
+    <p>
+    In the western world, energy markets (<a href="https://www.epexspot.com/">EPEX SPOT</a> in The Netherlands) regulate the supply and demand of energy. To improve the economic competitiveness of green energy sources on these markets, it is essential to make them less dependent on balancing by conventional energy. The ability to efficiently store green energy in situations when there is a surplus of production (for example, at night) and to deliver this stored energy when there is a surplus of demand (for example, during the day), is key to making green energy competitiveness. The development of energy storage and transport technologies that accommodate this change is essential to make green energy economically viable, and, thereby, to enable the energy transition. 
+    </p>
+
+    <p>
+    There are two distinct types of energy storage and transport solutions: 
+    </p> 
+
+    <ol>
+    <li> <b>Grid energy storage</b> <br> 
+      DESCRIPTION
+    </li>
+    <li> <b>Energy recovery and exchange systems</b> <br>
+      DESCRIPTION
+    </li>
+    </ol>
+
+    <h3>Project goals</h3>
+
+    <p>
+    The overarching goal of this project is to develop a mathematical-physical model for an energy storage and transport system, and to validate this model using experiments. Within the framework of challenge-based learning, the project groups independently define their own energy storage and transport solution.</p>
+
+    <p>In this project you will...</p>
+
     <ul>
-      <li>Societal background</li>
-      <li>Challenge based learning</li>
-      <li>Project objective</li>
+      </li> ...define an energy transport and storage system with time-dependent behavior. The complexity of the system should be in line with the competence level expected from a second year engineering student, and should take into account the strengths and weaknesses of your project group.</li>
+      <li>...apply a predefined modeling cycle when developing and validating a model. In the early stages of the project, your group should be able to identify the key components and possible bottlenecks in the various modeling phases and to establish a time line for the modeling process.</li>
+      <li>
+      ...apply known mathematical-physical concepts to model the time-dependent behavior of the selected system. Your group should be able to identify key components of the system and describe at least one of these components by a differential equation.</li>
+      <li>...reflect on the validity of the model, and to develop a plan to experimentally validate a crucial, time-dependent, component of the system.</li>
+      <li>...design and build an experimental set-up, in order to validate the identified critical, time-dependent, component of the system. In designing the experiment, your group should focus on reproducibility and accuracy.</li>
+      <li>...perform experiments and process and analyze experimental data following good statistical practice. Your group should be able to draw conclusions regarding the validity of the model, and to propose model and experiment improvements based on the processed data.</li>
+      <li>...draw conclusions and make recommendations regarding the applicability and economic viability of the considered energy transport and storage system in the real-world setting, making use of the validated model.
+      </li>
+    </ul> 
+
+    <p>To train you for performing the experimental validation, as part of this project, a measurement training is provided. In the measurement training, you will...</p>
+
+    <ul>
+    <li>...use measurement equipment (sensors, filters, measurement cards, etc.) and corresponding software to interpret experimental data.</li>
     </ul>
 
     <h2>Model development and validation</h2>
