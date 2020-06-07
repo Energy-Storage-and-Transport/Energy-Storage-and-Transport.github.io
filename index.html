@@ -4,16 +4,9 @@
     <meta charset="utf-8">
     <title>EST2020 syllabus</title>
     <link rel="stylesheet" href="style.css">
+    <base target="_parent">
   </head>
   <body>
-
-    <!--
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
-    -->
 
     <h1>Modeling of time-dependent systems: Energy transport and storage</h1>
 
@@ -28,7 +21,7 @@
     In 2015 all members of the United Nations agreed on an <a href="https://sustainabledevelopment.un.org/">Agenda for Sustainable Development</a>, aimed at transforming the world by 2030. At the core of this agenda are the 17 Sustainable Development Goals (SDGs):
     </p>
 
-    <iframe width="420" height="315" src="http://www.youtube.com/embed/0XTBYMfZyrM"></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0XTBYMfZyrM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <p>
     In order to achieve these goals, fundamental changes in our energy system are required. The process of changing our energy system is referred to as the <b>energy transition</b>. Technological innovations across a wide range of disciplines are required to make our energy system sustainable.
@@ -38,10 +31,10 @@
     The energy transition poses tremendous challenges for engineers, both from a technological perspective and from the vantage point of sustainability. As an engineer of the future, you are expected to develop technology to enable the energy transition, while simultaneously taking into consideration the effects that this technology has on our lives. 
     </p>
 
-    <div id="piechart"></div>
+    <figure id="piechart"></figure>
 
-   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-   <script type="text/javascript">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
 
     // Load google charts
     google.charts.load('current', {'packages':['corechart']});
@@ -73,31 +66,55 @@
     </p>
 
     <p>
-    In the western world, energy markets (<a href="https://www.epexspot.com/">EPEX SPOT</a> in The Netherlands) regulate the supply and demand of energy. To improve the economic competitiveness of green energy sources on these markets, it is essential to make them less dependent on balancing by conventional energy. The ability to efficiently store green energy in situations when there is a surplus of production (for example, at night) and to deliver this stored energy when there is a surplus of demand (for example, during the day), is key to making green energy competitiveness. The development of energy storage and transport technologies that accommodate this change is essential to make green energy economically viable, and, thereby, to enable the energy transition. 
+    In the western world, energy exchange markets (for example <a href="https://www.epexspot.com/">EPEX SPOT</a> in The Netherlands) regulate the supply and demand of energy. To improve the economic competitiveness of green energy sources on these markets, it is essential to make them less dependent on balancing by conventional energy. The ability to efficiently store green energy in situations when there is a surplus of production (for example, at night) and to deliver this stored energy when there is a surplus of demand (for example, during the day), is key to making green energy competitive. Currently, the storage capacity on the energy grid is limited [REF]. The development of innovative energy storage and transport technologies is essential to make green energy economically viable, and, thereby, to enable the energy transition. 
     </p>
 
     <p>
-    There are two distinct types of energy storage and transport solutions: 
-    </p> 
 
-    <ol>
-    <li> <b>Grid energy storage</b> <br> 
-      DESCRIPTION
+   In this project we make the distinction between two types of energy storage and transport systems:
+   <ul>
+   <li> 
+      A <b>grid energy storage system</b> typically is a large-scale storage system connected to the electrical grid. Energy is collected in the grid energy storage system at times when there is plenty of (inexpensive) electrical energy, for example, during windy periods. This energy is then released to the electrical grid at times when there is a shortage of generated electricity. The connection to the electrical grid makes that these storage systems are operated within the regulations of the electrical energy exchange market.
     </li>
-    <li> <b>Energy recovery and exchange systems</b> <br>
-      DESCRIPTION
+    <li> 
+      In <b>energy recovery and recycling systems</b> a surplus of energy (thermal, electrical, chemical, etc.) at one moment is temporarily stored in order to be released at times of shortage, and/or the surplus is transported to a location where it can be made to good use. Such storage systems can vary from small-scale to large-scale applications, also with a significant variation in storage times. Energy recovery and recycling systems are often not operated on an exchange market, but are instead used as a peer-to-peer energy exchange system.
     </li>
-    </ol>
+    </ul>
+
+    <p>For more information on energy storage and transport system we suggest the following references:</p>
+    <div class="block literature">
+    <ul>
+    	<li>
+    		<p>Huggins, R. (2016) <cite>Energy storage : fundamentals, materials and applications.</cite> 2nd edn. Cham: Springer. <em>Available as ebook through TU/e library.</em></p>
+    	</li>
+    	<li>
+    		<p>Baxter, R. (2006) <cite>Energy storage : a nontechnical guide.</cite> Tulsa, Okla.: PennWell (PennWell nontechnical series). <em>Available as ebook through TU/e library.</em></p>
+    	</li>
+    	<li>
+    		<p>Hester, R. E. and Harrison, R. M. (eds) (2019) <cite>Energy storage options and their environmental impact.</cite> London, United Kingdom: Royal Society of Chemistry (Issues in environmental science and technology, 46). <em>Available as ebook through TU/e library.</em></p>
+    	</li>
+    </ul>
+    </div>
+
+    <p>And, of course, a wealth of information on energy storage and transport systems is available on the internet. <em>Google is your best friend!</em> But always be critical about the quality of your information sources, and make sure to properly reference these sources.</p>
 
     <h3>Project goals</h3>
+    <p>The overarching goal of this project is defined as:</p>
+    <div class="block projectgoals">
+    	<p>
+    	<b>
+    	 To develop a mathematical-physical model for an energy storage and transport system, and to validate this model using experiments. Within the framework of challenge-based learning, the project groups independently define their own energy storage and transport solution.
+    	</b>
+    	</p>
 
-    <p>
-    The overarching goal of this project is to develop a mathematical-physical model for an energy storage and transport system, and to validate this model using experiments. Within the framework of challenge-based learning, the project groups independently define their own energy storage and transport solution.</p>
+    </div>
 
-    <p>In this project you will...</p>
+    <p>In the process of accomplishing this overarching objective, the following learning goals will be achieved:</p>
 
-    <ul>
-      </li> ...define an energy transport and storage system with time-dependent behavior. The complexity of the system should be in line with the competence level expected from a second year engineering student, and should take into account the strengths and weaknesses of your project group.</li>
+    <div class="block learninggoals">
+    <p>In this project you will learn to...</p>
+    <ol>
+      <li> ...define an energy transport and storage system with time-dependent behavior. The complexity of the system should be in line with the competence level expected from a second year engineering student, and should take into account the strengths and weaknesses of your project group.</li>
       <li>...apply a predefined modeling cycle when developing and validating a model. In the early stages of the project, your group should be able to identify the key components and possible bottlenecks in the various modeling phases and to establish a time line for the modeling process.</li>
       <li>
       ...apply known mathematical-physical concepts to model the time-dependent behavior of the selected system. Your group should be able to identify key components of the system and describe at least one of these components by a differential equation.</li>
@@ -106,33 +123,45 @@
       <li>...perform experiments and process and analyze experimental data following good statistical practice. Your group should be able to draw conclusions regarding the validity of the model, and to propose model and experiment improvements based on the processed data.</li>
       <li>...draw conclusions and make recommendations regarding the applicability and economic viability of the considered energy transport and storage system in the real-world setting, making use of the validated model.
       </li>
-    </ul> 
+    </ol> 
 
     <p>To train you for performing the experimental validation, as part of this project, a measurement training is provided. In the measurement training, you will...</p>
 
-    <ul>
+    <ol start="8">
     <li>...use measurement equipment (sensors, filters, measurement cards, etc.) and corresponding software to interpret experimental data.</li>
-    </ul>
+    </ol>
+    </div>
 
     <h2>Model development and validation</h2>
     <p>To provide guidance for the development and validation of a model for an energy storage and transport system, the project is structured by the following phases:</p>
     <ul>
-      <li>Phase 1: Defining your energy storage and transport system</li>
-      <li>Phase 2: Exploring your modeling options</li>
-      <li>Phase 3: ...</li>
+      <li><a href="#stage1">Stage 1: Defining your energy storage and transport system</a></li>
+      <li><a href="#stage2">Stage 2: Developing the mathematical-physical model</a></li>
+      <li><a href="#stage3">Stage 3: Detailing and validating the model</a></li>
     </ul>
     <p>Each of these phases, including the associated tasks and deliverables, are elaborated below. It is the responsibility of the group to make a planning that results in the timely completion of all deliverables.</p>
 
-    <h3>Phase 1: Defining your energy storage and transport system</h3>
+<!--
+Stage 1: Defining your energy storage and transport system
+-->
+
+    <h3>Stage 1: Defining your energy storage and transport system</h3>
 
     <div class="block objective">
-      <p>In this phase you will...</p>
+      <p>In this stage you will...</p>
       <ul>
-        <li>...select an energy source and target, taking Figure X as inspiration.</li>
+        <li>...select an energy source and target, taking Fig. 1 as inspiration.</li>
         <li>...define the technical concept for an energy storage and transport system with time-dependent behavior.</li>
         <li>...outline how the energy storage and transport solution can be applied in the real-world setting.</li>
       </ul>
     </div>
+
+    <figure>
+      <img src="assets/supplyanddemand.png" alt="Supply and demand" style="width:60%">
+      <figcaption style="width:60%">
+Examples of sustainable energy sources and potential targets to connect to. If you choose to connect to the electricity grid, you should take into consideration the electricity market in your business plan.
+      </figcaption>
+    </figure>
 
     <div class="block questions">
       <ul>
@@ -144,30 +173,202 @@
       </ul>
     </div>
 
+    <div class="block deliverable">
+        <table style="width:100%">
+            <tr>
+                <td><b>What</b></td>
+                <td>Go/No-go presentation</td>
+            </tr>
+            <tr>
+                <td><b>When</b></td>
+                <td>Monday in week 2</td>
+            </tr>
+            <tr>
+                <td><b>Weight</b></td>
+                <td>Formative assessment (0%)</td>
+            </tr>
+            <tr>
+                <td><b>Format</b></td>
+                <td>5 minutes per group excluding questions, 3 slides</td>
+            </tr>
+            <tr>
+                <td><b>Content</b></td>
+                <td>
+                <ul>
+                <li>Selection of source and target</li>
+                <li>Technical concept of the energy storage and transport system</li>
+                <li>Business concept for application of the system in the real-world setting</li>
+                <ul>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Rubric</b></td>
+                <td>See <a>assignment</a> details</td>
+            </tr>
+            <tr>
+                <td><b>Learning goals</b></td>
+                <td>...</td>
+            </tr>
+        </table>
+
+    </div>
+
+<!--
+Stage 2: Developing the mathematical-physical model
+-->
+
+    <h3 id="stage2">Stage 2: Developing the mathematical-physical model</h3>
+
+    <div class="block objective">
+      <p>In this stage you will...</p>
+      <ul>
+        <li>...define time-dependent data/functions for the energy supply and demand for your storage and transport system (see Fig. 2).</li>
+        <li>...develop a mathematical-physical model that predicts the energy storage in your system over time (see Figs. 2 and 3).</li>
+        <li>...use the developed model to derive performance characteristics of your energy storage and transport system (see Fig. 2).</li>
+      </ul>
+    </div>
+
     <figure>
-      <img src="assets/supplyanddemand.png" alt="Supply and demand" style="width:50%">
-      <figcaption>
-        Suggestions for further reading:
-        <ul>
-          <li> Waste heat: <a href="https://www.weforum.org/agenda/2015/01/how-to-make-the-most-of-waste-heat/">[1]</a></li>
-          <li> Solar farms: <a href="https://renewablesnow.com/news/chint-solar-brings-online-103-mwp-solar-farm-in-netherlands-679664/">[1]</a></li>
-        </ul>
+      <img src="assets/graphs.png" alt="The mathematical-physical model" style="width:100%">
+      <figcaption style="width:100%">
+        Infographic for the model inputs and outputs for a typical energy storage and transport model. Note that the arrows in this diagram represent the flow of information (input/output of the model). 
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/model.png" alt="The mathematical-physical model" style="width:80%">
+      <figcaption style="width:80%">
+        Schematic representation of the components of a typical storage and transport model. Note that the arrows in this schematic represent the flow of energy. 
+      </figcaption>
+    </figure>
+
+    <div class="block questions">
+      <ul>
+        <li>Does your system contain all the components in Fig. 3, or are certain components unnecessary/missing?</li>
+	<li>Which performance characteristics in Fig. 2 do you want to consider in your model?</li>
+	<li>Is it required to take the energy transport into account in your model, or can it reasonably be neglected?</li>
+        <li>How does the storage bypass (direct delivery without intermediate storage) work in your system?</li>
+        <li>How does your system account for load balancing (nullifying the mismatch between the demanded energy and the energy extracted from the storage)?</li>
+      </ul>
+    </div>
+
+    <div class="block deliverable">
+        <table style="width:100%">
+            <tr>
+                <td><b>What</b></td>
+                <td>Poster presentation</td>
+            </tr>
+            <tr>
+                <td><b>When</b></td>
+                <td>Monday in week 4 - see planning for details</td>
+            </tr>
+            <tr>
+                <td><b>Weight</b></td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td><b>Format</b></td>
+		<td>5 minutes poster presentation, followed by Q&A</td>
+            </tr>
+            <tr>
+                <td><b>Content</b></td>
+                <td>
+                <ul>
+                <li>Characterization of energy supply and demand</li>
+                <li>Overview of the energy storage and transport model</li>
+                <li>Preliminary model results for storage capacity and storage system characteristics.</li>
+                <ul>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Rubric</b></td>
+                <td>See <a>assignment</a> details</td>
+            </tr>
+            <tr>
+                <td><b>Learning goals</b></td>
+                <td>...</td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+<!--
+Stage 3: Detailing and validating the model
+-->
+
+    <h3 id="stage3">Stage 3: Detailing and validating the model</h3>
+
+    <div class="block objective">
+      <p>In this stage you will...</p>
+      <ul>
+        <li>...use the feedback on the poster presentation to detail your model (see Fig. 3).</li>
+        <li>...design a simplified, yet representtive, experiment to validate your model or a component thereof (see Fig. 4).</li>
+        <li>...conduct the experiment and compare the obtained data with model predictions (see Fig. 4).</li>
+        <li>...reflect on the relevance of your simplified experimental validation procedure for the real-life energy storage and transport system.</li>
+      </ul>
+    </div>
+
+    <figure>
+      <img src="assets/experiment.png" alt="The mathematical-physical model" style="width:100%">
+      <figcaption style="width:100%">
+        Inforgraphic for the validation procedure for your model. Since it is impossible to experiments on the real-life system, you will design a simplified, yet representative, experiment. Using this experiment, you will validate your model (or a component thereof).
       </figcaption>
     </figure>
 
 
-    <div class="block deliverable">
-      <p> <b>What:</b> Go/No-go presentation </p>
-      <p> <b>When:</b> Monday in week 2 </p>
-      <p> <b>Format:</b> 5 minutes per group excluding questions, 3 slides </p>
-      <p> <b>Rubric:</b> click <a>here</a> to access the rubric </p>
-      <p> <b>Content:</b> </p>
+    <div class="block questions">
       <ul>
-        <li>Selection of source and target</li>
-        <li>Technical concept of the energy storage and transport system</li>
-        <li>Business concept for application of the system in the real-world setting</li>
-      <ul>
+        <li>To what extent is your experiment representative for the real-life system?</li>
+        <li>Is it realistic to properly conduct the experiment given the time and resource (budget, available equipment) constraints?</li>
+        <li>Can the experiment be reproduced with an acceptable level of accuracy?</li>
+      </ul>
     </div>
+
+
+    <div class="block deliverable">
+        <table style="width:100%">
+            <tr>
+                <td><b>What</b></td>
+                <td>Technical report</td>
+            </tr>
+            <tr>
+                <td><b>When</b></td>
+                <td>?? in week ?? - see planning for details</td>
+            </tr>
+            <tr>
+                <td><b>Weight</b></td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <td><b>Format</b></td>
+		<td>?? page report based on template</td>
+            </tr>
+            <tr>
+                <td><b>Content</b></td>
+                <td>
+                <ul>
+                <li>Complete technical description of the model</li>
+                <li>Description of the designed experiment</li>
+                <li>Results of the experimental validation and the comparison with th model</li>
+                <li>Reflection on the relevance of the validation study for the real-life system</li>
+                <ul>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Rubric</b></td>
+                <td>See <a>assignment</a> details</td>
+            </tr>
+            <tr>
+                <td><b>Learning goals</b></td>
+                <td>...</td>
+            </tr>
+        </table>
+
+    </div>
+
+
 
 
     <h2>Practical information</h2>
