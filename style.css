@@ -1,29 +1,65 @@
 :root {
   --tue-red: rgb(200,25,25);
+  --tue-red-opaque: rgba(200,25,25,0.3);
 }
 
 html {
   font-family: Verdana, Geneva, sans-serif;
+
   counter-reset: figures;
+  counter-reset: H2;
 }
 
-h1, h2, h3 {
+/*---------------------------------*/
+/* HEADERS                         */
+/*---------------------------------*/
+
+h1, h2, h3, h4 {
   margin-top: 40px;
 }
+
+h2:before {
+  content: counter(H2) ". ";
+  counter-increment: H2;
+}
+
+h2 {
+  counter-reset: H3;
+}
+
+h3:before {
+  content: counter(H2) "." counter(H3) " ";
+  counter-increment:H3;
+}
+
+h3 {
+  counter-reset: H4;
+}
+
+h4:before {
+  content: counter(H2) "." counter(H3) "." counter(H4) " ";
+  counter-increment:H4;
+}
+
+/*---------------------------------*/
+/* BLOCKS                          */
+/*---------------------------------*/
 
 /* General block layout */
 div.block {
   margin: 10px 0px;
-  padding: 0px 20px;
-  border: solid 2px var(--tue-red);
+  border: solid 4px var(--tue-red);
+  padding:0px 10px 0px 10px;
 }
 
 div.block::before {
   background-color: var(--tue-red);
   color: white;
-  margin: 0px -20px;
-  padding: 0px 20px 3px 20px;
+  padding:0px 20px 4px 16px;
+  margin-left: -10px;
   font-variant: small-caps;
+  border: none;
+  display: inline-block;
 }
 
 /*Literature*/
@@ -56,6 +92,53 @@ div.deliverable::before {
   content: "deliverables"; 
 }
 
+/*Agenda*/
+div.agenda::before {
+  content: "agenda"; 
+}
+
+/*---------------------------------*/
+/* TABLES                          */
+/*---------------------------------*/
+
+/*General*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 2px solid var(--tue-red);
+}
+
+table th {
+  background-color: var(--tue-red-opaque);
+}
+
+table caption {
+  caption-side: bottom;
+  color: var(--tue-red);
+  font-variant: small-caps;
+  margin-top: 10px;
+  text-align: left;
+}
+
+/*Cell shading (grey)*/
+td.bgd, tr.bgd {
+  background: rgba(0,0,0,0.1);
+}
+
+/*Inside a .block*/
+
+
+
+
+
+
+/*---------------------------------*/
+/* OTHERS                          */
+/*---------------------------------*/
+
 figure img, figure figcaption {
   display: block;
   margin: auto;
@@ -73,6 +156,43 @@ figure figcaption:before {
   content: 'Fig. ' counter(figures) ':';
 }
 
+div.toc {
+  background-color: var(--tue-red-opaque);
+  border: 2px solid var(--tue-red);
+  display: inline-block;
+  padding: 10px 0px;
+}
+
+div.toc th, div.toc td {
+  border: none;
+  padding: 0px 10px;
+}
+}
+
+
+/*
+ul, ol {
+  margin: 0 0 0 1em;
+  padding: 0;
+}
+*/
+
+/*
+table {
+
+  padding: 0;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid var(--tue-red);
+}
+
+th {
+  text-align: left;
+  font-style: italic;
+}
+
 td {
   vertical-align: top;
 }
@@ -83,3 +203,6 @@ td ul {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
+
+*/
