@@ -160,14 +160,12 @@ div.toc {
   background-color: var(--tue-red-opaque);
   border: 2px solid var(--tue-red);
   display: inline-block;
-  padding: 10px 0px;
+  padding-right: 20px;
 }
 
-div.toc th, div.toc td {
-  border: none;
-  padding: 0px 10px;
-}
-}
+div.toc ol { counter-reset: item }
+div.toc li { display: block }
+div.toc li:before { content: counters(item, ".") " "; counter-increment: item }
 
 
 /*
