@@ -10,6 +10,14 @@ html {
   counter-reset: H2;
 }
 
+
+body {
+  max-width: 800px;
+  margin: auto; 
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 /*---------------------------------*/
 /* HEADERS                         */
 /*---------------------------------*/
@@ -164,8 +172,8 @@ div.toc {
 }
 
 div.toc ol { counter-reset: item }
-div.toc li { display: block }
-div.toc li:before { content: counters(item, ".") " "; counter-increment: item }
+div.toc ol>li { display: block }
+div.toc ol>li:before { content: counters(item, ".") " "; counter-increment: item }
 
 
 /*
