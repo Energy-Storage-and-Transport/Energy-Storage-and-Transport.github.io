@@ -5,8 +5,6 @@
 
 html {
   font-family: Verdana, Geneva, sans-serif;
-
-  counter-reset: figures;
   counter-reset: H2;
 }
 
@@ -16,6 +14,8 @@ body {
   margin: auto; 
   padding-left: 10px;
   padding-right: 10px;
+
+  counter-reset: figures;
 }
 
 /*---------------------------------*/
@@ -49,6 +49,11 @@ h4:before {
   counter-increment:H4;
 }
 
+em {
+  color: var(--tue-red);
+  font-weight: bold;
+}
+
 /*---------------------------------*/
 /* BLOCKS                          */
 /*---------------------------------*/
@@ -73,6 +78,11 @@ div.block::before {
 /*Literature*/
 div.literature::before {
   content: "Reading material"; 
+}
+
+/*Inspirational reads*/
+div.inspiration::before {
+  content: "Inspirational reads"; 
 }
 
 /*Project goals block*/
@@ -156,12 +166,12 @@ figure img, figure figcaption {
 figure figcaption {
   color: var(--tue-red);
   font-variant: small-caps;
-  counter-increment: figures;
   margin-top: 10px;
 }
 
 figure figcaption:before {
   content: 'Fig. ' counter(figures) ':';
+  counter-increment: figures;
 }
 
 div.toc {
