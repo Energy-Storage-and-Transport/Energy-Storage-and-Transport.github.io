@@ -443,8 +443,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="1180.5267"
-     inkscape:cy="590.63547"
+     inkscape:cx="815.86163"
+     inkscape:cy="582.55425"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -471,7 +471,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -744,7 +744,7 @@
            x="-2760"
            y="-117.48032" /></flowRegion><flowPara
          id="flowPara2308"
-         style="font-weight:normal;font-size:83.47826385px">Stored energy [J] / Time</flowPara></flowRoot>    <flowRoot
+         style="font-weight:normal;font-size:83.47826385px">Time or Stored energy [J]</flowPara></flowRoot>    <flowRoot
        inkscape:transform-center-y="5.3453883"
        inkscape:transform-center-x="-3.2072247"
        transform="matrix(0,-0.23469307,0.23469307,0,-2814.1742,545.13502)"
