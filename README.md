@@ -1,3 +1,3 @@
-# EST2020
+# Energy Storage and Transport
 
-Syllabus of the CBL project "Modeling of time-dependent systems: energy storage and transport"
+This repository contains the webpage of the project "Modeling of Time-dependent Systems: Energy Storage and Transport" at Eindhoven University of Technology.
