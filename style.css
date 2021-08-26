@@ -11,7 +11,7 @@ html {
 
 body {
   max-width: 800px;
-  margin: auto; 
+  margin: auto;
   padding-left: 10px;
   padding-right: 10px;
 
@@ -77,42 +77,47 @@ div.block::before {
 
 /*Literature*/
 div.literature::before {
-  content: "Reading material"; 
+  content: "Reading material";
 }
 
 /*Inspirational reads*/
 div.inspiration::before {
-  content: "Inspirational reads"; 
+  content: "Inspirational reads";
 }
 
 /*Project goals block*/
 div.projectgoals::before {
-  content: "Project goal"; 
+  content: "Project goal";
 }
 
 /*Learning goals block*/
 div.learninggoals::before {
-  content: "Learning goals"; 
+  content: "Learning goals";
 }
 
 /*Tasks block*/
 div.objective::before {
-  content: "tasks"; 
+  content: "tasks";
 }
 
 /*Questions block*/
 div.questions::before {
-  content: "questions to keep in mind"; 
+  content: "questions to keep in mind";
 }
 
 /*Deliverables*/
 div.deliverable::before {
-  content: "deliverables"; 
+  content: "deliverables";
 }
 
 /*Agenda*/
 div.agenda::before {
-  content: "agenda"; 
+  content: "agenda";
+}
+
+/*References*/
+div.references::before {
+  content: "References";
 }
 
 /*---------------------------------*/
