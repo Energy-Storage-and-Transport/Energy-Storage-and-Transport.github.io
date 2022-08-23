@@ -1,19 +1,18 @@
 // course information
-const STARTDATE = moment("6 Sep 2021", "D MMM YYYY", true);
+const STARTDATE = moment("5 Sep 2022", "D MMM YYYY", true);
 
 // group information
-let GROUPS = {"AI"  :{"groups":[ 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12], "CBLroom":"Matrix 1.340", "CBLslot":1, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31", "BCroom":"Gemini South, 3A10", "BCslot":0},
-              "AII" :{"groups":[13,14,15,16,17,18,19,20,21,22,23,24], "CBLroom":"Matrix 1.340", "CBLslot":0, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31", "BCroom":"Gemini South, 3A12", "BCslot":0},
-              "BI"  :{"groups":[25,26,27,28,29,30,31,32,33,34,35,36], "CBLroom":"Matrix 1.340", "CBLslot":1, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31", "BCroom":"Gemini South, 3A10", "BCslot":0},
-              "BII" :{"groups":[37,38,39,40,41,42,43,44,45,46,47,48], "CBLroom":"Matrix 1.340", "CBLslot":0, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31", "BCroom":"Gemini South, 3A12", "BCslot":0},
-              "BIII":{"groups":[], "CBLroom":"Matrix 1.345", "CBLslot":1, "TMroom":"t.b.a.", "BCroom":"t.b.a.", "BCslot":0}};
+let GROUPS = {"AI"  :{"groups":[ 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12], "CBLroom":"Matrix 1.116", "CBLslot":1, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31"},
+              "AII" :{"groups":[13,14,15,16,17,18,19,20,21,22,23,24], "CBLroom":"Matrix 1.116", "CBLslot":0, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31"},
+              "BI"  :{"groups":[25,26,27,28,29,30,31,32,33,34,35,36], "CBLroom":"Matrix 1.116", "CBLslot":1, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31"},
+              "BII" :{"groups":[37,38,39,40,41,42,43,44,45,46,47,48], "CBLroom":"Matrix 1.116", "CBLslot":0, "TMroom":"Traverse 1.25, 1.26, 1.27, 1.28, 1.29, 1.31"}};
 for (let group in GROUPS) { GROUPS[group]["TMslot"] = 1-GROUPS[group]["CBLslot"]; }
 
 // constants
-let BLOCKS = {"A":[{"day":"Mon", "CBLstarttime": "8:45", "CBLendtime":"12:30", "TMstarttime":["10:45","11:45"], "TMendtime":["11:45","12:45"], "BCstarttime": "8:45", "BCendtime":"12:30"},
-                   {"day":"Thu", "CBLstarttime":"13:30", "CBLendtime":"17:15", "TMstarttime":["13:30","14:30"], "TMendtime":["14:30","15:30"]}],
-              "B":[{"day":"Mon", "CBLstarttime":"13:30", "CBLendtime":"17:15", "TMstarttime":["15:30","16:30"], "TMendtime":["16:30","17:30"], "BCstarttime": "13:30", "BCendtime":"17:15"},
-                   {"day":"Wed", "CBLstarttime": "8:45", "CBLendtime":"12:30", "TMstarttime":["10:45","11:45"], "TMendtime":["11:45","12:45"]}]};
+let BLOCKS = {"A":[{"day":"Mon", "CBLstarttime": "8:45", "CBLendtime":"12:45", "TMstarttime":["10:45","11:45"], "TMendtime":["11:45","12:45"]},
+                   {"day":"Thu", "CBLstarttime":"13:30", "CBLendtime":"17:30", "TMstarttime":["13:30","14:30"], "TMendtime":["14:30","15:30"]}],
+              "B":[{"day":"Mon", "CBLstarttime":"13:30", "CBLendtime":"17:30", "TMstarttime":["15:30","16:30"], "TMendtime":["16:30","17:30"]},
+                   {"day":"Wed", "CBLstarttime": "8:45", "CBLendtime":"12:45", "TMstarttime":["10:45","11:45"], "TMendtime":["11:45","12:45"]}]};
 
 // get the date and time
 function getMoment(week, day, time) {
