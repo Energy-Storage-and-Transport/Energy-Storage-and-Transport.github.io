@@ -190,6 +190,9 @@ div.toc ol { counter-reset: item }
 div.toc ol>li { display: block }
 div.toc ol>li:before { content: counters(item, ".") " "; counter-increment: item }
 
+.svg	{
+	width: 100%;
+}
 
 /*
 ul, ol {
