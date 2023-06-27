@@ -134,8 +134,25 @@ table th, table td {
   border: 2px solid var(--tue-red);
 }
 
+
 table th {
   background-color: var(--tue-red-opaque);
+}
+
+table.TabB th,table.TabB td{
+  border: 2px solid rgba(25,200,25,1)
+}
+
+table.TabB th{
+  background-color: rgba(25,200,25,0.3)
+}
+
+table.TabC th,table.TabC td{
+  border: 2px solid rgba(25,25,200,1)
+}
+
+table.TabC th{
+  background-color: rgba(25,25,200,0.3)
 }
 
 table caption {
