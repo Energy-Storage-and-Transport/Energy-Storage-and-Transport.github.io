@@ -8,7 +8,6 @@ html {
   counter-reset: H2;
 }
 
-
 body {
   max-width: 800px;
   margin: auto;
@@ -40,6 +39,7 @@ h3:before {
   counter-increment:H3;
 }
 
+/*
 h3 {
   counter-reset: H4;
 }
@@ -48,10 +48,11 @@ h4:before {
   content: counter(H2) "." counter(H3) "." counter(H4) " ";
   counter-increment:H4;
 }
+*/
 
 em {
   color: var(--tue-red);
-  font-weight: bold;
+  font-weight: italic;
 }
 
 /*---------------------------------*/
@@ -77,12 +78,17 @@ div.block::before {
 
 /*Literature*/
 div.literature::before {
-  content: "Reading material";
+  content: "Background reading";
 }
 
 /*Inspirational reads*/
 div.inspiration::before {
   content: "Inspirational reads";
+}
+
+/*Challenge block*/
+div.challenge::before {
+  content: "Challenge";
 }
 
 /*Project goals block*/
@@ -170,11 +176,6 @@ td.bgd, tr.bgd {
 
 /*Inside a .block*/
 
-
-
-
-
-
 /*---------------------------------*/
 /* OTHERS                          */
 /*---------------------------------*/
@@ -211,39 +212,7 @@ div.toc ol>li:before { content: counters(item, ".") " "; counter-increment: item
 	width: 100%;
 }
 
-/*
-ul, ol {
-  margin: 0 0 0 1em;
-  padding: 0;
+iframe, #map {
+  display: block;
+  margin: 0 auto;
 }
-*/
-
-/*
-table {
-
-  padding: 0;
-  margin-top: 20px;
-}
-
-table, th, td {
-  border: 1px solid var(--tue-red);
-}
-
-th {
-  text-align: left;
-  font-style: italic;
-}
-
-td {
-  vertical-align: top;
-}
-
-td ul {
-  margin-top: 0;
-  padding-top: 0;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-
-*/
