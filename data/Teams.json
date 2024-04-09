@@ -214,5 +214,173 @@
     "supplyInfo": "880.0 m\u00b2 of solar panels on the roof of an office building in Berlin.",
     "demandFile": "Team36_demand.csv",
     "demandInfo": "Office building in Berlin with an annual energy consumption of 8.51e+11 J."
+  },
+  "37": {
+    "supplyFile": "Team37_supply.csv",
+    "supplyInfo": "Solar park in the dessert with 630000.0 m\u00b2 of panels.",
+    "demandFile": "Team37_demand.csv",
+    "demandInfo": "Households in Cairo with an annual energy consumption of 8.04e+14 J."
+  },
+  "38": {
+    "supplyFile": "Team38_supply.csv",
+    "supplyInfo": "Wind park in Luxemburg with 140 turbines.",
+    "demandFile": "Team38_demand.csv",
+    "demandInfo": "Public transport provider in Luxemburg with an annual energy consumption of 7.57e+14 J."
+  },
+  "39": {
+    "supplyFile": "Team39_supply.csv",
+    "supplyInfo": "9.0 m\u00b2 of solar panels on the roof of a house in Rotterdam.",
+    "demandFile": "Team39_demand.csv",
+    "demandInfo": "Household in Rotterdam with an annual energy consumption of 8.51e+09 J."
+  },
+  "40": {
+    "supplyFile": "Team40_supply.csv",
+    "supplyInfo": "12 wind turbines near a village in North Brabant.",
+    "demandFile": "Team40_demand.csv",
+    "demandInfo": "Households in a village in North Brabant with an annual energy consumption of 8.04e+13 J."
+  },
+  "41": {
+    "supplyFile": "Team41_supply.csv",
+    "supplyInfo": "57.0 m\u00b2 of solar panels on the roof of an apartment block in Eindhoven.",
+    "demandFile": "Team41_demand.csv",
+    "demandInfo": "Apartment block in Eindhoven with an annual energy consumption of 5.68e+10 J."
+  },
+  "42": {
+    "supplyFile": "Team42_supply.csv",
+    "supplyInfo": "Solar park in the Flevopolder with 5800.0 m\u00b2 of panels.",
+    "demandFile": "Team42_demand.csv",
+    "demandInfo": "Industrial building in Amsterdam with an annual energy consumption of 5.68e+12 J."
+  },
+  "43": {
+    "supplyFile": "Team43_supply.csv",
+    "supplyInfo": "Windpark in the North Sea with 29 turbines.",
+    "demandFile": "Team43_demand.csv",
+    "demandInfo": "Public transport provider with an annual energy consumption of 1.34e+15 J."
+  },
+  "44": {
+    "supplyFile": "Team44_supply.csv",
+    "supplyInfo": "3 wind turbines situated in the Flevopolder.",
+    "demandFile": "Team44_demand.csv",
+    "demandInfo": "Office buildings in Amsterdam with an annual energy consumption of 2.52e+13 J."
+  },
+  "45": {
+    "supplyFile": "Team45_supply.csv",
+    "supplyInfo": "Wind park near the Rotterdam harbor with 120 turbines.",
+    "demandFile": "Team45_demand.csv",
+    "demandInfo": "Industrial area in the Rotterdam harbor with an annual energy consumption of 2.14e+15 J."
+  },
+  "46": {
+    "supplyFile": "Team46_supply.csv",
+    "supplyInfo": "880.0 m\u00b2 of solar panels on the roof of an office building in Berlin.",
+    "demandFile": "Team46_demand.csv",
+    "demandInfo": "Office building in Berlin with an annual energy consumption of 8.51e+11 J."
+  },
+  "47": {
+    "supplyFile": "Team47_supply.csv",
+    "supplyInfo": "Solar park in the dessert with 630000.0 m\u00b2 of panels.",
+    "demandFile": "Team47_demand.csv",
+    "demandInfo": "Households in Cairo with an annual energy consumption of 8.04e+14 J."
+  },
+  "48": {
+    "supplyFile": "Team48_supply.csv",
+    "supplyInfo": "Wind park in Luxemburg with 140 turbines.",
+    "demandFile": "Team48_demand.csv",
+    "demandInfo": "Public transport provider in Luxemburg with an annual energy consumption of 7.57e+14 J."
+  },
+  "49": {
+    "supplyFile": "Team49_supply.csv",
+    "supplyInfo": "9.0 m\u00b2 of solar panels on the roof of a house in Rotterdam.",
+    "demandFile": "Team49_demand.csv",
+    "demandInfo": "Household in Rotterdam with an annual energy consumption of 8.51e+09 J."
+  },
+  "50": {
+    "supplyFile": "Team50_supply.csv",
+    "supplyInfo": "12 wind turbines near a village in North Brabant.",
+    "demandFile": "Team50_demand.csv",
+    "demandInfo": "Households in a village in North Brabant with an annual energy consumption of 8.04e+13 J."
+  },
+  "51": {
+    "supplyFile": "Team51_supply.csv",
+    "supplyInfo": "57.0 m\u00b2 of solar panels on the roof of an apartment block in Eindhoven.",
+    "demandFile": "Team51_demand.csv",
+    "demandInfo": "Apartment block in Eindhoven with an annual energy consumption of 5.68e+10 J."
+  },
+  "52": {
+    "supplyFile": "Team52_supply.csv",
+    "supplyInfo": "Solar park in the Flevopolder with 5800.0 m\u00b2 of panels.",
+    "demandFile": "Team52_demand.csv",
+    "demandInfo": "Industrial building in Amsterdam with an annual energy consumption of 5.68e+12 J."
+  },
+  "53": {
+    "supplyFile": "Team53_supply.csv",
+    "supplyInfo": "Windpark in the North Sea with 29 turbines.",
+    "demandFile": "Team53_demand.csv",
+    "demandInfo": "Public transport provider with an annual energy consumption of 1.34e+15 J."
+  },
+  "54": {
+    "supplyFile": "Team54_supply.csv",
+    "supplyInfo": "3 wind turbines situated in the Flevopolder.",
+    "demandFile": "Team54_demand.csv",
+    "demandInfo": "Office buildings in Amsterdam with an annual energy consumption of 2.52e+13 J."
+  },
+  "55": {
+    "supplyFile": "Team55_supply.csv",
+    "supplyInfo": "Wind park near the Rotterdam harbor with 120 turbines.",
+    "demandFile": "Team55_demand.csv",
+    "demandInfo": "Industrial area in the Rotterdam harbor with an annual energy consumption of 2.14e+15 J."
+  },
+  "56": {
+    "supplyFile": "Team56_supply.csv",
+    "supplyInfo": "880.0 m\u00b2 of solar panels on the roof of an office building in Berlin.",
+    "demandFile": "Team56_demand.csv",
+    "demandInfo": "Office building in Berlin with an annual energy consumption of 8.51e+11 J."
+  },
+  "57": {
+    "supplyFile": "Team57_supply.csv",
+    "supplyInfo": "Solar park in the dessert with 630000.0 m\u00b2 of panels.",
+    "demandFile": "Team57_demand.csv",
+    "demandInfo": "Households in Cairo with an annual energy consumption of 8.04e+14 J."
+  },
+  "58": {
+    "supplyFile": "Team58_supply.csv",
+    "supplyInfo": "Wind park in Luxemburg with 140 turbines.",
+    "demandFile": "Team58_demand.csv",
+    "demandInfo": "Public transport provider in Luxemburg with an annual energy consumption of 7.57e+14 J."
+  },
+  "59": {
+    "supplyFile": "Team59_supply.csv",
+    "supplyInfo": "9.0 m\u00b2 of solar panels on the roof of a house in Rotterdam.",
+    "demandFile": "Team59_demand.csv",
+    "demandInfo": "Household in Rotterdam with an annual energy consumption of 8.51e+09 J."
+  },
+  "60": {
+    "supplyFile": "Team60_supply.csv",
+    "supplyInfo": "12 wind turbines near a village in North Brabant.",
+    "demandFile": "Team60_demand.csv",
+    "demandInfo": "Households in a village in North Brabant with an annual energy consumption of 8.04e+13 J."
+  },
+  "61": {
+    "supplyFile": "Team61_supply.csv",
+    "supplyInfo": "57.0 m\u00b2 of solar panels on the roof of an apartment block in Eindhoven.",
+    "demandFile": "Team61_demand.csv",
+    "demandInfo": "Apartment block in Eindhoven with an annual energy consumption of 5.68e+10 J."
+  },
+  "62": {
+    "supplyFile": "Team62_supply.csv",
+    "supplyInfo": "Solar park in the Flevopolder with 5800.0 m\u00b2 of panels.",
+    "demandFile": "Team62_demand.csv",
+    "demandInfo": "Industrial building in Amsterdam with an annual energy consumption of 5.68e+12 J."
+  },
+  "63": {
+    "supplyFile": "Team63_supply.csv",
+    "supplyInfo": "Windpark in the North Sea with 29 turbines.",
+    "demandFile": "Team63_demand.csv",
+    "demandInfo": "Public transport provider with an annual energy consumption of 1.34e+15 J."
+  },
+  "64": {
+    "supplyFile": "Team64_supply.csv",
+    "supplyInfo": "3 wind turbines situated in the Flevopolder.",
+    "demandFile": "Team64_demand.csv",
+    "demandInfo": "Office buildings in Amsterdam with an annual energy consumption of 2.52e+13 J."
   }
 }
