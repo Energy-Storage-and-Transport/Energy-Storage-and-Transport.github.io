@@ -101,6 +101,11 @@ div.learninggoals::before {
   content: "Learning goals";
 }
 
+/*Track objective block*/
+div.trackobjectives::before {
+  content: "Track objectives";
+}
+
 /*Tasks block*/
 div.objective::before {
   content: "tasks";

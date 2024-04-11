@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="lib/leaflet/leaflet.css">
     <script src="lib/leaflet/leaflet.js"></script>
     <script src="scripts/group.js"></script>
+    <script src="scripts/utils.js"></script>
   </head>
 
   
@@ -127,7 +128,7 @@
 
       <tr>
         <td  rowspan="8">Group</td>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118568">Go/No-go pitch</a></td>
+        <td><a class="gonogo">Go/No-go pitch</a></td>
         <td>1-3 & 5</td>
         <td>0%</td>
         <td>≥6.0</td>
@@ -143,7 +144,7 @@
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118571">Poster submission</a></td>
+        <td><a class="poster">Poster submission</a></td>
         <td>1-4</td>
         <td>No resit</td>
       </tr>
@@ -162,20 +163,20 @@
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118573">Technical report</a></td>
+        <td><a class="report">Technical report</a></td>
         <td>1-4</td>
         <td>One resit opportunity if final group grade is insufficient</td>
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118572">Technical briefing</a></td>
+        <td><a class="presentation">Technical briefing</a></td>
         <td>1, 3, 4, 6 & 7</td>
         <td rowspan="2">10%</td>
         <td>No resit</td>
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118569">Infographic competition</a></td>
+        <td><a class="competition">Infographic competition</a></td>
         <td>1, 7</td>
         <td>Optional (bonus)</td>
       </tr>
@@ -202,7 +203,7 @@
         <td>1-8</td>
         <td>0%</td>
         <td>Must be completed</td>
-        <td>Resubmission possible until end of week 7</td>
+        <td>In agreement with tutor</td>
       </tr>
 
       <tr>
@@ -485,7 +486,7 @@
 
     <h4>Social safety training</h4>
     <p>
-      In the <em>Social Safety and Inclusive Collaboration</em> training you will be introduced to the topic of social safety in education. This compulsory session will be organized in the form of a theatre play by the <a href="https://www.timeoutcafe.nu/">TIME OUT Foundation</a>, called SAFE SPACE. The play is especially designed for students at their request. The play will cover the topic of transgressive behaviour, sexual intimidation and power abuse. When do we call something transgressive? Who decides on that? And where do we encounter such behaviour?
+      In the <em>Social Safety and Inclusive Collaboration</em> training you will be introduced to the topic of social safety in education. This compulsory session will be organized in the form of a theatre play by the <a href="https://www.timeoutcafe.nu/">TIME OUT Foundation</a>, called SAFE SPACE. The play is especially designed for students at their request. The play will cover the topic of transgressive behavior, sexual intimidation and power abuse. When do we call something transgressive? Who decides on that? And where do we encounter such behaviour?
     </p>
       
     <p>
@@ -606,45 +607,35 @@
 
     <!--SYSTEM DEFINITION TRACK-->
     <h3 id="track1">Track 1: Defining your EST system</h3>
-    <p>This track focuses on <em>defining the EST system</em> fitting your groups' supply and demand, while making use of the developed model. By the end of the project, the EST system, with all its components, should be specified:</p>
+    <div class="block trackobjectives">
+      <ul>
+        <li>To <em>define the real-world EST system</em> fitting your groups' supply and demand, including a technical specification of all relevant components and parameters.
+        <li>To <em>assess the performance of your EST system</em> and to <em>study design variations</em> using the developed model.
+      </ul>
+    </div>
+
+    <!--Analyze the signals-->
+    <p>
+      The starting point for defining your EST system is to <em>analyze your team's energy supply and demand</em>, for which you can make use of the provided baseline Simulink model. In this analysis you will quantify energy surpluses and deficits, identifying the relevant time and volume scales, that is: <em>How much energy do you need to store and for what periods?</em> Typically, multiple time and volume scales can be identified. Developing an EST system that is able to completely cover all scales is unrealistic. For example, an EST system for a daily storage cycle will not be effective for seasonal storage. Therefore, an EST system is typically designed for one of the relevant scales and not for all. Although such an EST system will not cover all deficits, it may still be very effective if it covers a substantial part of the deficits.  
+    </p>
+    
+    <!--Define the EST system and its parameters-->
+    <p>
+      Based on the requirements derived from the analysis of the supply and demand, your group will <em>define an EST system in the real-world setting</em>. All essential components of the EST system should be defined, with a clear notion of the size of the system and the time scales of the storage process. You should also think about how storage bypass (direct delivery without intermediate storage) and load balancing (nullifying the mismatch between the energy supply/demand and the energy injected by/extracted from the storage) work in your system. As part of the definition of your EST system you will <em>identify the system parameters that are essential to its performance</em>. These essential system parameters should relate directly to the physical properties (e.g., dimensions, material properties) of the EST system. Through the specification of the values of all system parameters, your group will define a reference EST system. 
+    </p>
+
+    <!--Demonstrate the model in the real-world setting and study variations-->
+    <p>
+      With the system fully specified, your group will <em>use the developed model to assess the performance of your EST system</em>. Throughout the project the capabilities of the model will be increased, resulting in detailed simulation results for a reference setting. Your group should think about which quantities/graphs are needed - in addition to the standard results generate by the baseline model - to assess the performance of the EST system. You will then perform a model-based design-variation study, demonstrating how variations to the reference setting of the system will alter its performance. Based on this design-variation study you will draw conclusions regarding how the system can be altered to optimize its performance.
+    </p>
+ 
     <div class="block deliverable">
       <ul>
-        <li>An <em>infographic</em> that gives a comprehensive overview of the EST system, including all essential system components and how these are interconnected.</li>
-        <li>A complete <em>list of system parameters</em> which are essential to the performance of the EST system, such as component dimensions and material properties.</li>
-        <li>A <em>performance assessment</em> of the EST system based on simulation results generated using the developed model.</li>
-        <li>A <em>scenario exploration</em> study to identify potential application directions.</li>
-      </ul>
-    </div>
-
-    <h4>Stage 1: Conceptual idea of the EST system</h4>
-    <p>The goal of the first stage of the system definition track is to come up with the conceptual idea of the EST system, which should be compatible with your team's energy supply and demand. The conceptual idea, including an outline of how the energy storage and transport solution can be applied in the real-world setting, will be presented in the Go/No-go pitch by means of a <em>schematic with explanatory notes</em>.</p>
-    <div class="block questions">
-      <ul>
-        <li>Are all essential system components defined, or are certain components unnecessary/missing?</li>
-        <li>Is there a notion of the size of the system and the relevant time scales involved in the storage process?</li>
-        <li>How do storage bypass (direct delivery without intermediate storage) and load balancing (nullifying the mismatch between the energy supply/demand and the energy injected by/extracted from the storage) work in your system?</li>
-      </ul>
-    </div>
-
-    <h4>Stage 2: Designing the EST system</h4>
-    <p>The goal of the second stage of the system definition track is to elaborate all components of the EST system, identifying the parameters that are essential to the performance of the system. The results of this stage will be presented on the poster in the form of an <em>infographic of the EST system</em>, a <em>list of system parameters</em>, and a <em>preliminary simulation result</em> illustrating the feasibility of using the model to assess the performance of the system.</p>
-    <div class="block questions">
-      <ul>
-        <li>Are all system components specified in such detail that the performance of the EST system can be assessed reliably?</li>
-        <li>Is the list of essential system parameters complete, and do these parameters relate directly to the physical properties (e.g., dimensions, material properties) of the EST system?</li>
-        <li>Which quantities/graphs are needed to assess the performance of the EST system, and can these be simulated by the model?</li>
-      </ul>
-    </div>
-
-    <h4>Stage 3: Assessing the EST system and exploring scenarios</h4>
-    <p>The goal of the third stage of the system definition track is to assess the performance of EST system using the consolidated model for the team's supply and demand, and to define and explore (using the model) different application scenarios for the EST system. The results of this stage will be presented in the technical report in the form of an <em>improved infographic of the EST system</em>, the complete <em>list of system parameters</em> required for the consolidated model, and <em>detailed simulation results</em> to assess the performance of the system in relation to the team's supply and demand. The <em>model-based scenario exploration</em> study will be presented in the technical briefing.
-    </p>
-    <div class="block questions">
-      <ul>
-        <li>Does the infographic target the right audience (a panel of experts), and does it reflect the level of professionalism ambitioned by your team?</li>
-        <li>Are all system parameters required for the model specified for all considered simulation cases?</li>
-        <li>Are all presented results generated using the (consolidated) model reproducible?</li>
-        <li>Are the explored scenarios distinguishable, and do they provide insights regarding the applicability of the system?</li>
+        <li>A <em>schematic with explanatory notes</em> in the <a class="gonogo">go/no-go pitch</a> that outlines the conceptual idea of your EST system in the real-world setting.
+        <li>An <em>infographic</em> on the <a class="poster">poster</a>, in the <a class="report">report</a> and in the <a class="presentation">technical briefing</a> that gives a comprehensive overview of the EST system, including all essential system components and how these are interconnected. You can also take part in the <a class="competition">infographic competition</a> to receive a bonus.</li>
+        <li>A specification of the <em>essential system parameters</em> on the <a class="poster">poster</a> and in the <a class="report">report</a>. These parameters, which are the input to your model, should also be identifiable in the infographic.</li>
+        <li>A <em>performance assessment</em> of the EST system based on simulation results. On the <a class="poster">poster</a> this will be a preliminary result, aimed at assessing to what extent the model can predict the performance of the system. In the <a class="report">report</a> you will present detailed results for the reference setting.</li>
+        <li>A <em>design-variation study</em> in the <a class="presentation">technical briefing</a>, aimed at identifying potential directions for system optimization.</li>
       </ul>
     </div>
 
@@ -885,6 +876,7 @@
 
     <script>
       initGroups();
+      setLinks();
     </script>
 
   </body>
