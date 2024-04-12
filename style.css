@@ -236,7 +236,7 @@ iframe, #map {
 }
 
 /* Hide the images by default */
-.mySlides {
+.infographicslide .toolboxslide {
   display: none;
 }
 
@@ -289,7 +289,7 @@ iframe, #map {
 }
 
 /* The dots/bullets/indicators */
-.dot {
+.infographicdot, .toolboxdot {
   cursor: pointer;
   height: 15px;
   width: 15px;
@@ -300,7 +300,7 @@ iframe, #map {
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active, .infographicdot:hover , .toolboxdot:hover {
   background-color: #717171;
 }
 

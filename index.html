@@ -619,68 +619,70 @@
       The starting point for defining your EST system is to <em>analyze your team's energy supply and demand</em>, for which you can make use of the provided baseline Simulink model. In this analysis you will quantify energy surpluses and deficits, identifying the relevant time and volume scales, that is: <em>How much energy do you need to store and for what periods?</em> Typically, multiple time and volume scales can be identified. Developing an EST system that is able to completely cover all scales is unrealistic. For example, an EST system for a daily storage cycle will not be effective for seasonal storage. Therefore, an EST system is typically designed for one of the relevant scales and not for all. Although such an EST system will not cover all deficits, it may still be very effective if it covers a substantial part of the deficits.  
     </p>
     
-    <!-- Slideshow with good examples -->
+    <!-- Slideshow with good examples-->
     <div style="width:50%" class="slideshow-container">
 
       <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
+      <div class="infographicslide fade">
         <div class="numbertext">1 / 7</div>
         <img src="assets/infographics/2023place1.png" style="width:100%">
         <div class="text">First prize in the 2023 infographic competition.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="infographicslide fade">
         <div class="numbertext">2 / 7</div>
         <img src="assets/infographics/2023place2.png" style="width:100%">
         <div class="text">Second prize in the 2023 infographic competition.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="infographicslide fade">
         <div class="numbertext">3 / 7</div>
         <img src="assets/infographics/2023place3.png" style="width:100%">
         <div class="text">Third prize in the 2023 infographic competition.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="infographicslide fade">
         <div class="numbertext">4 / 7</div>
         <img src="assets/infographics/2023place4.png" style="width:100%">
         <div class="text">Fourth prize in the 2023 infographic competition.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="infographicslide fade">
         <div class="numbertext">5 / 7</div>
         <img src="assets/infographics/2023place5a.png" style="width:100%">
         <div class="text">Fifth prize (ex aequo) in the 2023 infographic competition.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="infographicslide fade">
         <div class="numbertext">6 / 7</div>
         <img src="assets/infographics/2023place5b.png" style="width:100%">
         <div class="text">Fifth prize (ex aequo) in the 2023 infographic competition.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="infographicslide fade">
         <div class="numbertext">7 / 7</div>
         <img src="assets/infographics/2023place5c.png" style="width:100%">
         <div class="text">Fifth prize (ex aequo) in the 2023 infographic competition.</div>
       </div>
 
       <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <a class="prev" onclick="plusSlides('infographic', -1)">&#10094;</a>
+      <a class="next" onclick="plusSlides('infographic',  1)">&#10095;</a>
+     
     </div>
 
     <!-- The dots/circles -->
     <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span> 
-      <span class="dot" onclick="currentSlide(2)"></span> 
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-      <span class="dot" onclick="currentSlide(5)"></span>
-      <span class="dot" onclick="currentSlide(6)"></span>
-      <span class="dot" onclick="currentSlide(7)"></span>
+      <span class="infographicdot" onclick="currentSlide('infographic', 1)"></span> 
+      <span class="infographicdot" onclick="currentSlide('infographic', 2)"></span> 
+      <span class="infographicdot" onclick="currentSlide('infographic', 3)"></span>
+      <span class="infographicdot" onclick="currentSlide('infographic', 4)"></span>
+      <span class="infographicdot" onclick="currentSlide('infographic', 5)"></span>
+      <span class="infographicdot" onclick="currentSlide('infographic', 6)"></span>
+      <span class="infographicdot" onclick="currentSlide('infographic', 7)"></span>
     </div>
-    
+   
+
     <!--Define the EST system and its parameters-->
     <p>
       Based on the requirements derived from the analysis of the supply and demand, your group will <em>define an EST system in the real-world setting</em>. All essential components of the EST system should be defined, with a clear notion of the size of the system and the time scales of the storage process. You should also think about how storage bypass (direct delivery without intermediate storage) and load balancing (nullifying the mismatch between the energy supply/demand and the energy injected by/extracted from the storage) work in your system. As part of the definition of your EST system you will <em>identify the system parameters that are essential to its performance</em>. These essential system parameters should relate directly to the physical properties (e.g., dimensions, material properties) of the EST system. Through the specification of the values of all system parameters, your group will define a reference EST system. 
@@ -694,7 +696,8 @@
     <div class="block deliverable">
       <ul>
         <li>A <em>schematic with explanatory notes</em> in the <a class="gonogo">go/no-go pitch</a> that outlines the conceptual idea of your EST system in the real-world setting.
-        <li>An <em>infographic</em> on the <a class="poster">poster</a>, in the <a class="report">report</a> and in the <a class="presentation">technical briefing</a> that gives a comprehensive overview of the EST system, including all essential system components and how these are interconnected. You can also take part in the <a class="competition">infographic competition</a> to receive a bonus.</li>
+        <li>An <em>infographic</em> on the <a class="poster">poster</a>, in the <a class="report">report</a> and in the <a class="presentation">technical briefing</a> that gives a comprehensive overview of the EST system, including all essential system components and how these are interconnected. You can also take part in the <a class="competition">infographic competition</a> to receive a bonus. For inspiration, the competition winners of previous years are shown in the slide show above. A good infographic has two "layers": (1) When you look at it from a distance you get an immediate impression of the EST system; (2) When you look at it from close by you can read about detailed aspects.
+        </li>
         <li>A specification of the <em>essential system parameters</em> on the <a class="poster">poster</a> and in the <a class="report">report</a>. These parameters, which are the input to your model, should also be identifiable in the infographic.</li>
         <li>A <em>performance assessment</em> of the EST system based on simulation results. On the <a class="poster">poster</a> this will be a preliminary result, aimed at assessing to what extent the model can predict the performance of the system. In the <a class="report">report</a> you will present detailed results for the reference setting.</li>
         <li>A <em>design-variation study</em> in the <a class="presentation">technical briefing</a>, aimed at identifying potential directions for system optimization.</li>
@@ -802,41 +805,41 @@
     <div class="slideshow-container">
 
       <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
+      <div class="toolboxslide fade">
         <div class="numbertext">1 / 4</div>
         <img src="assets/toolbox-pneumatic.jpeg" style="width:100%">
         <div class="text">The <b>pneumatic energy</b> toolbox contains components to construct a pressurize air setup, such as pressure vessels, air pumps, pressure sensors, and flow sensors.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="toolboxslide fade">
         <div class="numbertext">2 / 4</div>
         <img src="assets/toolbox-mechanic.jpeg" style="width:100%">
         <div class="text">The <b>mechanical energy</b> toolbox contains components to construct a setup that, for example, stores energy by lifting weights. It contains pulleys, gears, rotation speed sensors and torque meters, amongst others.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="toolboxslide fade">
         <div class="numbertext">3 / 4</div>
         <img src="assets/toolbox-hydraulic.jpeg" style="width:100%">
         <div class="text">The <b>hydraulic energy</b> toolbox contains components to construct a setup that, for example, transports water between basins. It contains water containers, pumps, pressure sensors, and flow sensors, amongst others.</div>
       </div>
 
-      <div class="mySlides fade">
+      <div class="toolboxslide fade">
         <div class="numbertext">4 / 4</div>
         <img src="assets/toolbox-thermal.jpeg" style="width:100%">
         <div class="text">The <b>thermal energy</b> toolbox contains components for a setup storing energy in the form of heat. Amongst others, it contains a vessel to store a heated liquid, insulation materials, and temperature sensors.</div>
       </div>
 
       <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <a class="prev" onclick="plusSlides('toolbox', -1)">&#10094;</a>
+      <a class="next" onclick="plusSlides('toolbox',  1)">&#10095;</a>
     </div>
 
     <!-- The dots/circles -->
     <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span> 
-      <span class="dot" onclick="currentSlide(2)"></span> 
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="toolboxdot" onclick="currentSlide('toolbox', 1)"></span> 
+      <span class="toolboxdot" onclick="currentSlide('toolbox', 2)"></span> 
+      <span class="toolboxdot" onclick="currentSlide('toolbox', 3)"></span>
+      <span class="toolboxdot" onclick="currentSlide('toolbox', 4)"></span>
     </div>
 
     <p>In addition to these toolboxes, a range of sensors and electronic components is available in the SEL lab.</p>
