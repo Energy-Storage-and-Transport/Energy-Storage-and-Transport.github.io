@@ -136,7 +136,7 @@
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118615">Standard Operating Procedure (v1)</a></td>
+        <td><a class="sopv1">Standard Operating Procedure (v1)</a></td>
         <td>5,6</td>
         <td rowspan="2">15%</td>
         <td rowspan="7">≥6.0</td>
@@ -150,14 +150,14 @@
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118685">Standard Operating Procedure (v2)</a></td>
+        <td><a class="sopv2">Standard Operating Procedure (v2)</a></td>
         <td>5</td>
         <td rowspan="3">20%</td>
         <td>No resit</td>
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118686">Standard Operating Procedure (v3)</a></td>
+        <td><a class="sopv3">Standard Operating Procedure (v3)</a></td>
         <td>4,6</td>
         <td>No resit</td>
       </tr>
@@ -183,7 +183,7 @@
 
       <tr>
         <td rowspan="5">Individual</td>
-        <td><a href="https://canvas.tue.nl/courses/24022/quizzes/24284">Measurement theory assignment</a></td>
+        <td><a class="measurementtheory">Measurement theory assignment</a></td>
         <td>8</td>
         <td>10%</td>
         <td>Must pass measurement practical</td>
@@ -191,7 +191,7 @@
       </tr>
 
       <tr>
-        <td><a href="https://canvas.tue.nl/courses/24022/assignments/118570">Measurement practical</a></td>
+        <td><a class="practical">Measurement practical</a></td>
         <td>8</td>
         <td>0%</td>
         <td>"complete" score</td>
@@ -710,7 +710,6 @@
 
     <figure>
       <img src="assets/simulink.png" alt="Simulink model" style="width:60%">
-      </figcaption>
     </figure>
 
     <p>
@@ -744,7 +743,7 @@
           You will realized that, even if you worked out the model very well, coding forces you to think about the nitty gritty details, as otherwise the computer model will be buggy. It is therefore important to follow good programming practices, such as code (unit) testing, documentation and version management. If you run into a bug - and you will - you should systematically debug the code. A very important aspect of this is that you make gradual changes to your code, making sure that it keeps on working after every change made. When you make a change that leads to a bug, you should revert to the version that worked and then step-by-step re-introduce the changes. In the process of doing so, you should discover what caused the bug, from which the resolution to the problem will typically become apparent. <em>Debugging the code is an important part of the learning process and the responsibility of your team.</em> The teachers can give you general tips for debugging, like "step-by-step modifications", but will not help with the detailed debugging process. When debugging code, you will realize that the smaller the bug is, the harder it is to find. Although this may be frustrating at points, you should realize that when the bugs get smaller you are moving closer to obtaining a bug-free code.
         </li>
       </ol>
-      It is important to realize that the modeling process outlined above is in general iterative in nature. That is, based on the outcomes of a specific step it may be needed to reconsider earlier steps. <!--//TODO: EXAMPLE SLIDES-->
+      It is important to realize that the modeling process outlined above is in general iterative in nature. That is, based on the outcomes of a specific step it may be needed to reconsider earlier steps. <!--TODO: Add example slides-->
     <p>
     
     <div class="block deliverable">
@@ -769,21 +768,34 @@
 
     <!--EXPERIMENTATION TRACK-->
     <h3 id="track3">Track 3: Validating the EST model</h3>
-    <p>This track focuses on the <em>experimental validation</em> of one or more aspects of your EST model. By the end of the project, an experimental setup should be constructed, and an experiment should have been conducted and evaluated:</p> 
-    <div class="block deliverable">
+    <div class="block trackobjectives">
       <ul>
-        <li> A <em>design of the experimental setup</em> (technical drawings, wiring schematics, sensor specifications, etc.), encompassing the used measurement instruments.</li>
-        <li>A <em>measurement plan</em> which explains what is measured and how the measurement is to be conducted.</li>
-        <li>A tangible <em>experimental setup</em> suitable for the intended measurements.</li>
-        <li>An <em>in-class demonstration</em> of the experiment for the teacher.</li>
-        <li>An <em>analysis of the experimental results</em>, including an assessment of the validity of the selected model aspect(s).</li>
+        <li>To <em>select a physical law related to your EST model for experimental validation</em> and to reflect on its role in the overall testing and validation procedure for your EST system.
+        <li>To <em>develop an experimental setup and experimentation plan</em> capable of validating the selected physical law.
+        <li>To <em>conduct the validation experiments</em>, process their results, and reflect on the validity of the selected physical law.
       </ul>
     </div>
 
-    <p>Your group is <em>free to choose which aspect(s) of the model to validate</em> with the experiment. In your choice, you should consider whether it can be realized using the components available in the lab:</p>
+    <!--The validation/testing pyramid and selecting a physical phenomenon/law-->
+    <p>
+      Testing a complex system - such as your real-world EST system - and validating a model for it is a challenging endeavor, especially when that system still needs to be developed. Simply building the complete system for testing is not possible until its detailed design is complete. That is, only in the phase just before taking such a system in production, performing full scale tests is possible. And even then the number of tests that can be done is limited because of the costs involved. So, if you cannot test the full system during the development process, how do you test your system and how do you validate your model? Instead of testing the system in full, you can perform a <em>testing and validation procedure composed of a large number of smaller scale tests</em>, which together form a <em>testing or validation pyramid</em>: 
+    </p>
 
+    <figure>
+      <img src="assets/pyramid.png" alt="Testing pyramid" style="width:60%">
+    </figure>
+
+    <p>
+      <em>In the development process of a complex system you will build the testing and validation pyramid from the bottom up.</em> The higher you get in the pyramid, the closer you get to testing the system in full. In fact, the full-scale test is at the top of the pyramid. At this level of testing, the width of the pyramid is very narrow, indicating that only a limited number of tests is performed. The level below the full-scale tests considers the subsystems and the level below that the components of the subsystems. As you descend, the pyramid broadens and the number of tests increases. As you approach the bottom of the pyramid, you will consider a large number of tests for parts, physical processes, materials, etc. These tests are in general not specific to the full-scale system, but do play an important role in forming the basis of the pyramid, and are therefore essential in the overall validation procedure. 
+    </p>
+
+    <p>
+      Clearly, building the complete testing and validation pyramid for your EST system is not possible in eight weeks. But that does not mean that you cannot contribute to the validation process. <em>Your group will select one of the physical laws used in your model for experimental validation.</em> The selected physical law should be as relevant as possible in view of the overall validation procedure. You should be able to explain its position in the validation pyramid and it should be clear what aspect(s) of the EST system (model) can be validated by the experiment. In the choice of your validation experiment, you should consider whether the required setup can be constructed using one of the <em>experimental toolboxes</em> (inventory and spec sheets are available <a href="">here</a>): <!--TODO: Add link to spec sheets-->
+    </p>
+
+    <!--TODO: Update toolbox photos and descriptions-->
     <!-- Slideshow with overview photos of toolboxes -->
-    <div class="slideshow-container">
+    <div class="slideshow-container" style="width:80%">
 
       <!-- Full-width images with number and caption text -->
       <div class="toolboxslide fade">
@@ -823,44 +835,42 @@
       <span class="toolboxdot" onclick="currentSlide('toolbox', 4)"></span>
     </div>
 
-    <p>In addition to these toolboxes, a range of sensors and electronic components is available in the SEL lab.</p>
+    <!--To develop a standard operating procedure-->
+    <p>
+      Throughout the project you will <em>develop the experimental setup</em> for you validation experiment, along with a <em>standard operating procedure (SOP)</em> which describes the setup and all the steps in the experimental procedure. While developing the validation experiment, it is important to carefully consider which type of measurement results are needed to successfully validate the selected physical. Using the components in the toolbox of your choice, your team is free in designing its own experiment.
+    </p>
 
-    <p>The components in the toolboxes should be used to <em>design and construct your own dedicated experiment</em>. An essential part of this design is the <em>integration of sensors</em> that automatically <em>gather data using an Arduino</em>. To get you acquainted with the use of sensors and Arduino-based data gathering, during Stage 2 you will follow a <em>measurement practical</em> (see <a href="https://canvas.tue.nl/courses/24022/assignments/118570">Canvas</a> for details).</p>
-
-    <h4>Stage 1: Conceptual idea of the validation experiment</h4>
-    <p>The goal of the first stage is to come up with a conceptual idea for your validation experiment. This conceptual idea encompasses the preliminary definition of <em>system/model aspect(s) to be validated</em>, a first <em>impression of the experimental setup</em>, and a preliminary <em>inventory of required components</em>. The conceptual idea will be presented in the Go/No-go pitch by means of a <em>schematic with explanatory notes</em>.</p>
-    <div class="block questions">
-      <ul>
-        <li>Is the relevance of the considered validation aspect(s) clear?</li>
-        <li>What type of measurement results are needed to successfully validate the selected aspect(s)?</li>
-        <li>Can the envisioned experimental setup be constructed using the available components, and will it be capable of delivering the required measurement?</li>
-        <li>What is the main toolbox you are going to use? Are components from other toolboxes required?</li>
-        <li>Do you need to consult the teachers regarding possibilities to acquire components not currently available (for example, a different sensor found online)?</li>
-      </ul>
-    </div>
-
-    <h4>Stage 2: Design of the setup, measurement techniques and experimentation plan</h4>
-    <p>The goal of this stage is to make a design of the validation experiment, including the sensors to gather the data and a plan on how to conduct the experiment. The results of this stage will be presented on the poster in the form of a <em>consolidated schematic of your experiment</em>, which shows what components are required to build the setup. In addition, a <em>high-level measurement plan</em> explaining what is to be measured and the main steps to perform this measurement is presented.</p>
-    <div class="block questions">
-      <ul>
-        <li>Is it clear which model component(s) (as defined in Track 2) you will validate?</li>
-        <li>Is the design (technical drawings, wiring schematics, sensor specifications, etc.) detailed enough to assess whether it will be feasible to conduct the experiment?</li>
-        <li>Is the overview of required components clear and complete?</li>
-        <li>Does the measurement plan result in the data required to validate the model?</li>
-        <li>Can all sensors be interfaced using Arduino, or do additional electronic/software components need to be developed?</li>
-      </ul>
-    </div>
-
+    <p>
+      An essential part of the design of your setup is the <em>integration of sensors</em> that automatically <em>gather data using an Arduino</em>. To get you acquainted with the use of sensors and Arduino-based data gathering, early in the project you will participate in a <a class="practical">measurement practical</a> with an accompanying <a class="measurementtheory">theory assignment</a>. For the sensors in your validation experiment you need to study how they should be wired electronically. You should also develop the Arduino code to gather the data and, if applicable, you should develop calibration procedures.
+    </p>
     
-    <h4>Stage 3: Construction of the setup and execution of the experiments</h4>
-    <p>The goal of stage 3 is to construct the setup, to perform the experiments and to evaluate the validity of the considered model aspect(s) based on the processed results. During one of the team meetings in the SEL lab you will <em>demonstrate the experiment to the teacher</em>. In the final report you will present the outcome of this stage using <em>photos of the experiment</em> with explanatory notes, a worked out detailed <em>step-by-step measurement plan</em>, and an <em>analysis of the experimental results</em> including a comparison with model results. </p>
-    <div class="block questions">
+    <!--To conduct the experiments and asses the validity-->
+    <p>
+      Using the developed setup, you will <em>perform the validation experiments</em>. Your validation experiment should be documented in a measurement plan (part of the SOP), in which the experimental steps are described in detail. Based on the measurement plan, someone else should be able to reproduce the results. To attain statistically meaningful experimental results, your group should execute the experiment multiple times, strictly following the measurement plan. You should also create post-processing scripts which convert the raw data of all experiments into interpretable output, for example in the form of graphs. In these results, the uncertainties in the measurements should be visualized, for example using error bars. Once you have collected the output of the experiments, you can assess the validity of the considered physical law. The best way to do this is by plotting the experimental results and theoretical results in one graph. This makes it straightforward to <em>observe and interpret the differences and similarities between the model result and the experimental data</em>.
+    </p>
+
+    <div class="block deliverable">
       <ul>
-        <li>Did you inform your teacher about the planning of your experiment, so that he/she can attend the measurement demonstration.</li>
-        <li>Do the photos (with the explanatory notes) in the report give a complete overview of the setup and how it is used in the experiment?</li>
-        <li>Based on the measurement plan, can the experiment be reproduced by someone else?</li>
-        <li>How often do you need to reproduce the experiment to attain statistically meaningful results?</li>
-        <li>Can you explain the differences/similarities between the model result and the experimental data?</li>
+        <li>
+          A <em>conceptual idea for the validation experiment</em> in the <a class="gonogo">go/no-go pitch</a>. This conceptual idea encompasses the preliminary definition of <em>physical law to be validated</em> and a first <em>impression of the experimental setup</em>.
+        </li>
+        <li>
+          A <em>standard operating procedure (SOP)</em> describing the setup and all the steps in the experimental procedure. This SOP is gradually completed throughout the project:
+          <ol>
+            <li>
+              <a class="sopv1">Version 1</a>: A <em>description of the validation experiment</em>, including an explanation of the selected physical law and its relevance in the overall validation procedure. A <em>safety self-assessment</em> form. A <em>detailed schematic</em> and <em>electronic diagrams</em> of your experimental setup, which should be detailed enough to assess whether it will be feasible to conduct the experiment.
+            </li>
+            <li>
+              <a class="sopv2">Version 2</a>: <em>Arduino code</em> to automatically gather the sensor data. <em>Calibration procedures</em> for the sensors for which this is required. 
+            </li>
+            <li>
+              <a class="sopv3">Version 3 (final)</a>: A <em>measurement plan</em> in the form of a step-by-step description of the experimental procedure. The measurement plan should be detailed enough to ensure reproducibility.
+            </li>
+          </ol>
+        </li>
+        <li>A tangible <em>experimental setup</em> corresponding to the design.</li>
+        <li><em>In-class demonstrations</em> of the setup and the experiment.</li>
+        <li>An <em>analysis of the experimental results</em>, including an assessment of the validity of the selected physical law by comparison with model results.</li>
       </ul>
     </div>
 
@@ -912,7 +922,7 @@
       This study guide outlines the steps to be taken in the project. <em>Your group is responsible for planning the activities leading to the project goals and deliverables.</em>
     </p> 
 
-    <p>Coming soon</p> <!--//TODO: Add week planning-->
+    <p>Coming soon</p> <!--TODO: Add week planning-->
 
     <!--SCRIPTS AT END OF BODY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
