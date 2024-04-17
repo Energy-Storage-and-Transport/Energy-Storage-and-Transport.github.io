@@ -10,6 +10,7 @@ function setLinks() {
     setLink('sopv2', "https://canvas.tue.nl/courses/24022/assignments/118685");
     setLink('sopv3', "https://canvas.tue.nl/courses/24022/assignments/118686");
     setLink('individualgoals', "https://canvas.tue.nl/courses/24022/quizzes/24286");
+    setLink('individualreflection', "https://canvas.tue.nl/courses/24022/quizzes/24495");
     setLink('simulink', "https://canvas.tue.nl/courses/24022/assignments/118622");
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
 }
