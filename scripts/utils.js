@@ -13,6 +13,7 @@ function setLinks() {
     setLink('individualreflection', "https://canvas.tue.nl/courses/24022/quizzes/24495");
     setLink('simulink', "https://canvas.tue.nl/courses/24022/assignments/118622");
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
+    setLink('infoskills', "https://canvas.tue.nl/courses/30390");
 }
 
 function setLink(classname, url) {
