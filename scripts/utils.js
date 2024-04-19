@@ -14,6 +14,7 @@ function setLinks() {
     setLink('simulink', "https://canvas.tue.nl/courses/24022/assignments/118622");
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
     setLink('infoskills', "https://canvas.tue.nl/courses/30390");
+    setLink('specsheets', "https://canvas.tue.nl/courses/24022/pages/toolbox-specifications");
 }
 
 function setLink(classname, url) {
