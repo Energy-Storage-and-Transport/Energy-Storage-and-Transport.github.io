@@ -142,20 +142,26 @@ function slotCompare(a, b){
 }
 
 function groupsString(groups){
-  let strings = [];
-  let first = undefined;
-  let last  = undefined;
+  let groupsets = [];
+  let groupset = [];
   for(group of groups){
-    if(first===undefined){
-      first= group;
-      last = group;
-      continue;
+    if(groupset.length==0 || groupset[groupset.length-1]==group-1)
+    {
+      groupset.push(group)
     }
+    else
+    {
+      groupsets.push(groupset);
+      groupset = [group];
+    }
+  }
+  groupsets.push(groupset);
 
-    if(group==last+1){
-      last = group;
-      if(last!=groups[groups.length-1]){continue;}
-    }
+  let strings = [];
+  for( groupset of groupsets)
+  {
+    let first = groupset[0];
+    let last  = groupset[groupset.length-1];
 
     if(last-first==0)
     {
@@ -170,8 +176,6 @@ function groupsString(groups){
     {
       strings.push(first.toString() + '-' + last.toString());
     }
-
-    first = undefined;
   }
   return strings.join(',');
 }
@@ -179,9 +183,12 @@ function groupsString(groups){
 function fillScheduleTables() {
   let tables = document.getElementsByTagName("table");
   for(table of tables){
-    key = table.getAttribute('id');
+    keys = table.getAttribute('id').split(",");
+    let sessions = [];
+    for(key of keys){
+      sessions = sessions.concat(scheduleInfo[key]);
+    }
 
-    const sessions = scheduleInfo[key]
     sessions.sort(slotCompare);
     for(session of sessions){
       var row = document.createElement("tr");
