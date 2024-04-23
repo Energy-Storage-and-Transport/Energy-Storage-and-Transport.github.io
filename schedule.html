@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+		<title>EST schedules</title>
+		<link rel="stylesheet" href="style.css">
+		<base target="_parent">
+		<script src="scripts/group.js"></script>
+	</head>
+	<body>
+		<h1>Energy Storage and Transport (EST) schedules​</h1>
+
+		<div class="toc">
+			<ol data-toc="body" data-toc-headings="h2,h3"></ol>
+		</div>
+
+		<h2 id="protozone">PROTO/zone meetings</h2>
+		<h3>Week 1</h3>
+		<table id="coachopening">
+			<tr>
+				<th>Time slot</th>
+				<th>Week</th>
+				<th>Groups</th>
+				<th>Location</th>
+			</tr>
+		</table>
+
+		<h3>Weeks 2-8</h3>
+		<table id="coach">
+			<tr>
+				<th>Time slot</th>
+				<th>Weeks</th>
+				<th>Groups</th>
+				<th>Location</th>
+			</tr>
+		</table>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		<script src="lib/jquery.toc/jquery.toc.js" type="text/javascript"></script>
+
+		<script>
+			fillScheduleTables();
+		</script>
+	</body>
+</html>

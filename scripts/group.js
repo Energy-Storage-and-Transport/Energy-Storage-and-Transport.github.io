@@ -104,8 +104,6 @@ function setTeamData(team){
       document.querySelector("#" + key + "-weeks").innerHTML = info["weeks"];
     }
   }
-
-
 }
 
 function initGroups() {
@@ -117,4 +115,106 @@ function initGroups() {
     }
   });
   setTeamData(getCookie("group"));
+}
+
+function slotCompare(a, b){
+  const weekDays = {"monday":1, "tuesday":2, "wednesday":3, "thursday":4, "friday":5};
+  let daya = weekDays[a["slot"].split(' ')[0].trim().toLowerCase()];
+  let dayb = weekDays[b["slot"].split(' ')[0].trim().toLowerCase()];
+
+  if(daya!=dayb){
+    return daya-dayb;
+  }
+
+  let timea = a["slot"].split(' ')[1].trim();
+  let houra = parseInt(timea.split(':')[0].trim());
+  let timeb = b["slot"].split(' ')[1].trim();
+  let hourb = parseInt(timeb.split(':')[0].trim());
+
+  if(houra!=hourb){
+    return houra-hourb;
+  }
+  
+  let mina  = parseInt(timea.split(':')[1].trim());
+  let minb  = parseInt(timeb.split(':')[1].trim());
+
+  return mina-minb;
+}
+
+function groupsString(groups){
+  let strings = [];
+  let first = undefined;
+  let last  = undefined;
+  for(group of groups){
+    if(first===undefined){
+      first= group;
+      last = group;
+      continue;
+    }
+
+    if(group==last+1){
+      last = group;
+      if(last!=groups[groups.length-1]){continue;}
+    }
+
+    if(last-first==0)
+    {
+      strings.push(first.toString());
+    }
+    else if(last-first==1)
+    {
+      strings.push(first.toString());
+      strings.push(last.toString());
+    }
+    else
+    {
+      strings.push(first.toString() + '-' + last.toString());
+    }
+
+    first = undefined;
+  }
+  return strings.join(',');
+}
+
+function fillScheduleTables() {
+  let tables = document.getElementsByTagName("table");
+  for(table of tables){
+    key = table.getAttribute('id');
+
+    const sessions = scheduleInfo[key]
+    sessions.sort(slotCompare);
+    for(session of sessions){
+      var row = document.createElement("tr");
+
+      // Meeting time
+      var cell = document.createElement("td");
+      var cellText = document.createTextNode(session["slot"]);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+
+      // Weeks
+      var cell = document.createElement("td");
+      if("weeks" in session){
+        var cellText = document.createTextNode(session["weeks"]);
+      } else {
+        var cellText = document.createTextNode("-");
+      }
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      
+      // Groups
+      var cell = document.createElement("td");
+      var cellText = document.createTextNode(groupsString(session["groups"]));
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+
+      // Locations
+      var cell = document.createElement("td");
+      var cellText = document.createTextNode(session["rooms"]);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+
+      table.appendChild(row);
+    }
+  }
 }
