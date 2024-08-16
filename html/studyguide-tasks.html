@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <base href="../" target="_parent">
+	<title>Overview of the tracks</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/nav.js"></script>
+	<script src="scripts/utils.js"></script>
+</head>
+<body>
+
+	<!-- The navigation menu -->
+	<div id="navigation"></div>
+
+	<h2 id="studyguide">Project study guide</h2>
+    <p>
+      This study guide outlines the steps to be taken in the project, helping your team to plan the activities. In the week tables below, the main tasks to be completed in the project are categorized per track:
+    </p>
+
+    <table>
+      <tr>
+        <th>Task category</th>
+        <th>Abbreviation</th>
+        <th>Related track</th>
+      </tr>
+      <tr>
+        <td>System definition</td>
+        <td style="text-align: center">S</td>
+        <td style="text-align: center"><a href="html/tracks-system.html">Track 1</a></td>
+      </tr>
+      <tr>
+        <td>Model development</td>
+        <td style="text-align: center">M</td>
+        <td style="text-align: center"><a href="html/tracks-model.html">Track 2</a></td>
+      </tr>
+      <tr>
+        <td>Experimental validation</td>
+        <td style="text-align: center">E</td>
+        <td style="text-align: center"><a href="html/tracks-experiment.html">Track 3</a></td>
+      </tr>
+      <tr>
+        <td>Individual</td>
+        <td style="text-align: center">I</td>
+        <td style="text-align: center"><a href="html/tracks-process.html">Track 4</a></td>
+      </tr>
+    </table>
+
+    <p>
+      For each task it is indicated what other tasks it depends on, and for which follow-up tasks it is required. Note that the <a href="#activities">scheduled sessions</a> - for which attendance is mandatory - are not included in the weekly task tables.
+    </p>
+      
+    <p>
+      <em>Your group is responsible for planning the activities leading to the project goals and deliverables.</em> In the weekly tutor meetings you will define self-study assignments. The defined self-study assignments should cover all tasks to be completed. <em>A self-study assignment should reflect two hours of work</em>. Many of the tasks are bigger than a single self-study assignment. You should then specify the self-study assignment in detail and indicate to which task it contributes. A team member should contribute to multiple tasks if a specific tasks costs less than two hours.
+    </p>
+    
+    <p>  
+      Your tutor will monitor the contributions of all members to the project tasks. To ensure that everyone is involved in all aspects of the project, the following rules apply:
+      <ul>
+        <li> <em>The individual tasks are to be completed by all team members.</em>
+        <li> <em>Each team member should contribute at least two self-study assignments to each task category/track.</em>
+        <li> <em>When multiple team members contribute to a single task, the specific activities for each team member should be clarified and noted down by the tutor.</em> 
+      </ul>
+    </p>
+
+    <h4>Week 1</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">I1</td>
+        <td>Formulate your <em>individual learning goals</em>.</td>
+        <td style="text-align: center">-</td>
+        <td style="text-align: center"><a class="individualgoals">Individual goals formulation</a>, I3, I4</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S1</td>
+        <td>Perform a <em>literature review on EST systems</em>. Tabulate the explored systems in terms of essential storage characteristics, such as storage duration, storage capacity and system size.</td>
+        <td style="text-align: center">-</td>
+        <td style="text-align: center">S2</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">I2</td>
+        <td>Get yourself <em>acquainted with Simulink</em> by working on the “On ramp” tutorial</td>
+        <td style="text-align: center">-</td>
+        <td style="text-align: center"><a class="simulink">Simulink tutorial</a>, M1</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M1</td>
+        <td>Install the <a class="github">Simulink EST model</a> and use it to <em>analyze the supply and demand</em> signals. Define requirements for the EST system, such as storage duration and storage capacity.</td>
+        <td style="text-align: center">I2</td>
+        <td style="text-align: center"><a class="gonogo">Go/no-go</a>, S2, M4</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E1</td>
+        <td><em>Explore the experimental toolboxes</em> during your PROTO/zone session.</td>
+        <td style="text-align: center">-</td>
+        <td style="text-align: center">E2</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S2</td>
+        <td>Develop the <em>conceptual idea of a sustainable and innovative EST system</em>, which is compatible with the requirements following from the supply and demand.</td>
+        <td style="text-align: center">S1, M1</td>
+        <td style="text-align: center"><a class="gonogo">Go/no-go</a>, E2, S3</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E2</td>
+        <td>Develop a <em>conceptual idea for the validation experiment</em>. Describe what physical law is to be validated and explain its position in the overall validation process. Specify with which toolbox the experiment can be realized.</td>
+        <td style="text-align: center">E1, S2</td>
+        <td style="text-align: center"><a class="gonogo">Go/no-go</a>, <a class="sopv1">SOP (v1)</a>, E3, E8</td>
+      </tr>
+
+    </table>
+
+    <h4>Week 2</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S3</td>
+        <td>Specify all <em>relevant components of the EST system</em>, that is: the injection, the extraction, the actual storage, and the transport to and from the storage. Make sure that all components are realistic in relation to the real-world setting of the EST system.</td>
+        <td style="text-align: center">S2</td>
+        <td style="text-align: center"><a class="poster">Poster</a>, M2, S4, S5</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M2</td>
+        <td>Identify the <em>physical phenomena</em> that are (most) relevant for the chosen system and its sub-components.</td>
+        <td style="text-align: center">S3</td>
+        <td style="text-align: center"><a class="poster">Poster</a>, M3</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M3</td>
+        <td>Explore physical laws for the relevant physical phenomena, and <em>select model components</em> with a relevant level of complexity to adequately describe the phenomena. Be aware of the assumptions and simplifications and their effect on the outcome.</td>
+        <td style="text-align: center">M2</td>
+        <td style="text-align: center"><a class="poster">Poster</a>, S4, M4</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E3</td>
+        <td>Determine what needs to be measured by the experiment to validate the considered physical law. Explore and gather the <em>components and sensors</em> required for the experimental setup and study how they should connected to each other.</td>
+        <td style="text-align: center">E2</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a>, E4, E5, E8</td>
+      </tr>
+    </table>
+
+    <h4>Week 3</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S4</td>
+        <td>Determine the <em>parameters of all components</em> (dimensions, material properties, etc.) of your real-world EST system that are required for the model.</td>
+        <td style="text-align: center">S3, M3</td>
+        <td style="text-align: center"><a class="poster">Poster</a>, S5, M5, S6</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M4</td>
+        <td>Study the energy flow structure of the Simulink computer model and <em>elaborate the mathematical models</em> describing the physical phenomena such that they fit in this structure.</td>
+        <td style="text-align: center">M1, M3</td>
+        <td style="text-align: center">M5</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E4</td>
+        <td>Perform the <em>mandatory safety self assessment</em> for your envisioned experiments.</td>
+        <td style="text-align: center">E3</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a>, E8</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E5</td>
+        <td>Make a clear <em>schematic of the setup</em> in which all components and sensors are identified.</td>
+        <td style="text-align: center">E3</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a>, E6, E7, E8</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">I3</td>
+        <td><em>Reflect on the individual learning goals</em> that you formulated at the start on the project.</td>
+        <td style="text-align: center">I1</td>
+        <td style="text-align: center"><a class="individualreflection">Individual goals reflection</a>, I4</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">I4</td>
+        <td>Prepare for the <em>interim tutor and peer assessment</em>.</td>
+        <td style="text-align: center">I1, I3</td>
+        <td style="text-align: center">Interim assessment</td>
+      </tr>
+    </table>
+
+    <h4>Week 4</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S5</td>
+        <td>Create a <em>concept for an infographic</em> that gives a comprehensive overview of the EST system. Make sure that the infographic gives a general overview of the system (components, flow of energy, etc.) and provides technical details (dimensions, powers, etc.).</td>
+        <td style="text-align: center">S3, S4</td>
+        <td style="text-align: center">S7</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M5</td>
+        <td><em>Implement the elaborated mathematical model in Simulink</em> and get this initial model to work for the parameters values of your real-world EST system.</td>
+        <td style="text-align: center">S4, M4</td>
+        <td style="text-align: center">S6, M6</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E6</td>
+        <td>Make <em>electronic diagrams</em> in which the wiring of the sensors is explained. Investigate what Arduino code needs to be developed to acquire the data from the sensors.</td>
+        <td style="text-align: center">Measurement <a class="measurementtheory">theory</a> and <a class="practical">practical</a>, E5</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a>, E7, E8</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E7</td>
+        <td>Assemble your preliminary <em>setup on the click board</em>. Make sure that everything fits and connects well and that the setup looks neat. Include a picture of the assembled setup in the SOP.</td>
+        <td style="text-align: center">E5, E6</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a>, E8</td>
+      </tr>
+    </table>
+
+    <h4>Week 5</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S6</td>
+        <td>Finalize and <em>tabulate the values of all system parameters</em> corresponding to the reference design of your EST system. These parameters serve as the input for the model results.</td>
+        <td style="text-align: center">S4, M5</td>
+        <td style="text-align: center"><a class="poster">Poster</a>, S7, M7, S8</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S7</td>
+        <td><em>Work out the infographic concept</em> so that a good basis for the professional infographic required by the end of the project is obtained. Make sure that the system parameters used by the model are identifiable in the infographic.</td>
+        <td style="text-align: center">S5, S6</td>
+        <td style="text-align: center"><a class="poster">Poster</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M6</td>
+        <td>Finalize your preliminary <em>Simulink implementation (alpha version)</em>, making it ready for generating preliminary model results.</td>
+        <td style="text-align: center">M5</td>
+        <td style="text-align: center">M7, M8</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M7</td>
+        <td>Generate <em>preliminary results using the Simulink model</em> to demonstrate that it is capable of assessing the performance of the real-world system. Explain how the model can be used to support optimization of the essential system parameters.</td>
+        <td style="text-align: center">S6, M6</td>
+        <td style="text-align: center"><a class="poster">Poster</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E8</td>
+        <td><em>Demonstrate the first assembly of the experimental setup</em> on the click board during the PROTO/zone session, explaining: the schematic of the setup, the electronics diagrams, the used components, connections, sensors and Arduino usage. Also address relevant safety aspects.</td>
+        <td style="text-align: center">E2-7</td>
+        <td style="text-align: center"><a class="sopv1">Demo 1</a></td>
+      </tr>
+    </table>
+
+    <h4>Week 6</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S8</td>
+        <td>Propose <em>three design variations</em> (compared to the reference EST system) and motivate why these alternative designs are interesting to study. Define and tabulate the values of all system parameters corresponding to the three design variations. Make sure that the proposed variations clearly differ.</td>
+        <td style="text-align: center">S6</td>
+        <td style="text-align: center"><a class="presentation">Technical briefing</a>, S9</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M8</td>
+        <td>Work toward the final <em>Simulink implementation (beta version)</em>. Make sure that the physical phenomena are described correctly and that the model runs stably for relevant variations of the input parameters.</td>
+        <td style="text-align: center">M6</td>
+        <td style="text-align: center">M9</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E9</td>
+        <td>Assemble the <em>finalized version of your setup</em> on the click board. Make sure that everything fits and connects well and that the setup looks neat. Renew the picture of the setup in the SOP.</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a></td>
+        <td style="text-align: center"><a class="sopv2">SOP (v2)</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E10</td>
+        <td>Develop the <em>Arduino code</em> for the automatic experimental data gathering.</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a></td>
+        <td style="text-align: center"><a class="sopv2">SOP (v2)</a>, E12</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E11</td>
+        <td><em>Prepare a measurement plan</em> describing the steps required to execute your experiment and how to gather your experimental data. Start testing the experimental setup and calibrate the sensors.</td>
+        <td style="text-align: center"><a class="sopv1">SOP (v1)</a></td>
+        <td style="text-align: center"><a class="sopv2">SOP (v2)</a>, E14</td>
+      </tr>
+    </table>
+
+    <h4>Week 7</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M9</td>
+        <td>Fix the last bugs and <em>finalize the Simulink model</em> so it is able to simulate the performance of the design variations.</td>
+        <td style="text-align: center">M8</td>
+        <td style="text-align: center">S9</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S9</td>
+        <td><em>Simulate the proposed design variations</em> using the developed model. Assess the performance of the EST system variations, paying attention to the validity of the results.</td>
+        <td style="text-align: center">S8, M9</td>
+        <td style="text-align: center">S10</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E12</td>
+        <td>Develop the <em>codes for the post-processing</em> of the gathered experimental data.</td>
+        <td style="text-align: center">E10</td>
+        <td style="text-align: center">E15</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E13</td>
+        <td><em>Demonstrate the finalized experimental setup.</em> All components should be assembled neatly on the click board. The electronics and the software are ready to gather the experimental data. Safety aspects are reflected upon.</td>
+        <td style="text-align: center">E9-11</td>
+        <td style="text-align: center"><a class="sopv2">Demo 2</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E14</td>
+        <td>Finalize the <em>step-by-step measurement plan</em> for the experimental procedure and start conducting experiments accordingly. Make sure to pay attention to reproducibility.</td>
+        <td style="text-align: center">E11</td>
+        <td style="text-align: center"><a class="sopv3">SOP (v3)</a>, E15</td>
+      </tr>
+    </table>
+
+
+    <h4>Week 8</h4>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Depends on</th>
+        <th>Required for</th>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S10</td>
+        <td><em>Compare the design variations</em> making use of the simulation results. Based on this comparison, draw conclusions and formulate suggestions for improvement regarding the suitability of the proposed EST system.</td>
+        <td style="text-align: center">S9</td>
+        <td style="text-align: center"><a class="presentation">Technical briefing</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">S11</td>
+        <td>Update the <em>infographic</em> based on the feedback received on the interim version. Make sure that the infographic is tailored to the interests of a panel of experts.</td>
+        <td style="text-align: center"><a class="poster">Poster</a></td>
+        <td style="text-align: center"><a class="report">Report</a>, <a class="presentation">Technical briefing</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M11</td>
+        <td>Describe the Simulink model in the report, with a clear <em>elaboration of the mathematical-physical model and the MATLAB/Simulink implementation</em>. Summarize the Simulink model in the technical briefing.</td>
+        <td style="text-align: center">M9</td>
+        <td style="text-align: center"><a class="report">Report</a>, <a class="presentation">Technical briefing</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M12</td>
+        <td>Based on the specification of all essential model parameters for the reference design, present <em>detailed simulation results</em> based on which the performance of the EST system is assessed.</td>
+        <td style="text-align: center">M9</td>
+        <td style="text-align: center"><a class="report">Report</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E15</td>
+        <td>Finalize <em>conducting the experiments</em> and use the post-processing scripts to visualize the experimental results. Make sure to perform the measurement multiple times, and visualize the measurement uncertainty in the results.</td>
+        <td style="text-align: center">E12, E14</td>
+        <td style="text-align: center"><a class="sopv3">SOP (v3)</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E16</td>
+        <td>Assess the <em>validity of the considered physical law</em> by comparing the experimental results with those based on the theory.</td>
+        <td style="text-align: center">E15</td>
+        <td style="text-align: center"><a class="sopv3">SOP (v3)</a>, <a class="report">Report</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E17</td>
+        <td><em>Demonstrate your validation experiment</em> following the step-by-step measurement plan. Explain the quality of the gathered data in terms of resolution, range, sampling frequency etc. Show the postprocessing of the experimental data, with attention for repeatability and accuracy.</td>
+        <td style="text-align: center">E14-16</td>
+        <td style="text-align: center"><a class="sopv3">Demo 3</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">E18</td>
+        <td>Neatly <em>disassemble your setup</em>, clean the components, and put them back where you got them from. Hand in the key to your storage locker.</td>
+        <td style="text-align: center">E17</td>
+        <td style="text-align: center">-</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">M13</td>
+        <td><em>Reflect on the model development process</em> by explaining the capabilities and limitations of your Simulink model, the relation between the validation process and the real-world EST Simulink model, and by discussion the lessons learned throughout the project.</td>
+        <td style="text-align: center">All</td>
+        <td style="text-align: center"><a class="report">Report</a>, <a class="presentation">Technical briefing</a></td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center">I5</td>
+        <td>Prepare for the <em>final tutor and peer assessment</em>.</td>
+        <td style="text-align: center">Interim assessment</td>
+        <td style="text-align: center">Final assessment</td>
+      </tr>
+    </table>
+
+	<!--SCRIPTS AT END OF BODY-->
+	<script>
+		setLinks();
+	</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <base href="../" target="_parent">
+	<title>Overview of the tracks</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/nav.js"></script>
+	<script src="scripts/group.js"></script>
+    <script src="scripts/utils.js"></script>
+</head>
+<body>
+
+	<!-- The navigation menu -->
+	<div id="navigation"></div>
+
+	<h3 id="activities">Learning activities</h3>
+    <p>The table below presents an overview of all <em>mandatory and scheduled project activities</em>. Make sure to check the dates and locations with your official TU/e timetable and report discrepancies to your tutor or coach.</p>
+
+    <div>
+      <label for="group">Select your team:</label>
+      <select name="group" onchange="changeGroup()">
+        <option value=-1 disabled selected>-</option>
+      </select>
+      <p></p>
+      <table style="width:100%">
+        <tr>
+          <th>Activity</th>
+          <th>Week(s)</th>
+          <th>Slot</th>
+          <th>Room</th>
+        </tr>
+        <tr>
+          <td>Opening lecture</td>
+          <td id="opening-weeks">1</td>
+          <td id="opening-slot"></td>
+          <td id="opening-room"></td>
+        </tr>        
+        <tr class="bgd">
+          <td>Kick-off with tutor</td>
+          <td id="kickoff-weeks">1</td>
+          <td id="kickoff-slot"></td>
+          <td id="kickoff-room"></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Tutor meeting</td>
+          <td id="tutor1-weeks"></td>
+          <td id="tutor1-slot"></td>
+          <td id="tutor1-room"></td>
+        </tr>
+        <tr>
+          <td id="tutor2-weeks"></td>
+          <td id="tutor2-slot"></td>
+          <td id="tutor2-room"></td>
+        </tr>
+        <tr class="bgd">
+          <td rowspan="2">Team meeting with coach</td>
+          <td id="coachopening-weeks">1</td>
+          <td id="coachopening-slot"></td>
+          <td id="coachopening-room"></td>
+        </tr>             
+        <tr class="bgd">
+          <td id="coach-weeks">2-8</td>
+          <td id="coach-slot"></td>
+          <td id="coach-room"></td>
+        </tr>
+        <tr>
+          <td>Library training</td>
+          <td id="library-weeks">2</td>
+          <td id="library-slot"></td>
+          <td id="library-room"></td>
+        </tr>        
+        <tr class="bgd">
+          <td>Social safety training</td>
+          <td id="socialsafety-weeks">2</td>
+          <td id="socialsafety-slot"></td>
+          <td id="socialsafety-room"></td>
+        </tr>   
+        <tr>
+          <td>Measurement practical</td>
+          <td id="practical-weeks">1-7</td>
+          <td id="practical-slot"></td>
+          <td id="practical-room"></td>
+        </tr>   
+        <tr class="bgd">
+          <td>Technical briefing (presentation)</td>
+          <td id="presentation-weeks">9</td>
+          <td id="presentation-slot"></td>
+          <td id="presentation-room"></td>
+        </tr>              
+        <tr>
+          <td>Closure lecture</td>
+          <td id="closure-weeks">9</td>
+          <td id="closure-slot"></td>
+          <td id="closure-room"></td>
+        </tr>
+        <tr class="bgd">
+          <td>Individual assessment</td>
+          <td id="assessment-weeks">9</td>
+          <td id="assessment-slot"></td>
+          <td id="assessment-room"></td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 id="trainings">Mandatory trainings</h3>
+    <p>To complete this project, you <em>must complete</em> the following trainings:</p>
+
+    <h4 id="infoskillstraining">Information skills training</h4>
+    <p>
+      In the compulsory <a class="infoskills">Finding and processing of (scientific) information</a> training, you will get acquainted with scientific databases and you will learn how to create an efficient search process by formulating effective search queries in which relevant and alternative search terms are combined by using operators. Once you have found results, you will learn how to evaluate whether those results are relevant to your research. You will also understand what it means to conduct research with 'scientific integrity'.
+    </p>
+
+    <p>
+      This is a blended training for which you will have to <em>attend an on-campus training and complete online modules and assignments</em>. The assignments will be carried out by your project group. Instructions about the assignments will be provided during the on-campus training. The course will be graded as "good/pass/fail" and it is <em>required to obtain at least a "pass" for this professional skill to complete 4CBLA30</em>. In case of an unsatisfactory grade (a fail), the training needs to be re-taken.
+    </p>
+
+    <p>
+      N.B.: Attendance of this training is mandatory. Bring a fully charged laptop and earphones to the live session!<br>
+      N.B.: For details about this training, see the <a class="infoskills">Information Skills Canvas page</a>.
+    </p>
+
+    <h4 id="sosatraining">Social safety training</h4>
+    <p>
+      In the <em>Social Safety and Inclusive Collaboration</em> training you will be introduced to the topic of social safety in education. This <em>compulsory session</em> will be organized in the form of a theatre play by the <a href="https://www.timeoutcafe.nu/">TIME OUT Foundation</a>, called SAFE SPACE. The play is especially designed for students at their request. The play will cover the topic of transgressive behavior, sexual intimidation and power abuse. When do we call something transgressive? Who decides on that? And where do we encounter such behavior?
+    </p>
+      
+    <p>
+      N.B.: Attendance of this training is mandatory. Please bring your campus card for identification.
+    </p>
+
+    <h4 id="measurementtraining">Measurement training</h4>
+    <p>
+      This training focuses on the application of hardware and software during experiments. Students can complete the <a class="practical">mandatory practical part</a> of this training during the scheduled hours in the PROTO/zone Hallway, where practical equipment is available. The <a class="measurementtheory">theory assignment</a> part of the training can be completed online. Detailed instructions and due dates are available on the Canvas page (<a class="practical">practical</a>, <a class="measurementtheory">theory assignment</a>).
+    </p>
+    
+    <h3 id="meetings">Mandatory project meetings</h3>
+
+    <h4 id="teammeeting">Team meetings with coach</h4>    
+    <p>
+      The team meetings in PROTO/zone are the moment to work together on your project as a team and to consult your teacher coach for advise. The team meetings are also the moment to work on your setup and to conduct the measurements. During the team meeting, your teacher coach will visit your group to provide feedback on the deliverables.
+    </p>
+
+    <h4 id="tutormeetings">Tutor meetings</h4>
+    <p> 
+      The tutor meeting is the place to discuss the organization of your project. As part of this discussion, your team discusses the progress on open action points, the planning (and possible adjustments thereof), the definition of new action points, the distribution of tasks, <i>etc.</i> In this discussion there should also be attention for individual learning goals. A standard agenda for these meetings is provided below:
+    </p>
+     
+    <div class="block agenda">
+      <p>
+        <b>Chair:</b><sup>a</sup> Team member appointed in the previous meeting<br>
+        <b>Secretary:</b> Appointed at start of the meeting<br>
+        <b>Duration:</b><sup>b</sup> 60 minutes<br>
+        <b>Location</b>: See <a href="#activities">activities table</a>
+      </p>
+
+        <ol>
+          <li><b>Opening:</b> Formal opening of the meeting
+          <li><b>Minutes previous meeting:</b><sup>c</sup> Were the minutes of the previous minutes complete and accurate?
+          <li><b>Announcements:</b><sup>d</sup> General announcements, e.g., about well-being, (unexpected) successes and/or challenges.
+          <li><b>Action list previous meeting (SSAs):</b><sup>e</sup> Check the action list from your previous meeting and verify whether all actions were completed. Are there any additional actions not on the list you worked on? The chair establishes the order in which you are going to treat all topics after consulting all members.
+          <li><b>Remaining points:</b> If during the meeting points were brought up that were not part of the agenda, but are	important to discuss further, you can do so here.
+          <li><b>Action list (SSAs):</b> Create a new action list. To support you in this, we have created a <a href="#studyguide">study guide (week planner)</a> for you.
+          <li><b>Check and evaluation:</b> How did the meeting go? Do you want to give anyone feedback? Did you distribute all tasks (to be checked by the tutor)? Is it clear <i>who</i> is doing <i>what</i>, <i>when</i> it should be finished, and <i>when</i> people will be working on it?
+          <li><b>Closing:</b> Formal closing of the meeting
+        </ol>
+
+        <sup>a</sup> The tutor chairs the first meeting.<br>
+        <sup>b</sup> The kick-off meeting with the tutor and the final assessment meeting last 45 minutes.<br>
+        <sup>c</sup> The first meeting there are no previous minutes to discuss.<br>
+        <sup>d</sup> The first meeting there is an introduction round.<br>
+        <sup>e</sup> In the first meeting the team will discuss what is expected in the project.
+    </div>
+
+    <p>
+      Your tutor will systematically monitor and document the performance of the group and its members (the role of the tutor is detailed <a href="tutoring.html">here</a>). It is the joint responsibility of the tutor and the team to ensure that the tutor is well informed. In week 4, one of the tutor meetings will be dedicated to the midterm evaluation. The final assessment meeting is also completely dedicated to the evaluation.
+    </p>
+
+	<!--SCRIPTS AT END OF BODY-->
+	<script>
+		initGroups();
+		setLinks();
+	</script>
+        
+</body>
+</html>

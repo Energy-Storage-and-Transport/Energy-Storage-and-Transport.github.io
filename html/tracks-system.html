@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <base href="../" target="_parent">
+	<title>Overview of the tracks</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/nav.js"></script>
+	<script src="scripts/slideshow.js"></script>
+	<script src="scripts/utils.js"></script>
+</head>
+<body>
+
+	<!-- The navigation menu -->
+	<div id="navigation"></div>
+
+	<h3 id="track1">Track 1: Defining your EST system</h3>
+	<div class="block trackobjectives">
+	<ul>
+		<li>To <em>define the real-world EST system</em> fitting your groups' supply and demand, including a technical specification of all relevant components and parameters.
+		<li>To <em>assess the performance of your EST system</em> and to <em>study design variations</em> using the developed model.
+	</ul>
+	</div>
+
+	<!--Analyze the signals-->
+	<p>
+	The starting point for defining your EST system is to <em>analyze your team's energy supply and demand</em>, for which you can make use of the provided baseline Simulink model. In this analysis you will quantify energy surpluses and deficits, identifying the relevant time and volume scales, that is: <em>How much energy do you need to store and for what periods?</em> Typically, multiple time and volume scales can be identified. Developing an EST system that is able to completely cover all scales is unrealistic. For example, an EST system for a daily storage cycle will not be effective for seasonal storage. Therefore, an EST system is typically designed for one of the relevant scales and not for all. Although such an EST system will not cover all deficits, it may still be very effective if it covers a substantial part of the deficits.  
+	</p>
+
+	<!-- Slideshow with good examples-->
+	<div style="width:50%" class="slideshow-container">
+
+	<!-- Full-width images with number and caption text -->
+	<div class="infographicslide fade">
+		<div class="numbertext">1 / 7</div>
+		<img src="assets/infographics/2023place1.png" style="width:100%">
+		<div class="text">First prize in the 2023 infographic competition.</div>
+	</div>
+
+	<div class="infographicslide fade">
+		<div class="numbertext">2 / 7</div>
+		<img src="assets/infographics/2023place2.png" style="width:100%">
+		<div class="text">Second prize in the 2023 infographic competition.</div>
+	</div>
+
+	<div class="infographicslide fade">
+		<div class="numbertext">3 / 7</div>
+		<img src="assets/infographics/2023place3.png" style="width:100%">
+		<div class="text">Third prize in the 2023 infographic competition.</div>
+	</div>
+
+	<div class="infographicslide fade">
+		<div class="numbertext">4 / 7</div>
+		<img src="assets/infographics/2023place4.png" style="width:100%">
+		<div class="text">Fourth prize in the 2023 infographic competition.</div>
+	</div>
+
+	<div class="infographicslide fade">
+		<div class="numbertext">5 / 7</div>
+		<img src="assets/infographics/2023place5a.png" style="width:100%">
+		<div class="text">Fifth prize (ex aequo) in the 2023 infographic competition.</div>
+	</div>
+
+	<div class="infographicslide fade">
+		<div class="numbertext">6 / 7</div>
+		<img src="assets/infographics/2023place5b.png" style="width:100%">
+		<div class="text">Fifth prize (ex aequo) in the 2023 infographic competition.</div>
+	</div>
+
+	<div class="infographicslide fade">
+		<div class="numbertext">7 / 7</div>
+		<img src="assets/infographics/2023place5c.png" style="width:100%">
+		<div class="text">Fifth prize (ex aequo) in the 2023 infographic competition.</div>
+	</div>
+
+	<!-- Next and previous buttons -->
+	<a class="prev" onclick="plusSlides('infographic', -1)">&#10094;</a>
+	<a class="next" onclick="plusSlides('infographic',  1)">&#10095;</a>
+	</div>
+
+	<!-- The dots/circles -->
+	<div style="text-align:center">
+	<span class="infographicdot" onclick="currentSlide('infographic', 1)"></span> 
+	<span class="infographicdot" onclick="currentSlide('infographic', 2)"></span> 
+	<span class="infographicdot" onclick="currentSlide('infographic', 3)"></span>
+	<span class="infographicdot" onclick="currentSlide('infographic', 4)"></span>
+	<span class="infographicdot" onclick="currentSlide('infographic', 5)"></span>
+	<span class="infographicdot" onclick="currentSlide('infographic', 6)"></span>
+	<span class="infographicdot" onclick="currentSlide('infographic', 7)"></span>
+	</div>
+
+	<!--Define the EST system and its parameters-->
+	<p>
+	Based on the requirements derived from the analysis of the supply and demand, your group will <em>define an EST system in the real-world setting</em>. All essential components of the EST system should be defined, with a clear notion of the size of the system and the time scales of the storage process. You should also think about how storage bypass (direct delivery without intermediate storage) and load balancing (nullifying the mismatch between the energy supply/demand and the energy injected by/extracted from the storage) work in your system. As part of the definition of your EST system you will <em>identify the system parameters that are essential to its performance</em>. These essential system parameters should relate directly to the physical properties (e.g., dimensions, material properties) of the EST system. Through the specification of the values of all system parameters, your group will define a reference EST system. 
+	</p>
+
+	<!--Demonstrate the model in the real-world setting and study variations-->
+	<p>
+	With the system fully specified, your group will <em>use the developed model to assess the performance of your EST system</em>. Throughout the project the capabilities of the model will be increased, resulting in detailed simulation results for a reference setting. Your group should think about which quantities/graphs are needed - in addition to the standard results generated by the baseline model - to assess the performance of the EST system. You will then perform a model-based design-variation study, demonstrating how variations to the reference setting of the system will alter its performance. Based on this design-variation study you will draw conclusions regarding how the system can be altered to optimize its performance.
+	</p>
+
+	<div class="block deliverable">
+	<ul>
+		<li>A <em>schematic with explanatory notes</em> in the <a class="gonogo">go/no-go pitch</a> that outlines the conceptual idea of your EST system in the real-world setting.
+		<li>An <em>infographic</em> on the <a class="poster">poster</a>, in the <a class="report">report</a> and in the <a class="presentation">technical briefing</a> that gives a comprehensive overview of the EST system, including all essential system components and how these are interconnected. You can also take part in the <a class="competition">infographic competition</a> to receive a bonus. For inspiration, the competition winners of previous years are shown in the slide show above. A good infographic has two "layers": (1) When you look at it from a distance you get an immediate impression of the EST system; (2) When you look at it from close by you can read about detailed aspects.
+		</li>
+		<li>A specification of the <em>essential system parameters</em> on the <a class="poster">poster</a> and in the <a class="report">report</a> by means of a code snippet of the parameter list in the Simulink model. These parameters should also be identifiable in the infographic.</li>
+		<li>A <em>performance assessment</em> of the EST system based on simulation results. On the <a class="poster">poster</a> this will be a preliminary result, aimed at assessing to what extent the model can predict the performance of the system. In the <a class="report">report</a> you will present detailed results for the reference setting.</li>
+		<li>A <em>design-variation study</em> in the <a class="presentation">technical briefing</a>, aimed at identifying potential directions for system optimization.</li>
+	</ul>
+	</div>	
+
+    <!--SCRIPTS AT END OF BODY-->
+	<script>
+		var slideIndex = {	"infographic": 1 };
+		initSlides();
+		setLinks();
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <base href="../" target="_parent">
+	<title>Overview of the tracks</title>
+	<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+  <script src="lib/leaflet/leaflet.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/nav.js"></script>
+  <script src="scripts/utils.js"></script>
+</head>
+<body>
+
+	<!-- The navigation menu -->
+	<div id="navigation"></div>
+
+  <h3 id="track2">Track 2: Developing your EST model</h3>
+  <div class="block trackobjectives">
+    <ul>
+      <li>To <em>identify the physical phenomena</em> of relevance to the performance of all components of your EST system and to <em>select suitable mathematical models</em> to describe those physical phenomena with sufficient detail.
+      <li>To <em>develop a computer model</em> in Simulink, capable of mimicking your team's EST system and predicting its performance.
+    </ul>
+  </div>
+
+  <p>The development of a model is a key aspect of your project. It is therefore important to clarify the terminology related to modeling. The <a href="html/modelmap.html">interactive modeling chart</a> below defines the most prominent modeling concepts and the relations between them.</p>
+  
+  <div id="map" style="width: 640px; height: 480px; background: #FFFFFF;"></div>
+  <script type="text/javascript">
+      //Creating the Map
+      var map = L.map('map', {attributionControl: false, zoomDelta: 1, zoomSnap: 1, crs: L.CRS.Simple, maxBounds: [[-480,-0],[0,640]], maxBoundsViscosity: 0.9}).setView([0,0],0);
+
+      L.tileLayer('assets/map/{z}/{x}/{y}.png', {
+      tileSize: L.point(640, 480),
+      continuousWorld: false,
+      noWrap: true,
+      minZoom: 0,
+      maxZoom: 2
+      }).addTo(map);
+  </script>
+
+  <p>Your computer model will be developed in Simulink, based on the baseline implementation <a class="github">available on Github</a>:</p>
+
+  <figure>
+    <img src="assets/simulink.png" alt="Simulink model" style="width:60%">
+  </figure>
+
+  <p>
+    The provided baseline implementation models the flow of energy between the different components for an abstract EST system. In this abstract system, the components are modeled using simplified models (see <a href="https://github.com/Energy-Storage-and-Transport/EST-model/#readme">documentation</a>). These simplified models are parametrized by <i>effective properties</i>, meaning that the model parameters represent the overall behavior of the components (black box efficiencies) and do not represent their physical attributes (dimensions, materials, etc.). Since it is not clear how to find the effective properties for your team's EST system, the applicability of the baseline implementation for studying (the design of) your team's EST system is limited. To make the <em>computer model applicable to your EST system</em>, the simplified models must be replaced by appropriately selected <em>mathematical models describing the physics of your EST system</em>. In contrast to the baseline implementation, the model developed by your team will be parametrized by physical attributes of your EST system (dimensions, materials, etc.). This will empower the model with capabilities to predict the performance of your EST system and to study design variations.
+  </p>
+    To develop the Simulink computer model for your EST system you will follow a <em>systematic modeling approach</em>:
+    <ul>
+      <!--Defining modeling goals and accuracy requirements-->
+      <li style="margin-bottom: 10px">
+        <b>Modeling objective:</b> The first step is to define the goal of the model, that is: <em>What quantities of interest should the model be able to predict and with what accuracy</em>? The provided baseline Simulink model can be used to develop intuition. When you load your team's supply and demand signals into the Simulink model and estimate the effective properties in the baseline implementation for your EST concept, you can use it to get a first impression of the performance of your EST system and of the capabilities and limitations of the baseline computer model. Typically, the standard output of the baseline implementation should be tailored and extended depending on your team's scenario.
+      </li>
+
+      <!--Identifying the relevant physical phenomena in relation to the goal-->
+      <li style="margin-bottom: 10px">
+        <b>Physical phenomena:</b> The second step is to identify the physical phenomena in your EST system. Since you model the time-dependent flow of energy in your EST system, you should ask the question: <em>What are the physical mechanisms involved in storing the energy, and what physical phenomena cause the major losses?</em> It is important not to leave out essential physical phenomena, but also not to include aspects that are irrelevant (or too detailed) given the goal of your model. When you identify relevant physical phenomena, you should also think about which physical attributes of of your EST system have a profound effect on them, as these attributes should become parameters of your model.
+      </li>
+
+      <!--Selecting mathematical-physical relations suitable for the modeling goal-->
+      <li style="margin-bottom: 10px">
+        <b>Model selection:</b> The third step is to select which physical phenomena you want to include in your model, deciding on which simplification can be made. You should find mathematical-physical relations that can describe the selected phenomena depending on the physical attributes of your EST system. You should understand the assumptions behind these relations, as these are essential to answering the question: <em>Given the purpose of the model, can the selected mathematical-physical relations describe the relevant physical phenomena with sufficient accuracy and are they sensitive to the physical attributes of the system?</em> It is important that the selected mathematical-physical relations are not unnecessarily complex (<a href="https://doi.org/10.1038/d41586-018-05004-4">"Everything should be made as simple as possible, but no simpler."</a>). At this point you should have a thorough understanding of the Simulink model (see <a href="https://github.com/Energy-Storage-and-Transport/EST-model/#readme">documentation</a>), as you need to assess whether a mathematical-physical relation is suitable for implementation.
+      </li>
+
+      <!--Elaborating the mathematical description of the model-->
+      <li style="margin-bottom: 10px">
+        <b>Mathematical elaboration:</b> The fourth step is to elaborate the mathematical models for all system components. Typically, the selected mathematical relations do not seamlessly fit in the energy flow structure of the Simulink model. The inputs and outputs of the energy flow models of the components (the blocks in Simulink) are specified in terms of powers (rates of energy). Often, this is not immediately the case for the mathematical relations describing the phenomena and hence these require reformulation. It is also common that multiple mathematical relations for physical phenomena are combined into the model for one of the components. For example, a component may be subject to multiple significant energy losses, each requiring its own mathematical relation. Also, additional relations may be required to connect the parameters of the mathematical relations to the physical attributes of your EST system. In summary, the key question in this step is: <em>Are the mathematical models for all components compatible with the energy flow structure of the Simulink computer model</em>? An important part of this step is to elaborate the energy flow diagrams for each of the components. Such diagrams aid in the formulation of <a href="https://en.wikipedia.org/wiki/Well-posed_problem">well-posed formulations</a>, without the need for a detailed and fundamental mathematical understanding.
+      </li>
+
+      <!--Implementing the model in Simulink-->
+      <li style="margin-bottom: 10px">
+        <b>Implementation:</b> The fifth step is to implement the mathematical models in Simulink. The implementation can have different levels of complexity: (1) In its easiest form, the effective properties in the custom MATLAB blocks can be expressed in terms of the physical attributes of your EST system; (2) When this is not possible, the mathematical model for a component should be implemented in a custom MATLAB block; (3) It may be required to make changes to the flow structure in the Simulink model, that is, to create additional connections between the blocks, or even to create new blocks. For each component you should keep the implementation as simple as possible, but not any simpler.<br><br>
+        You will realized that, even if you worked out the model very well, coding forces you to think about the nitty gritty details, as otherwise the computer model will be buggy. It is therefore important to follow good programming practices, such as code (unit) testing, documentation and version management. If you run into a bug - and you will - you should systematically debug the code. A very important aspect of this is that you make gradual changes to your code, making sure that it keeps on working after every change made. When you make a change that leads to a bug, you should revert to the version that worked and then step-by-step re-introduce the changes. In the process of doing so, you should discover what caused the bug, from which the resolution to the problem will typically become apparent. <em>Debugging the code is an important part of the learning process and the responsibility of your team.</em> The teachers can give you general tips for debugging, like "step-by-step modifications", but will not help with the detailed debugging process. When debugging code, you will realize that the smaller the bug is, the harder it is to find. Although this may be frustrating at points, you should realize that when the bugs get smaller you are moving closer to obtaining a bug-free code.
+      </li>
+
+      <!--Validation and verification-->
+      <li style="margin-bottom: 10px">
+        <b>Validation & Verification:</b> When developing a computer model, the key question is: <em>Can the computer model predict the quantities of interest of the real-world system?</em> For a computer model, this question can be split up in two parts. The first part is to consider whether the selected mathematical-physical relations are capable of describing reality with sufficient detail, which is called validation. The second part is to consider whether the computer model solves the mathematical-physical relations correctly, which is called verification. Both validation and verification are essential when developing a computer model and should be considered throughout the model development process. 
+      </li>
+
+      <!--Reflection-->
+      <li style="margin-bottom: 10px">
+        <b>Reflection:</b> The final step in the model cycle is to reflect on the question: <em>Does the developed model meet the intended objective?</em> In this reflection you will identify the uses and limitations of the developed model. You will also specify directions for improvement.
+      </li>
+      
+    </ul>
+    It is important to realize that the modeling process outlined above is in general iterative in nature. That is, based on the outcomes of a specific step it may be needed to reconsider earlier steps.
+  <p>
+
+  <p>
+    To help you in getting a better understanding of the model development cycle, we have elaborated a <a href="https://canvas.tue.nl/courses/24022/pages/model-development">transmission line model</a> as an example. We encourage you to study this example to understand the steps to be taken. You are allowed to use the model in this example, but you will not be graded on it. That is, <em>you must develop your own model for a different component and report on that in the deliverables</em> .
+  </p>
+  
+  <div class="block deliverable">
+    <ul>
+      <li>
+        <em>Quantities and graphs</em> in the <a class="gonogo">go/no-go pitch</a> that intuitively and comprehensively describe and visualize the characteristics of the supply, demand and storage.
+      </li>
+      <li>
+        A comprehensive overview of the <em>relevant physical phenomena and the selected mathematical models</em> to describe them is presented on the <a class="poster">poster</a>. The assumptions and simplifications of the selected mathematical relations should be discussed. 
+      </li>
+      <li>
+        A <em>Simulink model</em> with custom MATLAB blocks for the proposed EST system. To generate the preliminary results for the <a class="poster">poster</a> a first (alpha) version of your Simulink EST model is required. For the detailed results in the <a class="report">report</a> a consolidated (beta) version of the Simulink EST model must be developed.
+      </li>
+      <li>
+        <em>Technical documentation</em> in the <a class="report">report</a> clarifying the relation between the mathematical model and the Simulink implementation. This documentation will have the form of a code-snippet-based discussion of the custom MATLAB blocks.
+      </li>
+      <li>
+        A <em>reflection on the model development process</em> in the <a class="report">report</a>.
+      </li>
+    </ul>
+  </div>
+
+  <!--SCRIPTS AT END OF BODY-->
+	<script>
+		setLinks();
+	</script>
+
+</body>
+</html>

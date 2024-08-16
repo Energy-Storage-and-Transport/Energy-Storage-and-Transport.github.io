@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <base href="../" target="_parent">
+	<title>Overview of the tracks</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/nav.js"></script>
+	<script src="scripts/group.js"></script>
+	<script src="scripts/utils.js"></script>
+</head>
+<body>
+
+	<!-- The navigation menu -->
+	<div id="navigation"></div>
+
+	<h3 id="activities">Learning activities</h3>
+    <p>The table below presents an overview of all <em>mandatory and scheduled project activities</em>. Make sure to check the dates and locations with your official TU/e timetable and report discrepancies to your tutor or coach.</p>
+
+    <div>
+      <label for="group">Select your team:</label>
+      <select name="group" onchange="changeGroup()">
+        <option value=-1 disabled selected>-</option>
+      </select>
+      <p></p>
+      <table style="width:100%">
+        <tr>
+          <th>Activity</th>
+          <th>Week(s)</th>
+          <th>Slot</th>
+          <th>Room</th>
+        </tr>
+        <tr>
+          <td>Opening lecture</td>
+          <td id="opening-weeks">1</td>
+          <td id="opening-slot"></td>
+          <td id="opening-room"></td>
+        </tr>        
+        <tr class="bgd">
+          <td>Kick-off with tutor</td>
+          <td id="kickoff-weeks">1</td>
+          <td id="kickoff-slot"></td>
+          <td id="kickoff-room"></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Tutor meeting</td>
+          <td id="tutor1-weeks"></td>
+          <td id="tutor1-slot"></td>
+          <td id="tutor1-room"></td>
+        </tr>
+        <tr>
+          <td id="tutor2-weeks"></td>
+          <td id="tutor2-slot"></td>
+          <td id="tutor2-room"></td>
+        </tr>
+        <tr class="bgd">
+          <td rowspan="2">Team meeting with coach</td>
+          <td id="coachopening-weeks">1</td>
+          <td id="coachopening-slot"></td>
+          <td id="coachopening-room"></td>
+        </tr>             
+        <tr class="bgd">
+          <td id="coach-weeks">2-8</td>
+          <td id="coach-slot"></td>
+          <td id="coach-room"></td>
+        </tr>
+        <tr>
+          <td>Library training</td>
+          <td id="library-weeks">2</td>
+          <td id="library-slot"></td>
+          <td id="library-room"></td>
+        </tr>        
+        <tr class="bgd">
+          <td>Social safety training</td>
+          <td id="socialsafety-weeks">2</td>
+          <td id="socialsafety-slot"></td>
+          <td id="socialsafety-room"></td>
+        </tr>   
+        <tr>
+          <td>Measurement practical</td>
+          <td id="practical-weeks">1-7</td>
+          <td id="practical-slot"></td>
+          <td id="practical-room"></td>
+        </tr>   
+        <tr class="bgd">
+          <td>Technical briefing (presentation)</td>
+          <td id="presentation-weeks">9</td>
+          <td id="presentation-slot"></td>
+          <td id="presentation-room"></td>
+        </tr>              
+        <tr>
+          <td>Closure lecture</td>
+          <td id="closure-weeks">9</td>
+          <td id="closure-slot"></td>
+          <td id="closure-room"></td>
+        </tr>
+        <tr class="bgd">
+          <td>Individual assessment</td>
+          <td id="assessment-weeks">9</td>
+          <td id="assessment-slot"></td>
+          <td id="assessment-room"></td>
+        </tr>
+      </table>
+    </div>
+
+	<!--SCRIPTS AT END OF BODY-->
+	<script>
+		initGroups();
+		setLinks();
+	</script>
+</body>
+</html>

@@ -52,7 +52,7 @@ function changeGroup() {
 }
 
 function setTeamData(team){
-  
+
   // Set selectors
   const selects = document.querySelectorAll('select');
   selects.forEach((select) => { select.value = team; });
@@ -60,9 +60,21 @@ function setTeamData(team){
   // Only proceed if a team as been selected (i.e., team >= 0)
   if (team < 0){ return; }
 
+  setTeamFiles(team);
+  setTeamSchedule(team);
+}
+
+function setTeamFiles(team){
+  
+  supplyObject = document.querySelector('#supplydescription');
+  if (supplyObject === null){ return; }
+
+  demandObject = document.querySelector('#demanddescription');
+  if (demandObject === null){ return; }
+
   // Supply and demand table
-  document.querySelector('#supplydescription').innerHTML = groupInfo[groupKeys[team]]["supplyInfo"];
-  document.querySelector('#demanddescription').innerHTML = groupInfo[groupKeys[team]]["demandInfo"];
+  supplyObject.innerHTML = groupInfo[groupKeys[team]]["supplyInfo"];
+  demandObject.innerHTML = groupInfo[groupKeys[team]]["demandInfo"];
 
   var supplyLink = document.createElement('a');
   supplyLink.setAttribute('href', 'data/' + groupInfo[groupKeys[team]]["supplyFile"]);
@@ -79,6 +91,9 @@ function setTeamData(team){
 
   let demandFile = document.querySelector('#demandfile');
   demandFile.replaceChild(demandLink, demandFile.childNodes[0]);
+}
+
+function setTeamSchedule(team){
 
   // Schedule
   for (let i=0; i<scheduleKeys.length; i++){
@@ -91,17 +106,26 @@ function setTeamData(team){
       }
     }
 
-    document.querySelector("#" + key + "-slot").innerHTML = info["slot"];
+    slotObject = document.querySelector("#" + key + "-slot");
+    if (slotObject !== null){
+      slotObject.innerHTML = info["slot"];  
+    }
 
     let room = info["rooms"];
     if(Array.isArray(info["rooms"])){
       room = room[info["groups"].indexOf(parseInt(groupKeys[team]))];
     };
 
-    document.querySelector("#" + key + "-room").innerHTML = room;
-
+    roomObject = document.querySelector("#" + key + "-room");
+    if (roomObject !== null){
+      roomObject.innerHTML = room;
+    }
+    
     if ("weeks" in info){
-      document.querySelector("#" + key + "-weeks").innerHTML = info["weeks"];
+      weekObject = document.querySelector("#" + key + "-weeks");
+      if (weekObject !== null){
+        weekObject.innerHTML = info["weeks"];
+      }
     }
   }
 }
