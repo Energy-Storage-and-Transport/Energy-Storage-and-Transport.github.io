@@ -141,18 +141,31 @@ function initGroups() {
   setTeamData(getCookie("group"));
 }
 
+function groupCompare(a, b){
+  for(let i=0; i<Math.min(a["Groups"].length, b["Groups"].length); i++){
+    if(a["Groups"][i]!=b["Groups"][i]){
+      return a["Groups"][i]-b["Groups"][i];
+    }
+  }
+
+  if(a["Groups"].length!=b["Groups"].length){
+    return a["Groups"].length-b["Groups"].length;
+  };
+}
+
 function slotCompare(a, b){
+
   const weekDays = {"monday":1, "tuesday":2, "wednesday":3, "thursday":4, "friday":5};
-  let daya = weekDays[a["slot"].split(' ')[0].trim().toLowerCase()];
-  let dayb = weekDays[b["slot"].split(' ')[0].trim().toLowerCase()];
+  let daya = weekDays[a["Slot"].split(' ')[0].trim().toLowerCase()];
+  let dayb = weekDays[b["Slot"].split(' ')[0].trim().toLowerCase()];
 
   if(daya!=dayb){
     return daya-dayb;
   }
 
-  let timea = a["slot"].split(' ')[1].trim();
+  let timea = a["Slot"].split(' ')[1].trim();
   let houra = parseInt(timea.split(':')[0].trim());
-  let timeb = b["slot"].split(' ')[1].trim();
+  let timeb = b["Slot"].split(' ')[1].trim();
   let hourb = parseInt(timeb.split(':')[0].trim());
 
   if(houra!=hourb){
@@ -204,48 +217,81 @@ function groupsString(groups){
   return strings.join(',');
 }
 
-function fillScheduleTables() {
+async function fillScheduleTables(fname) {
+  // Load the Excel schedule
+  let [schedule, activities] = await readExcelSchedule(fname);
+
+  // Loop over the tables for the different activities
   let tables = document.getElementsByTagName("table");
   for(table of tables){
-    keys = table.getAttribute('id').split(",");
-    let sessions = [];
-    for(key of keys){
-      sessions = sessions.concat(scheduleInfo[key]);
+    activity = table.getAttribute('id');
+
+    if(!activities.includes(activity)){ 
+      console.warn(activity + " not found in Excel file");
+      continue;
     }
 
-    sessions.sort(slotCompare);
-    for(session of sessions){
-      var row = document.createElement("tr");
+    // Filter the schedule for the specific activity
+    activity_schedule = schedule.filter(row=>(row["Activity"]==activity))
+    // activity_schedule.sort(slotCompare);
+    activity_schedule.sort(groupCompare);
 
-      // Meeting time
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode(session["slot"]);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-
-      // Weeks
-      var cell = document.createElement("td");
-      if("weeks" in session){
-        var cellText = document.createTextNode(session["weeks"]);
-      } else {
-        var cellText = document.createTextNode("-");
-      }
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-      
-      // Groups
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode(groupsString(session["groups"]));
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-
-      // Locations
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode(session["rooms"]);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-
-      table.appendChild(row);
+    // Add rows to the table
+    for(session of activity_schedule){
+      addSessionToTable(table, session)
     }
   }
+}
+
+function addSessionToTable(table, session){
+  var row = document.createElement("tr");
+
+  // Groups
+  let lastGroupset = undefined;
+  for(let i=table.rows.length-1; i>=0; i--){
+      if(table.rows[i].cells.length==4){
+        lastGroupset = table.rows[i].cells[0];
+        break;
+      }
+  }
+
+  var cell = document.createElement("td");
+  let grp = groupsString(session["Groups"]);
+  if(lastGroupset.innerHTML==grp){
+    let rowspan = Number(lastGroupset.getAttribute("rowspan"));
+    if(!rowspan){
+      rowspan=2;
+    }else{
+      rowspan+=1;
+    }
+    lastGroupset.setAttribute("rowspan", rowspan);
+  }else{
+    var cellText = document.createTextNode(groupsString(session["Groups"]));
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+  }
+  
+  // Weeks
+  var cell = document.createElement("td");
+  if("Weeks" in session){
+    var cellText = document.createTextNode(session["Weeks"]);
+  } else {
+    var cellText = document.createTextNode("-");
+  }
+  cell.appendChild(cellText);
+  row.appendChild(cell);
+
+  // Meeting time
+  var cell = document.createElement("td");
+  var cellText = document.createTextNode(session["Slot"]);
+  cell.appendChild(cellText);
+  row.appendChild(cell);
+    
+  // Locations
+  var cell = document.createElement("td");
+  var cellText = document.createTextNode(session["Rooms"]);
+  cell.appendChild(cellText);
+  row.appendChild(cell);
+
+  table.appendChild(row);
 }
