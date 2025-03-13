@@ -6,6 +6,7 @@
     <base href="../" target="_parent">
 	<title>Overview of the tracks</title>
 	<link rel="stylesheet" href="style.css">
+  <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
 	<script src="scripts/nav.js"></script>
 	<script src="scripts/group.js"></script>
@@ -16,7 +17,7 @@
 	<!-- The navigation menu -->
 	<div id="navigation"></div>
 
-	<h3 id="activities">Learning activities</h3>
+	<h1 id="group">Group schedule</h1>
     <p>The table below presents an overview of all <em>mandatory and scheduled project activities</em>. Make sure to check the dates and locations with your official TU/e timetable and report discrepancies to your tutor or coach.</p>
 
     <div>
@@ -105,9 +106,85 @@
       </table>
     </div>
 
+    <h1 id="course">Course schedule</h1>
+
+    <h2>Lectures</h2>
+    <h3>Opening lecture</h3>
+    <table id="Opening lecture">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+    <h3>Closure lecture</h3>
+    <table id="Closure lecture">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+  
+    <h2>SIM/zone meetings</h2>
+    <table id="SIM/zone meeting">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+  
+    <h2>Tutor-supervised meetings</h2>
+  
+    <h3>Weekly meetings (two per week)</h3>
+    <table id="Tutor-supervised meeting">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+  
+    <h3>Tutor and peer evaluation</h3>
+    <table id="Evaluation">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+  
+    <h2>Measurement practical</h2>
+  
+    <table id="Measurement practical">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+
+    <h3>Technical briefings</h3>
+    <table id="Presentation">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+
 	<!--SCRIPTS AT END OF BODY-->
 	<script>
 		initGroups();
+    fillScheduleTables("data/Schedule2425.xlsx");
 		setLinks();
 	</script>
 </body>

@@ -38,31 +38,6 @@ h1, h2, h3, h4 {
   margin-top: 40px;
 }
 
-h2:before {
-  content: counter(H2) ". ";
-  counter-increment: H2;
-}
-
-h2 {
-  counter-reset: H3;
-}
-
-h3:before {
-  content: counter(H2) "." counter(H3) " ";
-  counter-increment:H3;
-}
-
-/*
-h3 {
-  counter-reset: H4;
-}
-
-h4:before {
-  content: counter(H2) "." counter(H3) "." counter(H4) " ";
-  counter-increment:H4;
-}
-*/
-
 em {
   color: var(--tue-red);
   font-weight: italic;
