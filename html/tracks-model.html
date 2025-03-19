@@ -17,8 +17,8 @@
 	<!-- The navigation menu -->
 	<div id="navigation"></div>
 
-  <h3 id="track2">Track 2: Developing your EST model</h3>
-  <h2>Track objectives</h2>
+  <h2 id="track2">Developing your EST model</h2>
+  <h3>Objectives</h3>
     <ul>
       <li>To <em>identify the physical phenomena</em> of relevance to the performance of all components of your EST system and to <em>select suitable mathematical models</em> to describe those physical phenomena with sufficient detail.
       <li>To <em>develop a computer model</em> in Simulink, capable of mimicking your team's EST system and predicting its performance.
@@ -51,7 +51,7 @@
     The provided baseline implementation models the flow of energy between the different components for an abstract EST system. In this abstract system, the components are modeled using simplified models (see <a href="https://github.com/Energy-Storage-and-Transport/EST-model/#readme">documentation</a>). These simplified models are parametrized by <i>effective properties</i>, meaning that the model parameters represent the overall behavior of the components (black box efficiencies) and do not represent their physical attributes (dimensions, materials, etc.). Since it is not clear how to find the effective properties for your team's EST system, the applicability of the baseline implementation for studying (the design of) your team's EST system is limited. To make the <em>computer model applicable to your EST system</em>, the simplified models must be replaced by appropriately selected <em>mathematical models describing the physics of your EST system</em>. In contrast to the baseline implementation, the model developed by your team will be parametrized by physical attributes of your EST system (dimensions, materials, etc.). This will empower the model with capabilities to predict the performance of your EST system and to study design variations.
   </p>
     To develop the Simulink computer model for your EST system you will follow a <em>systematic modeling approach</em>:
-    <ul>
+    <ol>
       <!--Defining modeling goals and accuracy requirements-->
       <li style="margin-bottom: 10px">
         <b>Modeling objective:</b> The first step is to define the goal of the model, that is: <em>What quantities of interest should the model be able to predict and with what accuracy</em>? The provided baseline Simulink model can be used to develop intuition. When you load your team's supply and demand signals into the Simulink model and estimate the effective properties in the baseline implementation for your EST concept, you can use it to get a first impression of the performance of your EST system and of the capabilities and limitations of the baseline computer model. Typically, the standard output of the baseline implementation should be tailored and extended depending on your team's scenario.
@@ -88,7 +88,7 @@
         <b>Reflection:</b> The final step in the model cycle is to reflect on the question: <em>Does the developed model meet the intended objective?</em> In this reflection you will identify the uses and limitations of the developed model. You will also specify directions for improvement.
       </li>
       
-    </ul>
+    </ol>
     It is important to realize that the modeling process outlined above is in general iterative in nature. That is, based on the outcomes of a specific step it may be needed to reconsider earlier steps.
   <p>
 
@@ -96,7 +96,7 @@
     To help you in getting a better understanding of the model development cycle, we have elaborated a <a href="https://canvas.tue.nl/courses/24022/pages/model-development">transmission line model</a> as an example. We encourage you to study this example to understand the steps to be taken. You are allowed to use the model in this example, but you will not be graded on it. That is, <em>you must develop your own model for a different component and report on that in the deliverables</em> .
   </p>
   
-  <h2>Deliverables</h2>
+  <h3>Deliverables</h3>
     <ul>
       <li>
         <em>Quantities and graphs</em> in the <a class="gonogo">go/no-go pitch</a> that intuitively and comprehensively describe and visualize the characteristics of the supply, demand and storage.
