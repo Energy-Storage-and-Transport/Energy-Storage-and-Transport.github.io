@@ -30,48 +30,78 @@ body {
   min-width: var(--min-width);
 } */
 
-.grid-container {
+/* .grid-container {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   width: 100%;
-  height: 100vh;
   gap: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(2.0*var(--min-width));
+  min-width: var(--min-width);
 }
-.stage {
+ */
+
+.grid-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(2.0*var(--min-width));
+  min-width: var(--min-width);
+}
+
+.stage1-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgb(200, 25, 25);
   padding: 10px;
   color: white;
-  position: relative;
+  position: absolute; /* Change to absolute positioning */
+  top: 0; /* Position at the top */
+  right: 0; /* Position at the right */
   cursor: pointer;
-  display: flex;
   justify-content: center;
-  align-items: flex-start;
   width: auto;
 }
 
-.stage i {
+.stage1-icon b {
+  writing-mode: vertical-rl;
+  margin-top: 10px; /* Add some space between the icon and the text */
+}
+
+.stage1-icon i {
   font-size: 1.2em;
 }
 
-.canvas-container, .bottom-canvas-container {
+.stage1-container, .stage1-deliver-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
-.canvas-container {
+.stage1-container {
   background-color: rgb(200, 200, 200);
   grid-column: span 2;
+  aspect-ratio: 2 / 3;
 }
 
-.bottom-canvas-container {
+.stage1-deliver-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
   background-color: rgb(200, 25, 25);
+  height: auto; /* Ensure the height fits the content */
 }
 
 canvas {
   width: 100%;
   height: 100%;
+  border: #717171 1px solid;
 }
 
 /*---------------------------------*/

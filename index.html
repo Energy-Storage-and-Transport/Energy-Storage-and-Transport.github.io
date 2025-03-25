@@ -13,6 +13,7 @@
     <script src="scripts/group.js"></script>
     <script src="scripts/utils.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/index.min.js"></script>
   </head>
 
   <body>
@@ -28,14 +29,25 @@
 
 
     <div class="grid-container">
-      <div class="canvas-container" id="bottomCanvasContainer">
-        <canvas id="bottomFlowchart"></canvas>
+      <div class="stage1-container" id="stage1Container">
+        <canvas id="stage1Flowchart"></canvas>
       </div>
-      <div class="stage" onclick="toggleIcon()">
-        <i id="stageIcon" class="fa-solid fa-eye"></i>
+      <div class="stage1-icon" onclick="toggleIcon()">
+        <i id="stage1Icon" class="fa-solid fa-eye"></i>
+        <b>Stage 1</b>
       </div>
-      <div class="bottom-canvas-container">
-        <canvas id="flowchart"></canvas>
+      <div class="stage1-deliver-container">
+        <!-- <canvas id="flowchart"></canvas> -->
+        Objectives:
+        <ul>
+          <li>Stage 1 - Objective 1</li>
+          <li>Stage 1 - Objective 2</li>
+          <li>Stage 1 - Objective 3</li>
+        </ul>
+        Deliverables:
+        <ul>
+          <li><a>Go/No-go pitch</a></li>
+        </ul>
       </div>
     </div>
 
@@ -47,9 +59,8 @@
 
   <script>
     function toggleIcon() {
-      const icon = document.getElementById('stageIcon');
-      const bottomCanvasContainer = document.getElementById('bottomCanvasContainer');
-      console.log(bottomCanvasContainer);
+      const icon = document.getElementById('stage1Icon');
+      const bottomCanvasContainer = document.getElementById('stage1Container');
       if (icon.classList.contains('fa-eye')) {
         icon.classList.remove('fa-eye');
         icon.classList.add('fa-eye-slash');
@@ -61,6 +72,7 @@
       }
     }
   </script>
-  <!-- <script src="scripts/flowchart.js"></script> -->
+
+  <script src="scripts/newFlowChart.js"></script>
   
 </html>
