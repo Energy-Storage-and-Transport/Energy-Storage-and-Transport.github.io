@@ -4,7 +4,7 @@ let blockHeight = null;
 let hSpace = null;
 let vSpace = null;
 let activeBlock = null;
-let grid = [];
+let blocks = {};
 let cards = {};
 
 // Constants
@@ -86,14 +86,12 @@ function createBlock(blockData) {
 
 // Update the grid
 async function updateGrid() {
-    grid.length = 0; // Clear the grid
     // Fetch block data from the JSON file
     await fetch('/data/flowchartData.json')
     .then(response => response.json())
-    .then(blocks => {
-        blocks.forEach(blockData => {
-            grid.push( createBlock(blockData) );
-            console.log( grid.length );
+    .then(b => {
+        b.forEach(blockData => {
+            blocks[blockData.id] = createBlock(blockData);
         });
     })
     .catch(error => console.error('Error loading flowchart data:', error));
@@ -115,7 +113,8 @@ function createCard(blockData) {
         fontFamily: 'Verdana',
         fill: 'white',
         textAlign: 'left',
-        selectable: false
+        selectable: false,
+        hoverCursor: 'default'
     });
 
     // Dynamically calculate the header height based on the title height
@@ -130,7 +129,8 @@ function createCard(blockData) {
         fill: 'white',
         stroke: strokeColors[blockData.id[0]],
         strokeWidth: 3,
-        selectable: false
+        selectable: false,
+        hoverCursor: 'default'
     });
 
     // Create the header bar
@@ -140,7 +140,8 @@ function createCard(blockData) {
         width: cardWidth,
         height: headerHeight,
         fill: strokeColors[blockData.id[0]],
-        selectable: false
+        selectable: false,
+        hoverCursor: 'default'
     });
 
     // Adjust the title position to center it vertically in the header
@@ -153,7 +154,7 @@ function createCard(blockData) {
         fontSize: fontSize,
         fontFamily: 'Verdana',
         fill: 'white',
-        selectable: true,
+        selectable: false,
         hoverCursor: 'pointer'
     });
 
@@ -164,7 +165,7 @@ function createCard(blockData) {
     });
 
     // Add the main content (description and links)
-    const content = new fabric.Textbox(blockData.description + '\n\nLinks:\n' + blockData.links.join('\n'), {
+    const content = new fabric.Textbox(blockData.description + '\n\nLinks:', {
         left: cardLeft + 10,
         top: cardTop + headerHeight + 10,
         width: cardWidth - 20,
@@ -172,22 +173,58 @@ function createCard(blockData) {
         fontFamily: 'Verdana',
         fill: '#000000',
         textAlign: 'left',
-        selectable: false
+        selectable: false,
+        hoverCursor: 'default'
     });
 
-    // Adjust the card height based on the content height
-    const contentHeight = content.height + 20; // Add padding
-    const cardHeight = headerHeight + contentHeight; // Add padding for the bottom
+    // Add the links as clickable text
+    const linkStartTop = content.top + content.height + 10; // Start position for links
+    const linkElements = blockData.links.map((link, index) => {
+        // Create the bullet as a separate text object
+        const bullet = new fabric.Text('•', {
+            left: cardLeft + 10,
+            top: linkStartTop + index * (fontSize + 5), // Space between links
+            fontSize: fontSize - 2,
+            fontFamily: 'Verdana',
+            fill: '#000000', // Black color for the bullet
+            textAlign: 'left',
+            selectable: false,
+            hoverCursor: 'default'
+        });
+
+        // Create the link text with underline
+        const linkText = new fabric.Text(link[0], {
+            left: cardLeft + 25, // Adjust position to leave space for the bullet
+            top: linkStartTop + index * (fontSize + 5), // Space between links
+            fontSize: fontSize - 2,
+            fontFamily: 'Verdana',
+            fill: '#0000EE', // Blue color for links
+            textAlign: 'left',
+            selectable: false,
+            hoverCursor: 'pointer',
+            underline: true // Underline only the link text
+        });
+
+        // Add click event to open the link
+        linkText.on('mousedown', () => {
+            window.location.href = link[1]; // Open the link in the same window
+        });
+
+        return [bullet, linkText];
+    });
+
+    // Adjust the card height based on the content and links
+    const cardHeight = headerHeight + content.height + 20 + linkElements.length * (fontSize + 5);
     card.set('height', cardHeight);
 
     // Update the positions of header and content
     header.set('top', cardTop);
     content.set('top', cardTop + headerHeight + 10);
 
-    return [card, header, title, closeIcon, content];
+    return [card, header, title, closeIcon, content, ...linkElements.flat()];
 }
 
-// Update the grid
+// Update the cards
 async function updateCards() {
     // Fetch block data from the JSON file
     await fetch('/data/flowchartData.json')
@@ -203,7 +240,7 @@ async function updateCards() {
 // Draw the canvas
 function draw() {
     canvas.clear();
-    canvas.add(...grid);
+    canvas.add(...Object.values(blocks));
     if (activeBlock) {
         canvas.add(...cards[activeBlock]);
     }
