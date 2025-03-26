@@ -28,6 +28,14 @@ const fillColors = {
 const container = document.getElementsByClassName('stage1-container')[0];
 const canvas = new fabric.Canvas('stage1Flowchart', { selection: false }); // Disable box selection
 
+document.getElementById('stage1Flowchart').addEventListener('touchstart', function (e) {
+  e.stopPropagation(); // Allow touch events to propagate for scrolling
+}, { passive: true });
+
+document.getElementById('stage1Flowchart').addEventListener('touchmove', function (e) {
+  e.stopPropagation(); // Allow touch events to propagate for scrolling
+}, { passive: true });
+
 // Create a task block
 function createBlock(blockData) {
     // Create the block
