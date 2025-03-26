@@ -26,7 +26,7 @@ const fillColors = {
 
 // Get the container and canvas elements
 const container = document.getElementsByClassName('stage1-container')[0];
-const canvas = new fabric.Canvas('stage1Flowchart');
+const canvas = new fabric.Canvas('stage1Flowchart', { selection: false }); // Disable box selection
 
 // Create a task block
 function createBlock(blockData) {
