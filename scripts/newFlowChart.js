@@ -26,15 +26,10 @@ const fillColors = {
 
 // Get the container and canvas elements
 const container = document.getElementsByClassName('stage1-container')[0];
-const canvas = new fabric.Canvas('stage1Flowchart', { selection: false }); // Disable box selection
-
-document.getElementById('stage1Flowchart').addEventListener('touchstart', function (e) {
-  e.stopPropagation(); // Allow touch events to propagate for scrolling
-}, { passive: true });
-
-document.getElementById('stage1Flowchart').addEventListener('touchmove', function (e) {
-  e.stopPropagation(); // Allow touch events to propagate for scrolling
-}, { passive: true });
+const canvas = new fabric.Canvas('stage1Flowchart', { 
+    selection: false, // Disable box selection
+    allowTouchScrolling: true // Enable touch scrolling
+}); 
 
 // Create a task block
 function createBlock(blockData) {
