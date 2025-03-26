@@ -1,19 +1,27 @@
-[
-    {
-        "id": "S1.1",
-        "col": 0,
-        "row": 0,
-        "title": "Literature review",
-        "description": "Perform a literature review on EST systems. Tabulate the explored systems in terms of essential storage characteristics, such as storage duration, storage capacity and system size.",
-        "links": [["The energy transition: an engineering challenge", "html/challenge-background.html"],
-                  ["The system definition track", "html/tracks-system.html"]]
-    },
-    {
-        "id": "S1.2",
-        "col": 0,
-        "row": 1,
-        "title": "Supply & demand analysis",
-        "description": "Install the Simulink EST model and use it to analyze the supply and demand signals. Define requirements for the EST system, such as storage duration and storage capacity.",
-        "links": [["The modeling track", "html/tracks-model.html"]]
-    }
-]
+{
+    "blocks": [
+        {
+            "id": "S1.1",
+            "col": 0,
+            "row": 0,
+            "title": "Literature review",
+            "description": "Perform a literature review on EST systems. Tabulate the explored systems in terms of essential storage characteristics, such as storage duration, storage capacity and system size.",
+            "links": [["The energy transition: an engineering challenge", "html/challenge-background.html"],
+                      ["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "S1.2",
+            "col": 0,
+            "row": 1,
+            "title": "Supply & demand analysis",
+            "description": "Install the Simulink EST model and use it to analyze the supply and demand signals. Define requirements for the EST system, such as storage duration and storage capacity.",
+            "links": [["The modeling track", "html/tracks-model.html"]]
+        }
+    ],
+    "connectors": [
+        {
+            "from": "S1.1",
+            "to": "S1.2"
+        }
+    ]
+}

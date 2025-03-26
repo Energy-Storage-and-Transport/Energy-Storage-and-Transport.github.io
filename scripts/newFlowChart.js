@@ -6,9 +6,11 @@ let vSpace = null;
 let activeBlock = null;
 let blocks = {};
 let cards = {};
+let connectors = {};
 
 // Constants
 const fontSize = 18;
+const strokeWidth = 3;
 const strokeColors = {
     "S" : "#c86419ff", // System
     "M" : "#19c819ff", // Model
@@ -82,19 +84,6 @@ function createBlock(blockData) {
     });
 
     return group;
-}
-
-// Update the grid
-async function updateGrid() {
-    // Fetch block data from the JSON file
-    await fetch('/data/flowchartData.json')
-    .then(response => response.json())
-    .then(b => {
-        b.forEach(blockData => {
-            blocks[blockData.id] = createBlock(blockData);
-        });
-    })
-    .catch(error => console.error('Error loading flowchart data:', error));
 }
 
 // Create a task card
@@ -229,9 +218,76 @@ async function updateCards() {
     // Fetch block data from the JSON file
     await fetch('/data/flowchartData.json')
     .then(response => response.json())
-    .then(blocks => {
-        blocks.forEach(blockData => {
+    .then(data => {
+        data['blocks'].forEach(blockData => {
             cards[blockData.id] = createCard(blockData);
+        });
+    })
+    .catch(error => console.error('Error loading flowchart data:', error));
+}
+
+function createConnector(fromBlock, toBlock, type="straight") {
+    const from = {
+        x: fromBlock.left + blockWidth / 2,
+        y: fromBlock.top + blockHeight
+    };
+    const to = {
+        x: toBlock.left + blockWidth / 2,
+        y: toBlock.top
+    };
+
+    // Define the path for the arrow
+    let path;
+    if (type === "straight") {
+        // Straight line arrow
+        path = `M ${from.x} ${from.y} L ${to.x} ${to.y}`;
+    } else {
+        console.error(`Unknown arrow type: ${type}`);
+        return null;
+    }
+
+    // Add an arrowhead to the path
+    const arrowHeadSize = 10;
+    const angle = Math.atan2(to.y - from.y, to.x - from.x);
+    const arrowHead = [
+        {
+            x: to.x - arrowHeadSize * Math.cos(angle - Math.PI / 6),
+            y: to.y - arrowHeadSize * Math.sin(angle - Math.PI / 6)
+        },
+        {
+            x: to.x,
+            y: to.y
+        },
+        {
+            x: to.x - arrowHeadSize * Math.cos(angle + Math.PI / 6),
+            y: to.y - arrowHeadSize * Math.sin(angle + Math.PI / 6)
+        }
+    ];
+    path += ` M ${arrowHead[0].x} ${arrowHead[0].y} L ${arrowHead[1].x} ${arrowHead[1].y} L ${arrowHead[2].x} ${arrowHead[2].y} Z`;
+
+    // Create the fabric.Path object
+    const arrow = new fabric.Path(path, {
+        fill: strokeColors[fromBlock.id[0]],
+        stroke: strokeColors[fromBlock.id[0]],
+        strokeWidth: strokeWidth,
+        selectable: false,
+        hoverCursor: "default"
+    });
+
+    return arrow;
+}
+
+// Update the grid
+async function updateGrid() {
+    // Fetch block data from the JSON file
+    await fetch('/data/flowchartData.json')
+    .then(response => response.json())
+    .then(data => {
+        data['blocks'].forEach(blockData => {
+            blocks[blockData.id] = createBlock(blockData);
+        });
+        data['connectors'].forEach(connectorData => {
+            connectors[connectorData.from + "-" + connectorData.to] = createConnector(blocks[connectorData.from], blocks[connectorData.to]);
         });
     })
     .catch(error => console.error('Error loading flowchart data:', error));
@@ -240,6 +296,7 @@ async function updateCards() {
 // Draw the canvas
 function draw() {
     canvas.clear();
+    canvas.add(...Object.values(connectors));
     canvas.add(...Object.values(blocks));
     if (activeBlock) {
         canvas.add(...cards[activeBlock]);
@@ -249,7 +306,6 @@ function draw() {
 
 // Function to set canvas dimensions to match the container
 async function updateCanvas() {
-    console.log("Resizing canvas");
     canvas.setWidth(container.clientWidth);
     canvas.setHeight(container.clientHeight);
 
