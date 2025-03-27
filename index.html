@@ -25,45 +25,45 @@
 
 
     <div class="grid-container">
-      <div class="stage1-icon" onclick="toggleIcon()">
+      <div class="stage1-icon" onclick="toggleIcon(0)">
         <i id="stage1Icon" class="fa-solid fa-eye"></i>
-        <b>Stage 1 - Preparation</b>
+        <b>Stage 1</b>
       </div>
       <div class="stage1-container">
         <canvas id="stage1Flowchart"></canvas>
       </div>
       <div class="stage1-deliver-container">
-        <!-- <canvas id="flowchart"></canvas> -->
-        Objectives:
+        <h4><a>Go/No-go pitch</a></h4>
         <ul>
-          <li>Stage 1 - Objective 1</li>
-          <li>Stage 1 - Objective 2</li>
-          <li>Stage 1 - Objective 3</li>
+          <li>Criterion 1</li>
+          <li>Criterion 2</li>
+          <li>Criterion 3</li>
         </ul>
-        Deliverables:
+      </div>
+      <div class="stage2-icon" onclick="toggleIcon(1)">
+        <i id="stage2Icon" class="fa-solid fa-eye"></i>
+        <b>Stage 2</b>
+      </div>
+      <div class="stage2-container">
+        <canvas id="stage2Flowchart"></canvas>
+      </div>
+      <div class="stage2-deliver-container">
+        <h4><a>Poster submission</a></h4>
         <ul>
-          <li><a>Go/No-go pitch</a></li>
+          <li>Criterion 1</li>
+          <li>Criterion 2</li>
+          <li>Criterion 3</li>
+        </ul>
+        <h4><a>Standard operating procedure</a></h4>
+        <ul>
+          <li>Criterion 1</li>
+          <li>Criterion 2</li>
+          <li>Criterion 3</li>
         </ul>
       </div>
     </div>
 
   </body>
-
-  <script>
-    function toggleIcon() {
-      const icon = document.getElementById('stage1Icon');
-      const bottomCanvasContainer = document.getElementsByClassName('stage1-container')[0];
-      if (icon.classList.contains('fa-eye')) {
-        icon.classList.remove('fa-eye');
-        icon.classList.add('fa-eye-slash');
-        bottomCanvasContainer.style.display = 'none';
-      } else {
-        icon.classList.remove('fa-eye-slash');
-        icon.classList.add('fa-eye');
-        bottomCanvasContainer.style.display = 'block';
-      }
-    }
-  </script>
 
   <script src="scripts/newFlowChart.js"></script>
   

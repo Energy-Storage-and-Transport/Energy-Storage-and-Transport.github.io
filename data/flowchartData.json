@@ -40,6 +40,14 @@
             "title": "Validation idea",
             "description": "Develop a conceptual idea for the validation experiment. Describe what physical law is to be validated and explain its position in the overall validation process. Specify with which toolbox the experiment can be realized.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "S2.1",
+            "col": 0,
+            "row": 0,
+            "title": "Component specification",
+            "description": "Specify all relevant components of the EST system, that is: the injection, the extraction, the actual storage, and the transport to and from the storage. Make sure that all components are realistic in relation to the real-world setting of the EST system.",
+            "links": [["The system definition track", "html/tracks-system.html"]]
         }
     ],
     "connectors": [
@@ -52,6 +60,7 @@
         {"from": "S1.2", "fromSide": "right", "to": "E1.2", "toSide": "left"},
         {"from": "S1.2"},
         {"from": "M1.1"},
-        {"from": "E1.2"}
+        {"from": "E1.2"},
+        {"to": "S2.1"}
     ]
 }

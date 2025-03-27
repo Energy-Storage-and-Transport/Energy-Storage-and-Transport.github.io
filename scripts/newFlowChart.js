@@ -8,6 +8,8 @@ let activeBlock = null;
 let blocks = {};
 let cards = {};
 let connectors = {};
+let activeStage = -1;
+const stages = 2;
 
 // Constants
 const fontSize = 18;
@@ -27,11 +29,47 @@ const fillColors = {
 };
 
 // Get the container and canvas elements
-const container = document.getElementsByClassName('stage1-container')[0];
-const canvas = new fabric.Canvas('stage1Flowchart', { 
-    selection: false, // Disable box selection
-    allowTouchScrolling: true // Enable touch scrolling
-});
+const container = document.getElementsByClassName('grid-container')[0];
+
+// Create the canvases
+let canvases = [];
+for(let stage = 0; stage < stages; stage++){
+    const canvas = new fabric.Canvas(`stage${stage+1}Flowchart`, { 
+        selection: false, // Disable box selection
+        allowTouchScrolling: true // Enable touch scrolling
+    });
+    canvases.push(canvas);
+}
+
+// Toggle the visibility of a stage
+function toggleIcon(stageIndex) {
+    if(activeStage == stageIndex){
+        activeStage = -1;
+    }else{
+        activeStage = stageIndex;
+    }
+
+    for(let stage = 0; stage < stages; stage++){
+        const icon = document.getElementById(`stage${stage + 1}Icon`);
+        if (icon.classList.contains('fa-eye') && stage != activeStage) {
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else if (icon.classList.contains('fa-eye-slash') && stage == activeStage) {
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+
+        const cont = document.getElementsByClassName(`stage${stage + 1}-container`)[0];
+        if (stage != activeStage) {
+            cont.style.display = 'none';
+        }
+        else {
+            cont.style.display = 'block';
+        }
+    }
+
+    draw();
+}
 
 // Create a task block
 function createBlock(blockData) {
@@ -250,6 +288,7 @@ function createConnector(connectorData) {
     let fromSide = connectorData.fromSide ?? "bottom";
     let toSide = connectorData.toSide ?? "top";
 
+    let id = null;
     let from = null;
     if(!fromBlock){
         from = {
@@ -257,6 +296,7 @@ function createConnector(connectorData) {
             y: 0
         };        
     }else{
+        id = fromBlock.id[1];
         if (fromSide === "bottom") {
             from = {
                 x: fromBlock.left + blockWidth / 2 + fromOffset*hSpace,
@@ -280,6 +320,7 @@ function createConnector(connectorData) {
             y: getCanvasHeight()
         };        
     }else{
+        id = toBlock.id[1];
         if (toSide === "top") {
             to = {
                 x: toBlock.left + blockWidth / 2 + toOffset*hSpace,
@@ -342,6 +383,9 @@ function createConnector(connectorData) {
         hoverCursor: "default"
     });
 
+    arrow.id = id;
+    arrow.toObject(["id"]);
+
     return arrow;
 }
 
@@ -365,7 +409,7 @@ async function updateGrid() {
 function getCanvasHeight() {
     let height = 0;
     Object.entries(blocks).forEach(([id, block]) => {
-        if (id.split('.')[0].endsWith('1')) {
+        if (id[1] == activeStage+1) {
             height = Math.max(height, block.top + block.height + vPadding);
         }
     });
@@ -374,40 +418,56 @@ function getCanvasHeight() {
 
 // Draw the canvas
 function draw() {
+    if (activeStage == -1) {
+        return;
+    }
+
     // Clear the canvas
-    canvas.clear();
+    canvases[activeStage].clear();
 
     // Reset the height of the canvas
     const canvasHeight = getCanvasHeight();
-    console.log(canvasHeight);
-    if(canvasHeight != canvas.height){
-        canvas.setHeight(canvasHeight);
+    if(canvasHeight != canvases[activeStage].height){
+        canvases[activeStage].setHeight(canvasHeight);
     }
     
     // Add all elements
-    canvas.add(...Object.values(connectors));
-    canvas.add(...Object.values(blocks));
-    if (activeBlock) {
-        canvas.add(...cards[activeBlock]);
-        const overflow = cards[activeBlock][0].top + cards[activeBlock][0].height + strokeWidth - canvas.height;
+    Object.entries(blocks).forEach(([id, block]) => {
+        if (id[1] == activeStage+1) {
+            canvases[activeStage].add(block);
+        }
+    });
+
+    // canvases[activeStage].add(...Object.values(connectors));
+    Object.values(connectors).forEach(connector => {
+        if (connector.id == activeStage+1) {
+            canvases[activeStage].add(connector);
+        }
+    });
+
+    if (activeBlock && activeBlock[1] == activeStage+1) {
+        canvases[activeStage].add(...cards[activeBlock]);
+        const overflow = cards[activeBlock][0].top + cards[activeBlock][0].height + strokeWidth - canvases[activeStage].height;
         if (overflow > 0) {
-            canvas.setHeight(canvas.height + overflow + vPadding);
+            canvases[activeStage].setHeight(canvases[activeStage].height + overflow + vPadding);
         }
     }
 
     // Render all elements
-    canvas.renderAll();    
+    canvases[activeStage].renderAll();    
 }
 
 // Function to set canvas dimensions to match the container
 async function updateCanvas() {
 
-    canvas.setWidth(container.clientWidth);
+    for(let stage = 0; stage < stages; stage++){
+        canvases[stage].setWidth(container.clientWidth);
+    }
 
     // Set the grid dimensions
-    blockWidth  = 0.3*canvas.width;
+    blockWidth  = 0.3*canvases[0].width;
     blockHeight = 0.6*blockWidth;
-    hSpace = 0.025*canvas.width;
+    hSpace = 0.025*canvases[0].width;
     vSpace = 4*hSpace;
     vPadding = 2*hSpace;
 
@@ -422,7 +482,8 @@ async function initializeCanvas() {
     draw();
 }
 
-initializeCanvas(); // Call the async initialization function
-
 // Add event listener for window resize
 window.addEventListener('resize', initializeCanvas);
+
+toggleIcon(0); // Show the first stage by default
+initializeCanvas(); // Call the async initialization function

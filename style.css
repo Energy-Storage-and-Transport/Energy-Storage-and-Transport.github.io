@@ -31,39 +31,42 @@ body {
   min-width: var(--min-width);
 }
 
-.stage1-icon {
+.stage1-icon, .stage2-icon {
   display: block;
   background-color: rgb(200, 25, 25);
   padding: 10px;
   color: white;
   cursor: pointer;
   width: auto;
-  /* border-top: rgb(25, 25, 200) 6px solid; */
+  border-top: rgba(0, 0, 0, 0.5) 4px solid;
 }
+/* 
+.stage2-icon {
+  
+} */
 
-.stage1-icon b {
+.stage1-icon b, .stage2-icon b {
   margin-left: 10px; /* Add some space between the icon and the text */
 }
 
-.stage1-icon i {
+.stage1-icon i, .stage2-icon i {
   font-size: 1.2em;
 }
 
-.stage1-container, .stage1-deliver-container {
-  display: flex;
-  justify-content: center;
+.stage1-container, .stage1-deliver-container, .stage2-container, .stage2-deliver-container {
+  display: block;
 }
 
-.stage1-container {
+.stage1-container, .stage2-container {
   background-color: rgb(200, 200, 200);
 }
 
-.stage1-container canvas {
+.stage1-container canvas, .stage2-container canvas {
   width: 100%;
   height: 100%;
 }
 
-.stage1-deliver-container {
+.stage1-deliver-container, .stage2-deliver-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -72,6 +75,10 @@ body {
   height: auto; /* Ensure the height fits the content */
 }
 
+.stage1-deliver-container h4, .stage2-deliver-container h4 {
+  margin: 10px;
+  margin-bottom: 0px;
+}
 
 /*---------------------------------*/
 /* HEADERS                         */
@@ -209,8 +216,6 @@ table caption {
 td.bgd, tr.bgd {
   background: rgba(0,0,0,0.1);
 }
-
-/*Inside a .block*/
 
 /*---------------------------------*/
 /* OTHERS                          */
