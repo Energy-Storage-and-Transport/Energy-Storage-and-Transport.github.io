@@ -1,5 +1,4 @@
 // Variables
-let canvasHeight = null;
 let blockWidth = null;
 let blockHeight = null;
 let hSpace = null;
@@ -278,7 +277,7 @@ function createConnector(connectorData) {
     if(!toBlock){
         to = {
             x: fromBlock.left + blockWidth / 2 + fromOffset*hSpace,
-            y: canvas.height
+            y: getCanvasHeight()
         };        
     }else{
         if (toSide === "top") {
@@ -362,12 +361,29 @@ async function updateGrid() {
     .catch(error => console.error('Error loading flowchart data:', error));
 }
 
+// Get the canvas height
+function getCanvasHeight() {
+    let height = 0;
+    Object.entries(blocks).forEach(([id, block]) => {
+        if (id.split('.')[0].endsWith('1')) {
+            height = Math.max(height, block.top + block.height + vPadding);
+        }
+    });
+    return height;
+}
+
 // Draw the canvas
 function draw() {
-    // Clear the canvas and reset the height
+    // Clear the canvas
     canvas.clear();
-    canvas.setHeight(canvasHeight);
 
+    // Reset the height of the canvas
+    const canvasHeight = getCanvasHeight();
+    console.log(canvasHeight);
+    if(canvasHeight != canvas.height){
+        canvas.setHeight(canvasHeight);
+    }
+    
     // Add all elements
     canvas.add(...Object.values(connectors));
     canvas.add(...Object.values(blocks));
@@ -394,9 +410,6 @@ async function updateCanvas() {
     hSpace = 0.025*canvas.width;
     vSpace = 4*hSpace;
     vPadding = 2*hSpace;
-    canvasHeight = 2*blockHeight + vSpace + 2*vPadding;
-
-    canvas.setHeight(canvasHeight);
 
     // Update the grid
     await updateGrid();
