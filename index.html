@@ -29,7 +29,7 @@
         <i id="stage1Icon" class="fa-solid fa-eye"></i>
         <b>Stage 1 - Preparation</b>
       </div>
-      <div class="stage1-container" id="stage1Container">
+      <div class="stage1-container">
         <canvas id="stage1Flowchart"></canvas>
       </div>
       <div class="stage1-deliver-container">
@@ -52,7 +52,7 @@
   <script>
     function toggleIcon() {
       const icon = document.getElementById('stage1Icon');
-      const bottomCanvasContainer = document.getElementById('stage1Container');
+      const bottomCanvasContainer = document.getElementsByClassName('stage1-container')[0];
       if (icon.classList.contains('fa-eye')) {
         icon.classList.remove('fa-eye');
         icon.classList.add('fa-eye-slash');

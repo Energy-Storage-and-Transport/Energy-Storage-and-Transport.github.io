@@ -38,7 +38,7 @@ body {
   color: white;
   cursor: pointer;
   width: auto;
-  border-top: rgb(25, 25, 200) 6px solid;
+  /* border-top: rgb(25, 25, 200) 6px solid; */
 }
 
 .stage1-icon b {
@@ -52,13 +52,15 @@ body {
 .stage1-container, .stage1-deliver-container {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .stage1-container {
   background-color: rgb(200, 200, 200);
-  grid-column: span 2;
-  aspect-ratio: 2 / 3;
+}
+
+.stage1-container canvas {
+  width: 100%;
+  height: 100%;
 }
 
 .stage1-deliver-container {
@@ -70,11 +72,6 @@ body {
   height: auto; /* Ensure the height fits the content */
 }
 
-canvas {
-  width: 100%;
-  height: 100%;
-  border: #717171 1px solid;
-}
 
 /*---------------------------------*/
 /* HEADERS                         */

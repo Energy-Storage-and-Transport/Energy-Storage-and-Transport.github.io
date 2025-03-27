@@ -10,18 +10,48 @@
                       ["The system definition track", "html/tracks-system.html"]]
         },
         {
-            "id": "S1.2",
-            "col": 0,
-            "row": 1,
+            "id": "M1.1",
+            "col": 1,
+            "row": 0,
             "title": "Supply & demand analysis",
             "description": "Install the Simulink EST model and use it to analyze the supply and demand signals. Define requirements for the EST system, such as storage duration and storage capacity.",
             "links": [["The modeling track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "E1.1",
+            "col": 2,
+            "row": 0,
+            "title": "Toolbox exploration",
+            "description": "Explore the experimental toolboxes during your PROTO/zone session.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "S1.2",
+            "col": 0,
+            "row": 1,
+            "title": "Conceptual idea",
+            "description": "Develop the conceptual idea of a sustainable and innovative EST system, which is compatible with the requirements following from the supply and demand.",
+            "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "E1.2",
+            "col": 2,
+            "row": 1,
+            "title": "Validation idea",
+            "description": "Develop a conceptual idea for the validation experiment. Describe what physical law is to be validated and explain its position in the overall validation process. Specify with which toolbox the experiment can be realized.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         }
     ],
     "connectors": [
-        {
-            "from": "S1.1",
-            "to": "S1.2"
-        }
+        {"to": "S1.1"},
+        {"to": "M1.1"},
+        {"to": "E1.1"},
+        {"from": "S1.1", "to": "S1.2"},
+        {"from": "M1.1", "to": "S1.2", "toOffset":1, "type": "zigzag"},
+        {"from": "E1.1", "to": "E1.2"},
+        {"from": "S1.2", "fromSide": "right", "to": "E1.2", "toSide": "left"},
+        {"from": "S1.2"},
+        {"from": "M1.1"},
+        {"from": "E1.2"}
     ]
 }
