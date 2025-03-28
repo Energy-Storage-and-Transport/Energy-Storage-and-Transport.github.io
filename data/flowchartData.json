@@ -48,6 +48,78 @@
             "title": "Component specification",
             "description": "Specify all relevant components of the EST system, that is: the injection, the extraction, the actual storage, and the transport to and from the storage. Make sure that all components are realistic in relation to the real-world setting of the EST system.",
             "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "M2.1",
+            "col": 1,
+            "row": 0,
+            "title": "Physical phenomena identification",
+            "description": "Identify the physical phenomena that are (most) relevant for the chosen system and its sub-components.",
+            "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "M2.2",
+            "col": 1,
+            "row": 1,
+            "title": "Physical laws exploration",
+            "description": "Explore physical laws for the relevant physical phenomena, and select model components with a relevant level of complexity to adequately describe the phenomena. Be aware of the assumptions and simplifications and their effect on the outcome.",
+            "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "E2.1",
+            "col": 2,
+            "row": 1,
+            "title": "Measurement specification",
+            "description": "Specify what needs to be measured by the experiment to validate the considered physical law. Explore and gather the components and sensors required for the experimental setup and study how they should connect to each other.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "S2.2",
+            "col": 0,
+            "row": 2,
+            "title": "Parameter determination",
+            "description": "Determine the parameters of all components (dimensions, material properties, etc.) of your real-world EST system that are required for the model.",
+            "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "M2.3",
+            "col": 1,
+            "row": 2,
+            "title": "Mathematical elaboration",
+            "description": "Study the energy flow structure of the Simulink computer model and elaborate the mathematical models describing the physical phenomena such that they fit in this structure.",
+            "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "E2.2",
+            "col": 2,
+            "row": 2,
+            "title": "Setup design",
+            "description": "Make a design of the setup in the form of a schematic in which all components and sensors are identified.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "E2.3",
+            "col": 2,
+            "row": 3,
+            "title": "Safety assessment",
+            "description": "Perform the mandatory safety self assessment for your envisioned experiments.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "S2.3",
+            "col": 0,
+            "row": 3,
+            "title": "Infographic concept",
+            "description": "Create a concept for an infographic that gives a comprehensive overview of the EST system. Make sure that the infographic gives a general overview of the system (components, flow of energy, etc.) and provides technical details (dimensions, powers, etc.).",
+            "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "M2.4",
+            "col": 1,
+            "row": 3,
+            "title": "Simulink implementation",
+            "description": "Implement the elaborated mathematical model in Simulink and get this initial model to work for the parameters values of your real-world EST system.",
+            "links": [["The model development track", "html/tracks-model.html"]]
         }
     ],
     "connectors": [
@@ -61,6 +133,22 @@
         {"from": "S1.2"},
         {"from": "M1.1"},
         {"from": "E1.2"},
-        {"to": "S2.1"}
+        {"to": "S2.1"},
+        {"to": "M2.1"},
+        {"to": "E2.1"},
+        {"from": "S2.1", "fromSide": "right", "to": "M2.1", "toSide": "left"},
+        {"from": "M2.1", "to": "M2.2"},
+        {"from": "M2.2", "fromSide": "right", "to": "E2.1", "toSide": "left"},
+        {"from": "S2.1", "to": "S2.2"},
+        {"from": "M2.2", "to": "S2.2", "toOffset":1, "type": "zigzag"},
+        {"from": "M2.2", "to": "M2.3"},
+        {"from": "E2.1", "to": "E2.2"},
+        {"from": "E2.2", "to": "E2.3"},
+        {"from": "S2.2", "to": "S2.3"},
+        {"from": "S2.2", "fromSide": "right", "to": "M2.3", "toSide":"left"},
+        {"from": "M2.3", "to": "M2.4"},
+        {"from": "S2.3"},
+        {"from": "M2.4"},
+        {"from": "E2.3"}
     ]
 }

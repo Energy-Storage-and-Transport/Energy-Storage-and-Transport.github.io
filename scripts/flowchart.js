@@ -12,7 +12,7 @@ let activeStage = -1;
 const stages = 2;
 
 // Constants
-const fontSize = 18;
+const fontSize = 17;
 const textPadding = 10;
 const strokeWidth = 3;
 const strokeColors = {
