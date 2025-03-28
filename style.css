@@ -29,6 +29,7 @@ body {
   margin-right: auto;
   max-width: calc(2.0*var(--min-width));
   min-width: var(--min-width);
+  margin-top: 10px;
 }
 
 .stage1-icon, .stage2-icon {
@@ -58,7 +59,7 @@ body {
 }
 
 .stage1-container, .stage2-container {
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(240, 240, 240);
 }
 
 .stage1-container canvas, .stage2-container canvas {

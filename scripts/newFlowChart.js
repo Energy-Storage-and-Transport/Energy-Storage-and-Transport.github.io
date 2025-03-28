@@ -42,7 +42,8 @@ for(let stage = 0; stage < stages; stage++){
 }
 
 // Toggle the visibility of a stage
-function toggleIcon(stageIndex) {
+async function toggleIcon(stageIndex) {
+    console.log("Toggling icon for stage", stageIndex + 1);
     if(activeStage == stageIndex){
         activeStage = -1;
     }else{
@@ -68,7 +69,7 @@ function toggleIcon(stageIndex) {
         }
     }
 
-    draw();
+    await draw();
 }
 
 // Create a task block
@@ -265,19 +266,6 @@ function createCard(blockData) {
     return elements;
 }
 
-// Update the cards
-async function updateCards() {
-    // Fetch block data from the JSON file
-    await fetch('/data/flowchartData.json')
-    .then(response => response.json())
-    .then(data => {
-        data['blocks'].forEach(blockData => {
-            cards[blockData.id] = createCard(blockData);
-        });
-    })
-    .catch(error => console.error('Error loading flowchart data:', error));
-}
-
 function createConnector(connectorData) {
 
     let fromBlock = connectorData.from ? blocks[connectorData.from] : undefined;
@@ -389,17 +377,43 @@ function createConnector(connectorData) {
     return arrow;
 }
 
-// Update the grid
-async function updateGrid() {
-    // Fetch block data from the JSON file
+// Update the blocks
+async function updateBlocks() {
+    console.log("Updating blocks.");
     await fetch('/data/flowchartData.json')
     .then(response => response.json())
     .then(data => {
         data['blocks'].forEach(blockData => {
             blocks[blockData.id] = createBlock(blockData);
         });
+    })
+    .catch(error => console.error('Error loading flowchart data:', error));
+}
+
+// Update the cards
+async function updateCards() {
+    console.log("Updating cards.");
+    // Fetch block data from the JSON file
+    await fetch('/data/flowchartData.json')
+    .then(response => response.json())
+    .then(data => {
+        data['blocks'].forEach(blockData => {
+            cards[blockData.id] = createCard(blockData);
+        });
+    })
+    .catch(error => console.error('Error loading flowchart data:', error));
+}
+
+// Update connectors
+async function updateConnectors() {
+    console.log("Updating connectors.");
+    await fetch('/data/flowchartData.json')
+    .then(response => response.json())
+    .then(data => {
         data['connectors'].forEach(connectorData => {
-            connectors[connectorData.from + "-" + connectorData.to] = createConnector(connectorData);
+            if((connectorData.from ? connectorData.from[1] : connectorData.to[1]) == activeStage+1){
+                connectors[connectorData.from + "-" + connectorData.to] = createConnector(connectorData);
+            }
         });
     })
     .catch(error => console.error('Error loading flowchart data:', error));
@@ -410,80 +424,99 @@ function getCanvasHeight() {
     let height = 0;
     Object.entries(blocks).forEach(([id, block]) => {
         if (id[1] == activeStage+1) {
-            height = Math.max(height, block.top + block.height + vPadding);
-        }
-    });
-    return height;
-}
-
-// Draw the canvas
-function draw() {
-    if (activeStage == -1) {
-        return;
-    }
-
-    // Clear the canvas
-    canvases[activeStage].clear();
-
-    // Reset the height of the canvas
-    const canvasHeight = getCanvasHeight();
-    if(canvasHeight != canvases[activeStage].height){
-        canvases[activeStage].setHeight(canvasHeight);
-    }
-    
-    // Add all elements
-    Object.entries(blocks).forEach(([id, block]) => {
-        if (id[1] == activeStage+1) {
-            canvases[activeStage].add(block);
-        }
-    });
-
-    // canvases[activeStage].add(...Object.values(connectors));
-    Object.values(connectors).forEach(connector => {
-        if (connector.id == activeStage+1) {
-            canvases[activeStage].add(connector);
+            height = Math.max(height, block.top + block.height);
         }
     });
 
     if (activeBlock && activeBlock[1] == activeStage+1) {
-        canvases[activeStage].add(...cards[activeBlock]);
-        const overflow = cards[activeBlock][0].top + cards[activeBlock][0].height + strokeWidth - canvases[activeStage].height;
-        if (overflow > 0) {
-            canvases[activeStage].setHeight(canvases[activeStage].height + overflow + vPadding);
-        }
+        height = Math.max(height, cards[activeBlock][0].top + cards[activeBlock][0].height);
     }
 
-    // Render all elements
-    canvases[activeStage].renderAll();    
+    return height + vPadding;
 }
 
 // Function to set canvas dimensions to match the container
 async function updateCanvas() {
-
+    console.log("Updating canvas dimensions, blocks and cards.");
     for(let stage = 0; stage < stages; stage++){
         canvases[stage].setWidth(container.clientWidth);
     }
 
     // Set the grid dimensions
-    blockWidth  = 0.3*canvases[0].width;
+    blockWidth = 0.3*canvases[0].width;
     blockHeight = 0.6*blockWidth;
     hSpace = 0.025*canvases[0].width;
     vSpace = 4*hSpace;
     vPadding = 2*hSpace;
 
     // Update the grid
-    await updateGrid();
+    await updateBlocks();
     await updateCards();
+    await updateConnectors();
 }
 
-// Initial canvas size setup
+// Draw the canvas
+async function draw() {
+    // If there is no active stage, return
+    if (activeStage == -1) {
+        return;
+    }
+    console.log("Drawing canvas for stage", activeStage+1);
+
+    // Clear the canvas
+    canvases[activeStage].clear();
+
+    // Check the width of the canvas
+    if(canvases[activeStage].width != container.clientWidth){
+        console.log("Canvas width changed.");
+        await updateCanvas();
+        console.log("Canvas (blocks and cards) updated.");
+    }
+
+    // Check the height of the canvas
+    const canvasHeight = getCanvasHeight();
+    if(canvasHeight != canvases[activeStage].height){
+        canvases[activeStage].setHeight(canvasHeight);
+        console.log(`Canvas height changed to ${canvases[activeStage].height}.`);
+        await updateConnectors();
+    }
+
+    // Add all connectors
+    Object.values(connectors).forEach(connector => {
+        if (connector.id == activeStage+1) {
+            canvases[activeStage].add(connector);
+        }
+    });
+
+    // Add all blocks
+    Object.entries(blocks).forEach(([id, block]) => {
+        if (id[1] == activeStage+1) {
+            canvases[activeStage].add(block);
+        }
+    });
+
+    // Add the active card
+    if (activeBlock && activeBlock[1] == activeStage+1) {
+        canvases[activeStage].add(...cards[activeBlock]);
+        // const overflow = cards[activeBlock][0].top + cards[activeBlock][0].height + strokeWidth - canvases[activeStage].height;
+        // if (overflow > 0) {
+        //     canvases[activeStage].setHeight(canvases[activeStage].height + overflow + vPadding);
+        // }
+    }
+
+    // Render all elements
+    canvases[activeStage].renderAll();    
+}
+
+// Initial the blocks and cards
 async function initializeCanvas() {
+    console.log("Initializing dimensions, blocks and cards.");
     await updateCanvas();
-    draw();
+    console.log("Initialization completed.");
+    await toggleIcon(0);
 }
 
 // Add event listener for window resize
-window.addEventListener('resize', initializeCanvas);
+window.addEventListener('resize', draw);
 
-toggleIcon(0); // Show the first stage by default
-initializeCanvas(); // Call the async initialization function
+initializeCanvas();
