@@ -72,9 +72,22 @@ body {
   height: auto; /* Ensure the height fits the content */
 }
 
-.stage1-deliver-container h4, .stage2-deliver-container h4, .stage3-deliver-container h4 {
-  margin: 10px;
-  margin-bottom: 0px;
+.stage1-deliver-container a, .stage2-deliver-container a, .stage3-deliver-container a{
+  font-weight: bold;
+  color: white;
+  padding-bottom: 0px;
+}
+
+.stage1-deliver-container i, .stage2-deliver-container i, .stage3-deliver-container i{
+  font-size: 1.2em;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.stage1-deliver-container ul, .stage2-deliver-container ul, .stage3-deliver-container ul {
+  margin-top: 0px;
+  padding-left: 60px;
 }
 
 /*---------------------------------*/

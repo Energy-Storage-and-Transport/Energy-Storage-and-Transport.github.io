@@ -1,20 +1,18 @@
 function setLinks() {
-    setLink('poster', "https://canvas.tue.nl/courses/24022/assignments/118571");
-    setLink('report', "https://canvas.tue.nl/courses/24022/assignments/118573");
-    setLink('presentation', "https://canvas.tue.nl/courses/24022/assignments/118572");
-    setLink('competition', "https://canvas.tue.nl/courses/24022/assignments/118569");
-    setLink('gonogo', "https://canvas.tue.nl/courses/24022/assignments/118568");
-    setLink('practical', "https://canvas.tue.nl/courses/24022/assignments/118570");
-    setLink('measurementtheory', "https://canvas.tue.nl/courses/24022/quizzes/24284");
-    setLink('sopv1', "https://canvas.tue.nl/courses/24022/assignments/118615");
-    setLink('sopv2', "https://canvas.tue.nl/courses/24022/assignments/118685");
-    setLink('sopv3', "https://canvas.tue.nl/courses/24022/assignments/118686");
-    setLink('individualgoals', "https://canvas.tue.nl/courses/24022/quizzes/24286");
-    setLink('individualreflection', "https://canvas.tue.nl/courses/24022/quizzes/24495");
-    setLink('simulink', "https://canvas.tue.nl/courses/24022/assignments/118622");
+    setLink('gonogo', "https://canvas.tue.nl/courses/27554/assignments/135990");
+    setLink('poster', "https://canvas.tue.nl/courses/27554/assignments/135993");
+    setLink('sopv1', "https://canvas.tue.nl/courses/27554/assignments/135995");
+    setLink('sopfinal', "https://canvas.tue.nl/courses/27554/assignments/135997");
+    setLink('report', "https://canvas.tue.nl/courses/27554/assignments/135999");
+    setLink('presentation', "https://canvas.tue.nl/courses/27554/assignments/135998");
+    setLink('competition', "https://canvas.tue.nl/courses/27554/assignments/135991");
+    setLink('practical', "https://canvas.tue.nl/courses/27554/assignments/118570"); // To be updated
+    setLink('measurementtheory', "https://canvas.tue.nl/courses/27554/quizzes/24284"); // To be updated
+    setLink('sopv2', "https://canvas.tue.nl/courses/27554/assignments/118685"); // To be updated
+    setLink('simulink', "https://canvas.tue.nl/courses/27554/assignments/118622"); // To be updated
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
-    setLink('infoskills', "https://canvas.tue.nl/courses/30390");
-    //setLink('specsheets', "https://canvas.tue.nl/courses/24022/pages/toolbox-specifications"); TODO: Replace link in index.html. Was not working when deployed on github.
+    setLink('infoskills', "https://canvas.tue.nl/courses/30390"); // To be updated
+    //setLink('specsheets', "https://canvas.tue.nl/courses/27554/pages/toolbox-specifications"); TODO: Replace link in index.html. Was not working when deployed on github.
 }
 
 function setLink(classname, url) {
