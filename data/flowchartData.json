@@ -22,7 +22,7 @@
             "col": 2,
             "row": 0,
             "title": "Toolbox exploration",
-            "description": "Explore the experimental toolboxes during your PROTO/zone session.",
+            "description": "Explore the experimental toolboxes during your lab session.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         },
         {
@@ -70,13 +70,13 @@
             "col": 2,
             "row": 1,
             "title": "Measurement specification",
-            "description": "Specify what needs to be measured by the experiment to validate the considered physical law. Explore and gather the components and sensors required for the experimental setup and study how they should connect to each other.",
+            "description": "Specify what needs to be measured by the experiment to validate the considered physical law. Explore the components and sensors required for the experimental setup and study how they should connect to each other.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         },
         {
             "id": "S2.2",
             "col": 0,
-            "row": 2,
+            "row": 3,
             "title": "Parameter determination",
             "description": "Determine the parameters of all components (dimensions, material properties, etc.) of your real-world EST system that are required for the model.",
             "links": [["The system definition track", "html/tracks-system.html"]]
@@ -84,7 +84,7 @@
         {
             "id": "M2.3",
             "col": 1,
-            "row": 2,
+            "row": 3,
             "title": "Mathematical elaboration",
             "description": "Study the energy flow structure of the Simulink computer model and elaborate the mathematical models describing the physical phenomena such that they fit in this structure.",
             "links": [["The model development track", "html/tracks-model.html"]]
@@ -94,7 +94,7 @@
             "col": 2,
             "row": 2,
             "title": "Setup design",
-            "description": "Make a design of the setup in the form of a schematic in which all components and sensors are identified.",
+            "description": "Make a design of the setup in the form of a schematic in which all components and sensors are identified. Make electronic diagrams in which the wiring of the sensors is explained. Investigate what Arduino code needs to be developed to acquire the data from the sensors.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         },
         {
@@ -108,7 +108,7 @@
         {
             "id": "S2.3",
             "col": 0,
-            "row": 3,
+            "row": 5,
             "title": "Infographic concept",
             "description": "Create a concept for an infographic that gives a comprehensive overview of the EST system. Make sure that the infographic gives a general overview of the system (components, flow of energy, etc.) and provides technical details (dimensions, powers, etc.).",
             "links": [["The system definition track", "html/tracks-system.html"]]
@@ -116,10 +116,26 @@
         {
             "id": "M2.4",
             "col": 1,
-            "row": 3,
+            "row": 5,
             "title": "Simulink implementation",
-            "description": "Implement the elaborated mathematical model in Simulink and get this initial model to work for the parameters values of your real-world EST system.",
+            "description": "Implement the elaborated mathematical model in Simulink and get the first version of your simulation to work for the parameters values of your real-world EST system.",
             "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "E2.4",
+            "col": 2,
+            "row": 4,
+            "title": "Setup assembly",
+            "description": "Assemble your setup on the click board. Make sure that everything fits and connects well and that the setup looks neat. Make pictures of the assembled setup in the SOP.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "E2.5",
+            "col": 2,
+            "row": 5,
+            "title": "First measurement",
+            "description": "Prepare the first version of your measurement plan, describing the steps required to execute your experiment. Perform the measurement using your assembled setup. Reflect on whether another group would be able to repeat your experiment based on your measurement plan, and adjust it if necessary.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         }
     ],
     "connectors": [
@@ -127,7 +143,7 @@
         {"to": "M1.1"},
         {"to": "E1.1"},
         {"from": "S1.1", "to": "S1.2"},
-        {"from": "M1.1", "to": "S1.2", "toOffset":1, "type": "zigzag"},
+        {"from": "M1.1", "fromOffset": -1, "to": "S1.2", "toOffset":1, "type": "zigzag"},
         {"from": "E1.1", "to": "E1.2"},
         {"from": "S1.2", "fromSide": "right", "to": "E1.2", "toSide": "left"},
         {"from": "S1.2"},
@@ -140,15 +156,17 @@
         {"from": "M2.1", "to": "M2.2"},
         {"from": "M2.2", "fromSide": "right", "to": "E2.1", "toSide": "left"},
         {"from": "S2.1", "to": "S2.2"},
-        {"from": "M2.2", "to": "S2.2", "toOffset":1, "type": "zigzag"},
+        {"from": "M2.2", "fromOffset": -1, "to": "S2.2", "toOffset":1, "type": "zigzag"},
         {"from": "M2.2", "to": "M2.3"},
         {"from": "E2.1", "to": "E2.2"},
         {"from": "E2.2", "to": "E2.3"},
         {"from": "S2.2", "to": "S2.3"},
-        {"from": "S2.2", "fromSide": "right", "to": "M2.3", "toSide":"left"},
+        {"from": "S2.2", "fromOffset": 1, "to": "M2.4", "toOffset": -1, "type": "zigzag"},
         {"from": "M2.3", "to": "M2.4"},
+        {"from": "E2.3", "to": "E2.4"},
+        {"from": "E2.4", "to": "E2.5"},
         {"from": "S2.3"},
         {"from": "M2.4"},
-        {"from": "E2.3"}
+        {"from": "E2.5"}
     ]
 }

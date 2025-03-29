@@ -49,6 +49,7 @@ async function toggleIcon(stageIndex) {
     }else{
         activeStage = stageIndex;
     }
+    setCookie("activeStage", activeStage);
 
     for(let stage = 0; stage < stages; stage++){
         const icon = document.getElementById(`stage${stage + 1}Icon`);
@@ -513,7 +514,7 @@ async function initializeCanvas() {
     console.log("Initializing dimensions, blocks and cards.");
     await updateCanvas();
     console.log("Initialization completed.");
-    await toggleIcon(0);
+    await toggleIcon(Math.max(0, getCookie("activeStage")));
 }
 
 // Add event listener for window resize
