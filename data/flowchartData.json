@@ -76,7 +76,7 @@
         {
             "id": "S2.2",
             "col": 0,
-            "row": 3,
+            "row": 2,
             "title": "Parameter determination",
             "description": "Determine the parameters of all components (dimensions, material properties, etc.) of your real-world EST system that are required for the model.",
             "links": [["The system definition track", "html/tracks-system.html"]]
@@ -84,7 +84,7 @@
         {
             "id": "M2.3",
             "col": 1,
-            "row": 3,
+            "row": 2,
             "title": "Mathematical elaboration",
             "description": "Study the energy flow structure of the Simulink computer model and elaborate the mathematical models describing the physical phenomena such that they fit in this structure.",
             "links": [["The model development track", "html/tracks-model.html"]]
@@ -106,19 +106,19 @@
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         },
         {
-            "id": "S2.3",
+            "id": "S2.4",
             "col": 0,
             "row": 5,
-            "title": "Infographic concept",
-            "description": "Create a concept for an infographic that gives a comprehensive overview of the EST system. Make sure that the infographic gives a general overview of the system (components, flow of energy, etc.) and provides technical details (dimensions, powers, etc.).",
+            "title": "Concept infographic",
+            "description": "Create a concept infographic that serves as a good basis for the professional infographic required by the end of the project. Make sure that the infographic gives a general overview of the system (components, flow of energy, etc.) and provides technical details (dimensions, powers, etc.). Also make sure that the system parameters used by the model are identifiable in the infographic.",
             "links": [["The system definition track", "html/tracks-system.html"]]
         },
         {
             "id": "M2.4",
             "col": 1,
-            "row": 5,
+            "row": 3,
             "title": "Simulink implementation",
-            "description": "Implement the elaborated mathematical model in Simulink and get the first version of your simulation to work for the parameters values of your real-world EST system.",
+            "description": "Implement the elaborated mathematical model in Simulink. Test your code and make sure it works correctly for the parameters values of your real-world EST system.",
             "links": [["The model development track", "html/tracks-model.html"]]
         },
         {
@@ -133,8 +133,120 @@
             "id": "E2.5",
             "col": 2,
             "row": 5,
-            "title": "First measurement",
+            "title": "Conduct first measurement",
             "description": "Prepare the first version of your measurement plan, describing the steps required to execute your experiment. Perform the measurement using your assembled setup. Reflect on whether another group would be able to repeat your experiment based on your measurement plan, and adjust it if necessary.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "S2.3",
+            "col": 0,
+            "row": 4,
+            "title": "Finalize system parameters",
+            "description": "Finalize and tabulate the values of all system parameters corresponding to the reference design of your EST system. These parameters serve as the input for the model results.",
+            "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "M2.5",
+            "col": 1,
+            "row": 5,
+            "title": "Simulation results",
+            "description": "Generate results using the Simulink model to demonstrate that it is capable of assessing the performance of the real-world system. Interpret the results and explain how the model can be used to support optimization of the essential system parameters.",
+            "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "E3.1",
+            "col": 2,
+            "row": 0,
+            "title": "Reproducibility session",
+            "description": "Prepare your setup on the click board at the start of the reproducibility session. Conduct the experiment of another group (as assigned to you) and evaluate their experiment and SOP based on the provided rubric. Provide motivated feedback to the other group and reflect on the feedback provided to you.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "S3.1",
+            "col": 0,
+            "row": 0,
+            "title": "Propose design variations",
+            "description": "Propose three design variations (compared to the reference EST system) and motivate why these alternative designs are interesting to study. Define and tabulate the values of all system parameters corresponding to the three design variations. Make sure that the proposed variations clearly differ.",
+            "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "M3.1",
+            "col": 1,
+            "row": 1,
+            "title": "Simulink finalization",
+            "description": "Finalize your Simulink implementation. Test your code rigorously to make sure that the physical phenomena are described correctly and that the model runs stably for the proposed design variations.",
+            "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "M3.2",
+            "col": 1,
+            "row": 2,
+            "title": "Simulation results",
+            "description": "Based on the specification of all essential model parameters for the reference design, generate detailed simulation results based on which the performance of the EST system is assessed. Also simulate the proposed design variations using the developed model. Assess the performance of the EST system variations, paying attention to the validity of the results.",
+            "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "E3.2",
+            "col": 2,
+            "row": 1,
+            "title": "Measurement codes",
+            "description": "Develop the codes for the gathering and post-processing of the experimental data.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "E3.3",
+            "col": 2,
+            "row": 2,
+            "title": "Step-by-step measurement plan",
+            "description": "Create a measurement plan describing the steps required to execute your experiment and how to gather your experimental data. Include details regarding relevant sensor calibration steps.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "E3.4",
+            "col": 2,
+            "row": 3,
+            "title": "Conduct measurements",
+            "description": "Conduct experiments in accordance with the step-by-step measurement plan. Use the Arduino and post-processing scripts to visualize the experimental results. Make sure to perform the measurement multiple times and visualize the measurement uncertainty in the results.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "S3.2",
+            "col": 0,
+            "row": 3,
+            "title": "Compare design variations",
+            "description": "Compare the design variations making use of the simulation results. Based on this comparison, draw conclusions and formulate suggestions for improvement regarding the suitability of the proposed EST system.",
+            "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "S3.3",
+            "col": 0,
+            "row": 5,
+            "title": "Infographic finalization",
+            "description": "Finalize the infographic based on the feedback received on the interim version. Make sure that the infographic is tailored to the interests of a panel of experts.",
+            "links": [["The system definition track", "html/tracks-system.html"]]
+        },
+        {
+            "id": "M3.3",
+            "col": 1,
+            "row": 5,
+            "title": "Modeling process reflection",
+            "description": "Reflect on the model development process by explaining the capabilities and limitations of your Simulink model, the relation between the validation process and the real-world EST Simulink model, and by discussion the lessons learned throughout the project.",
+            "links": [["The model development track", "html/tracks-model.html"]]
+        },
+        {
+            "id": "E3.5",
+            "col": 2,
+            "row": 4,
+            "title": "Validity assessment",
+            "description": "Assess the validity of the considered physical law by comparing the experimental results with those based on the theory.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
+            "id": "E3.6",
+            "col": 2,
+            "row": 5,
+            "title": "Demonstration session",
+            "description": "At the start of the demo session, assemble the finalized version of your setup on the click board. Make sure that everything fits and connects well and that the setup looks neat. Make sure that the electronics and the software are ready to gather the experimental data and that safety precautions are taken into account. Demonstrate your validation experiment following the step-by-step measurement plan. Explain the quality of the gathered data in terms of resolution, range, sampling frequency etc. Show the postprocessing of the experimental data, with attention for repeatability and accuracy. After the demo, neatly disassemble your setup, clean the components, and return the toolbox in its original state.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         }
     ],
@@ -165,8 +277,29 @@
         {"from": "M2.3", "to": "M2.4"},
         {"from": "E2.3", "to": "E2.4"},
         {"from": "E2.4", "to": "E2.5"},
-        {"from": "S2.3"},
-        {"from": "M2.4"},
-        {"from": "E2.5"}
+        {"from": "S2.3", "to": "S2.4"},
+        {"from": "S2.3", "fromOffset": 1, "to": "M2.5", "toOffset": -1, "type": "zigzag"},
+        {"from": "M2.4", "to": "M2.5"},
+        {"from": "S2.4"},
+        {"from": "M2.5"},
+        {"from": "E2.5"},
+        {"to": "S3.1"},
+        {"to": "M3.1"},
+        {"to": "E3.1"},
+        {"from": "S3.1", "fromOffset": 1, "to": "M3.1", "toOffset": -1, "type": "zigzag"},
+        {"from": "M3.1", "to": "M3.2"},
+        {"from": "E3.1", "to": "E3.2"},
+        {"from": "E3.2", "to": "E3.3"},
+        {"from": "E3.3", "to": "E3.4"},
+        {"from": "S3.1", "to": "S3.2"},
+        {"from": "M3.2", "fromOffset": -1, "to": "S3.2", "toOffset":1, "type": "zigzag"},
+        {"from": "S3.2", "to": "S3.3"},
+        {"from": "M3.2", "to": "M3.3"},
+        {"from": "E3.4", "to": "E3.5"},
+        {"from": "E3.5", "fromOffset": -1, "to": "M3.3", "toOffset":1, "type": "zigzag"},
+        {"from": "E3.5", "to": "E3.6"},
+        {"from": "E3.6"},
+        {"from": "M3.3"},
+        {"from": "S3.3"}
     ]
 }

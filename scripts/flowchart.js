@@ -10,9 +10,13 @@ let cards = {};
 let connectors = {};
 let activeStage = -1;
 const stages = 3;
+const minWidth = 360; // Must be consistent with the CSS (var(--min-width))
+const maxWidth = 2*minWidth; // Must be consistent with the CSS of the container
+let fontSize = null;
 
 // Constants
-const fontSize = 17;
+const fontMaxSize = 18;
+const fontMinSize = 14;
 const textPadding = 10;
 const strokeWidth = 3;
 const strokeColors = {
@@ -450,6 +454,9 @@ async function updateCanvas() {
     vSpace = 4*hSpace;
     vPadding = 2*hSpace;
 
+    let fontScale = (canvases[0].width - minWidth)/(maxWidth - minWidth);
+    fontSize = Math.round(fontMinSize + (fontMaxSize - fontMinSize) * fontScale);
+
     // Update the grid
     await updateBlocks();
     await updateCards();
@@ -499,10 +506,6 @@ async function draw() {
     // Add the active card
     if (activeBlock && activeBlock[1] == activeStage+1) {
         canvases[activeStage].add(...cards[activeBlock]);
-        // const overflow = cards[activeBlock][0].top + cards[activeBlock][0].height + strokeWidth - canvases[activeStage].height;
-        // if (overflow > 0) {
-        //     canvases[activeStage].setHeight(canvases[activeStage].height + overflow + vPadding);
-        // }
     }
 
     // Render all elements
