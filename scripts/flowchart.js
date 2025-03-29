@@ -9,7 +9,7 @@ let blocks = {};
 let cards = {};
 let connectors = {};
 let activeStage = -1;
-const stages = 2;
+const stages = 3;
 
 // Constants
 const fontSize = 17;
