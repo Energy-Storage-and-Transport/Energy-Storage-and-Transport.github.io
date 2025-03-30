@@ -1,0 +1,127 @@
+.toggle, [id^=drop] {
+    display: none;
+}
+   
+nav {
+    background-color: var(--tue-red);
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: calc(-1*var(--body-padding));
+}
+
+nav ul {
+    float: left;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+nav ul li {
+    margin: 0px;
+    display: inline-block;
+    float: left;
+    background-color: var(--tue-red);
+}
+
+/* Navigation links */
+nav a {
+    display: block;
+    padding: 10px 16px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+nav a:hover, nav ul li ul li:hover { background-color: black; }
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 40px;
+}
+
+nav ul li:hover > ul { display: inherit; }
+
+nav ul ul li {
+    width: 170px;
+    float: none;
+    display: list-item;
+    position: relative;
+}
+   
+nav a:not(only-child):after { content: ' ▸'; }
+nav a:hover:not(only-child):after { content: ' ▾'; }
+nav a:only-child:after, nav a:hover:only-child:after { content: ''; }
+
+/* Hamburger mode */
+@media all and (max-width : 768px) {
+
+    .toggle + a,
+    .menu { 
+        display: none; 
+    }
+
+    .toggle {
+        display: block;
+        background-color: var(--tue-red);
+        padding: 10px 16px;
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        border: none;
+        width: 100%;
+    }
+
+    .hamburger {
+        font-size: 24px;
+        padding: 5px 16px;
+    }
+
+    .toggle:hover { 
+        background-color: black;
+        width: 100%; 
+    }
+
+    [id^=drop]:checked ~ ul { display: block; }
+    [id^=drop]:checked ~ .toggle { background-color: dimgray; }
+    [id^=drop]:checked ~ .toggle:hover { background-color: black; }
+    [id^=drop]:checked ~ .toggle:after { content: ' ▾'; }
+    [id^=drop]:not(:checked) ~ .toggle:after { content: ' ▸'; }
+
+    nav ul {
+        width: 100%;
+    }
+
+    nav ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul ul .toggle,
+    nav ul ul a { padding: 10px 32px; }
+
+    nav a:hover { 
+        background-color: black;
+        width: 100%;
+    }
+
+    nav ul li ul li .toggle,
+    nav ul ul a { background-color: dimgray; }
+
+    nav ul ul {
+        float: none;
+        position: static;
+        color: white;
+    }
+
+    nav ul li:hover > ul { display: none; }
+
+    nav ul ul li {
+        display: block;
+        width: 100%;
+    }
+}

@@ -1,0 +1,31 @@
+:root {
+    --tue-red: rgb(200,25,25);
+    --tue-red-opaque: rgba(200,25,25,0.3);
+    --max-width: 1100px;
+    --min-width: 360px;
+    --body-padding: 10px;
+}
+  
+html {
+    font-family: Verdana, Geneva, sans-serif;
+    counter-reset: H2;
+}
+
+body {
+    max-width: var(--max-width);
+    margin: auto;
+    margin-top: 70px;
+    padding-left: var(--body-padding);
+    padding-right: var(--body-padding);
+
+    counter-reset: figures;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 40px;
+}
+  
+em {
+    color: var(--tue-red);
+    font-weight: italic;
+}

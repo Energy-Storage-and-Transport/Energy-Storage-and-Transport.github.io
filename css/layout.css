@@ -1,0 +1,164 @@
+/*---------------------------------*/
+/* BLOCKS                          */
+/*---------------------------------*/
+
+/* General block layout */
+div.block {
+    margin: 10px 0px;
+    border: solid 4px var(--tue-red);
+    padding:5px 10px 5px 10px;
+  }
+  
+  div.block::before {
+    background-color: var(--tue-red);
+    color: white;
+    padding:0px 20px 4px 16px;
+    margin-left: -10px;
+    font-variant: small-caps;
+    border: none;
+    display: inline-block;
+  }
+  
+  /*Literature*/
+  div.literature::before {
+    content: "Background reading";
+  }
+  
+  /*Inspirational reads*/
+  div.inspiration::before {
+    content: "Inspirational reads";
+  }
+  
+  /*Challenge block*/
+  div.challenge::before {
+    content: "Challenge";
+  }
+  
+  /*Project goals block*/
+  div.projectgoals::before {
+    content: "Project goal";
+  }
+  
+  /*Learning goals block*/
+  div.learninggoals::before {
+    content: "Learning goals";
+  }
+  
+  /*Track objective block*/
+  div.trackobjectives::before {
+    content: "Track objectives";
+  }
+  
+  /*Tasks block*/
+  div.objective::before {
+    content: "tasks";
+  }
+  
+  /*Questions block*/
+  div.questions::before {
+    content: "questions to keep in mind";
+  }
+  
+  /*Deliverables*/
+  div.deliverable::before {
+    content: "deliverables";
+  }
+  
+  /*Agenda*/
+  div.agenda::before {
+    content: "agenda";
+  }
+  
+  /*References*/
+  div.references::before {
+    content: "References";
+  }
+  
+  /*---------------------------------*/
+  /* TABLES                          */
+  /*---------------------------------*/
+  
+  /*General*/
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    border: 2px solid var(--tue-red);
+  }
+  
+  
+  table th {
+    background-color: var(--tue-red-opaque);
+  }
+  
+  table.TabB th,table.TabB td{
+    border: 2px solid rgba(25,200,25,1)
+  }
+  
+  table.TabB th{
+    background-color: rgba(25,200,25,0.3)
+  }
+  
+  table.TabC th,table.TabC td{
+    border: 2px solid rgba(25,25,200,1)
+  }
+  
+  table.TabC th{
+    background-color: rgba(25,25,200,0.3)
+  }
+  
+  table caption {
+    caption-side: bottom;
+    color: var(--tue-red);
+    font-variant: small-caps;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  /*Cell shading (grey)*/
+  td.bgd, tr.bgd {
+    background: rgba(0,0,0,0.1);
+  }
+  
+  /*---------------------------------*/
+  /* OTHERS                          */
+  /*---------------------------------*/
+  
+  figure img, figure figcaption {
+    display: block;
+    margin: auto;
+    max-width: 1000px;
+  }
+  
+  figure figcaption {
+    color: var(--tue-red);
+    font-variant: small-caps;
+    margin-top: 10px;
+  }
+  
+  figure figcaption:before {
+    content: 'Fig. ' counter(figures) ':';
+    counter-increment: figures;
+  }
+  
+  div.toc {
+    background-color: var(--tue-red-opaque);
+    border: 2px solid var(--tue-red);
+    display: inline-block;
+    padding-right: 20px;
+  }
+  
+  div.toc ol { counter-reset: item }
+  div.toc ol>li { display: block }
+  div.toc ol>li:before { content: counters(item, ".") " "; counter-increment: item }
+  
+  .svg	{
+      width: 100%;
+  }
+  
+  iframe, #map {
+    display: block;
+    margin: 0 auto;
+  }
