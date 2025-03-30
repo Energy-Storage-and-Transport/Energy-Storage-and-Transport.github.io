@@ -6,6 +6,7 @@ function setLinks() {
     setLink('report', "https://canvas.tue.nl/courses/27554/assignments/135999");
     setLink('presentation', "https://canvas.tue.nl/courses/27554/assignments/135998");
     setLink('competition', "https://canvas.tue.nl/courses/27554/assignments/135991");
+    setLink('contact', "https://canvas.tue.nl/courses/27554/pages/homepage/#contact");
     setLink('practical', "https://canvas.tue.nl/courses/27554/assignments/118570"); // To be updated
     setLink('measurementtheory', "https://canvas.tue.nl/courses/27554/quizzes/24284"); // To be updated
     setLink('sopv2', "https://canvas.tue.nl/courses/27554/assignments/118685"); // To be updated
