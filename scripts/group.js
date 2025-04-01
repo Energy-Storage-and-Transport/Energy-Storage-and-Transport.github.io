@@ -17,7 +17,7 @@ function changeGroup() {
   let oldgroup = getCookie("group");
   let newgroup = -1;
 
-  const selects = document.querySelectorAll('select');
+  const selects = document.querySelectorAll('select[name="group"]');
   selects.forEach((select) => {
     if (select.value > -1 && select.value != oldgroup){
       newgroup = select.value;
@@ -30,7 +30,7 @@ function changeGroup() {
 function setTeamData(team){
 
   // Set selectors
-  const selects = document.querySelectorAll('select');
+  const selects = document.querySelectorAll('select[name="group"]');
   selects.forEach((select) => { select.value = team; });
 
   // Only proceed if a team as been selected (i.e., team >= 0)
@@ -107,7 +107,7 @@ function setTeamSchedule(team){
 }
 
 function initGroups() {
-  const selects = document.querySelectorAll('select');
+  const selects = document.querySelectorAll('select[name="group"]');
   selects.forEach((select) => {
     for (let i = 0; i < groupKeys.length; i++) {
       let newOption = new Option('Team ' + groupKeys[i].padStart(2, '0'), i);
@@ -129,30 +129,30 @@ function groupCompare(a, b){
   };
 }
 
-function slotCompare(a, b){
+// function slotCompare(a, b){
 
-  const weekDays = {"monday":1, "tuesday":2, "wednesday":3, "thursday":4, "friday":5};
-  let daya = weekDays[a["Slot"].split(' ')[0].trim().toLowerCase()];
-  let dayb = weekDays[b["Slot"].split(' ')[0].trim().toLowerCase()];
+//   const weekDays = {"monday":1, "tuesday":2, "wednesday":3, "thursday":4, "friday":5};
+//   let daya = weekDays[a["Slot"].split(' ')[0].trim().toLowerCase()];
+//   let dayb = weekDays[b["Slot"].split(' ')[0].trim().toLowerCase()];
 
-  if(daya!=dayb){
-    return daya-dayb;
-  }
+//   if(daya!=dayb){
+//     return daya-dayb;
+//   }
 
-  let timea = a["Slot"].split(' ')[1].trim();
-  let houra = parseInt(timea.split(':')[0].trim());
-  let timeb = b["Slot"].split(' ')[1].trim();
-  let hourb = parseInt(timeb.split(':')[0].trim());
+//   let timea = a["Slot"].split(' ')[1].trim();
+//   let houra = parseInt(timea.split(':')[0].trim());
+//   let timeb = b["Slot"].split(' ')[1].trim();
+//   let hourb = parseInt(timeb.split(':')[0].trim());
 
-  if(houra!=hourb){
-    return houra-hourb;
-  }
+//   if(houra!=hourb){
+//     return houra-hourb;
+//   }
   
-  let mina  = parseInt(timea.split(':')[1].trim());
-  let minb  = parseInt(timeb.split(':')[1].trim());
+//   let mina  = parseInt(timea.split(':')[1].trim());
+//   let minb  = parseInt(timeb.split(':')[1].trim());
 
-  return mina-minb;
-}
+//   return mina-minb;
+// }
 
 function groupsString(groups){
   let groupsets = [];
