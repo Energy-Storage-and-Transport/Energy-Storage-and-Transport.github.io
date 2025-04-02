@@ -36,7 +36,6 @@ function setToolboxData(toolbox){
 }
 
 async function fillToolboxTable(toolbox) {
-    console.log(toolbox);
     const table = document.getElementById("components");
     
     // Hide the table if toolbox == -1

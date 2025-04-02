@@ -5,13 +5,6 @@ request.send(null);
 const groupInfo = JSON.parse(request.responseText);
 const groupKeys = Object.keys(groupInfo);
 
-// Load the schedule
-var request = new XMLHttpRequest();
-request.open("GET", "data/Schedule.json", false);
-request.send(null);
-const scheduleInfo = JSON.parse(request.responseText);
-const scheduleKeys = Object.keys(scheduleInfo);
-
 // Change the group (called when selector is changed)
 function changeGroup() {
   let oldgroup = getCookie("group");
@@ -69,39 +62,65 @@ function setTeamFiles(team){
   demandFile.replaceChild(demandLink, demandFile.childNodes[0]);
 }
 
-function setTeamSchedule(team){
+async function setTeamSchedule(team){
 
-  // Schedule
-  for (let i=0; i<scheduleKeys.length; i++){
-    let key = scheduleKeys[i];
-    let info;
-    for (let j=0; j<scheduleInfo[key].length; j++){
-      info = scheduleInfo[key][j]
-      if(info["groups"].includes(parseInt(groupKeys[team]))){
-        break;
-      }
-    }
-
-    slotObject = document.querySelector("#" + key + "-slot");
-    if (slotObject !== null){
-      slotObject.innerHTML = info["slot"];  
-    }
-
-    let room = info["rooms"];
-    if(Array.isArray(info["rooms"])){
-      room = room[info["groups"].indexOf(parseInt(groupKeys[team]))];
-    };
-
-    roomObject = document.querySelector("#" + key + "-room");
-    if (roomObject !== null){
-      roomObject.innerHTML = room;
-    }
+  const table = document.getElementById("activities");
     
-    if ("weeks" in info){
-      weekObject = document.querySelector("#" + key + "-weeks");
-      if (weekObject !== null){
-        weekObject.innerHTML = info["weeks"];
+  // Hide the table if team == -1
+  if(team==-1){
+      table.style.display = "none";
+      return;
+  }
+
+  // Show the table if a team is selected
+  table.style.display = "table";
+
+  // Remove all rows except the first (header row)
+  while (table.rows.length > 1) {
+      table.deleteRow(1);
+  }
+
+  activity_names = {
+    "Opening lecture": "Opening lecture",
+    "Tutor-supervised meeting": "Tutor-supervised meeting",
+    "Lab session": "SIM/zone meeting",
+    "Measurement practical": "Measurement practical",
+    "Technical briefing (presentation)": "Presentation",
+    "Closure lecture": "Closure lecture",
+    "Individual assessment": "Evaluation"
+  };
+
+  // Load the Excel schedule
+  let [schedule, activities] = await readExcelSchedule("data/Schedule2425.xlsx");
+  schedule = schedule.filter(r=>r.Groups.includes(parseInt(groupKeys[team])));
+
+  for (const [activity_key, activity_name] of Object.entries(activity_names)) {
+    let filtered_schedule = schedule.filter(r=>(r.Activity==activity_name));
+    for(let i=0; i<filtered_schedule.length; i++){
+      let activity = filtered_schedule[i];
+
+      // Create a new row
+      let row = table.insertRow();
+
+      // Activity name
+      if(i==0){
+        let cell = row.insertCell();
+        cell.setAttribute("rowspan", filtered_schedule.length);
+        cell.innerHTML = activity_name;
+        firstEntry = false;
       }
+      
+      // Weeks
+      cell = row.insertCell();
+      cell.innerHTML = activity.Weeks;
+
+      // Slot
+      cell = row.insertCell();
+      cell.innerHTML = activity.Slot;
+
+      // Rooms
+      cell = row.insertCell();
+      cell.innerHTML = activity.Rooms;
     }
   }
 }
@@ -201,6 +220,9 @@ async function fillScheduleTables(fname) {
   let tables = document.getElementsByTagName("table");
   for(table of tables){
     activity = table.getAttribute('id');
+    if(activity=="activities"){
+      continue;
+    }
 
     if(!activities.includes(activity)){ 
       console.warn(activity + " not found in Excel file");
@@ -270,4 +292,115 @@ function addSessionToTable(table, session){
   row.appendChild(cell);
 
   table.appendChild(row);
+}
+
+//-----------------------------------//
+// Read the XLSX schedule            //
+//-----------------------------------//
+
+async function readExcelSchedule(fname){
+
+  // Read the Excel file
+  const response = await fetch(fname);
+  const file     = await response.arrayBuffer();
+  const workbook = XLSX.read(file);
+
+  // Get the activities
+  const activities = XLSX.utils.sheet_to_json(workbook.Sheets["Activities"], {header: 1}).flat(1);
+
+  // Get the groupsets
+  const groups = XLSX.utils.sheet_to_json(workbook.Sheets["Groups"], {header: 1});
+
+  let groupsets = {};
+  let levels = ["EST", undefined, undefined, undefined, undefined, undefined];
+  groupsets[levels[0]] = []
+  for(row of groups){
+      if(row.length==0){
+          break;
+      }
+
+      group = row[0];
+      groupsets['EST'].push(group);
+
+      for(let level=1; level<levels.length; level++){
+          let groupset = row[level];
+
+          // Update of the group set label if required
+          if(groupset!==undefined){
+              levels[level]=groupset;
+          }
+
+          // Assign the group to the set
+          if(levels[level] in groupsets){
+              groupsets[levels[level]].push(group);
+          }else{
+              if(levels[level]===undefined){
+                  console.error("Group label expected in the first row of the Excel groups worksheet.");
+              }
+              groupsets[levels[level]] = [group]; 
+          }
+      }
+  }
+
+  // Get the schedule
+  const schedule = XLSX.utils.sheet_to_json(workbook.Sheets["Schedule"]);
+
+  // Set the groups
+  for(row of schedule){
+      let label = row["Groups [1]"];
+      
+      if(row["Groups [2]"]!==undefined){
+          label += "\\." + row["Groups [2]"];
+      }else{
+          label += "\\.?(I|II)?";
+      }
+
+      if(row["Groups [3]"]!==undefined){
+          label += "\\." + row["Groups [3]"];
+      }else{
+          label += "\\.?(1|2)?";
+      }
+
+      if(row["Groups [4]"]!==undefined){
+          label += " \\(" + row["Groups [4]"] + "\\)";
+      }else{
+          label += " ?(\\(odd\\)|\\(even\\))?";
+      }
+
+      if(row["Groups [5]"]!==undefined){
+          label += " \\(" + row["Groups [5]"] + "\\)";
+      }else{
+          label += " ?(\\(presentation 1\\)|\\(presentation 2\\)|\\(presentation 3\\)|\\(presentation 4\\))?";
+      }
+
+      // Create the regular expression object
+      const re = new RegExp(label);
+      row["Groups"] = [];
+      let matchedkeys = [];
+      for (const [key, value] of Object.entries(groupsets)) {
+          if(re.test(key)){
+              let matched = false;
+              for(matchedkey of matchedkeys){
+                  if(key.startsWith(matchedkey)){
+                      matched=true;
+                      break;
+                  }
+              }
+              if(!matched){
+                  matchedkeys.push(key);
+                  row["Groups"] = row["Groups"].concat(value);
+              }
+          }
+      }
+  }
+
+  // Get the time slots
+  const slots = Object.fromEntries(XLSX.utils.sheet_to_json(workbook.Sheets["Slots"], {header: 1}));
+  
+  // Set the slot
+  for(row of schedule){
+      row["Slot"] = row["Slot [day]"] + " " + slots[row["Slot [time]"]];
+  }
+
+  return [schedule, activities];
 }
