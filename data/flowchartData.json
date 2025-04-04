@@ -15,7 +15,10 @@
             "row": 0,
             "title": "Supply & demand analysis",
             "description": "Install the Simulink EST model and use it to analyze the supply and demand signals. Define requirements for the EST system, such as storage duration and storage capacity.",
-            "links": [["The modeling track", "html/tracks-model.html"]]
+            "links": [["The modeling track", "html/tracks-model.html"],
+                      ["Supply & demand signals", "html/studyguide-data.html#supplyanddemandsignals"],
+                      ["Simulink and Matlab tutorials", "html/studyguide-data.html#tutorials"],
+                      ["Github model (documentation)", "https://github.com/Energy-Storage-and-Transport/EST-model/#readme"]]
         },
         {
             "id": "E1.1",
@@ -23,7 +26,8 @@
             "row": 0,
             "title": "Toolbox exploration",
             "description": "Explore the experimental toolboxes during your lab session.",
-            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+            "links": [["The experimental validation track", "html/tracks-experiment.html"],
+                      ["Toolbox inventory", "html/studyguide-data.html#toolboxinventory"]]
         },
         {
             "id": "S1.2",
@@ -71,7 +75,8 @@
             "row": 1,
             "title": "Measurement specification",
             "description": "Specify what needs to be measured by the experiment to validate the considered physical law. Explore the components and sensors required for the experimental setup and study how they should connect to each other.",
-            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+            "links": [["The experimental validation track", "html/tracks-experiment.html"],
+                      ["Toolbox inventory", "html/studyguide-data.html#toolboxinventory"]]
         },
         {
             "id": "S2.2",
@@ -95,7 +100,8 @@
             "row": 2,
             "title": "Setup design",
             "description": "Make a design of the setup in the form of a schematic in which all components and sensors are identified. Make electronic diagrams in which the wiring of the sensors is explained. Investigate what Arduino code needs to be developed to acquire the data from the sensors.",
-            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+            "links": [["The experimental validation track", "html/tracks-experiment.html"],
+                      ["Arduino tutorial", "html/studyguide-data.html#tutorials"]]
         },
         {
             "id": "E2.3",
@@ -111,7 +117,8 @@
             "row": 5,
             "title": "Concept infographic",
             "description": "Create a concept infographic that serves as a good basis for the professional infographic required by the end of the project. Make sure that the infographic gives a general overview of the system (components, flow of energy, etc.) and provides technical details (dimensions, powers, etc.). Also make sure that the system parameters used by the model are identifiable in the infographic.",
-            "links": [["The system definition track", "html/tracks-system.html"]]
+            "links": [["The system definition track", "html/tracks-system.html"],
+                      ["Infographic examples", "html/tracks-system.html#infographicexamples"]]
         },
         {
             "id": "M2.4",
@@ -119,7 +126,8 @@
             "row": 3,
             "title": "Simulink implementation",
             "description": "Implement the elaborated mathematical model in Simulink. Test your code and make sure it works correctly for the parameters values of your real-world EST system.",
-            "links": [["The model development track", "html/tracks-model.html"]]
+            "links": [["The model development track", "html/tracks-model.html"],
+                      ["Simulink and Matlab tutorials", "html/studyguide-data.html#tutorials"]]
         },
         {
             "id": "E2.4",
@@ -223,7 +231,8 @@
             "row": 5,
             "title": "Infographic finalization",
             "description": "Finalize the infographic based on the feedback received on the interim version. Make sure that the infographic is tailored to the interests of a panel of experts.",
-            "links": [["The system definition track", "html/tracks-system.html"]]
+            "links": [["The system definition track", "html/tracks-system.html"],
+                      ["Infographic examples", "html/tracks-system.html#infographicexamples"]]
         },
         {
             "id": "M3.3",

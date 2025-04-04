@@ -22,7 +22,7 @@
     <i class="fa-solid fa-database"></i> Data and links
   </h1>
 
-  <h2>Supply & demand signals</h2>        
+  <h2 id="supplyanddemandsignals">Supply & demand signals</h2>        
   <div>
   <label for="group">Select your team:</label>
   <select name="group" onchange="changeGroup()">
@@ -56,16 +56,19 @@
       <th>Link</th>
       </tr>
       <tr>
-          <td>Simulink baseline model</td>
-          <td><a class="github">Github code and documentation</a></td>
+          <td rowspan="2">Simulink baseline model on Github</td>
+          <td><a class="github">Code</a></td>
       </tr>
+      <tr>
+        <td><a class="githubdocs">Documentation</a></td>
+    </tr>
       <tr>
       <td>Modeling example (transmission lines)</td>
       <td><a href="https://canvas.tue.nl/courses/24022/pages/model-development">Slides</a> </td>
       </tr>
   </table>
 
-  <h2>Toolbox inventory</h2>
+  <h2 id="toolboxinventory">Toolbox inventory</h2>
   <div>
     <label for="toolbox">Select your toolbox:</label>
     <select name="toolbox" onchange="changeToolbox()">
@@ -81,7 +84,7 @@
       </tr>
     </table>
 
-    <h2>Tutorials</h2>
+    <h2 id="tutorials">Tutorials</h2>
     <p>
       To make sure that your team functions well, it is important that all members feel confident regarding the tools to be used in the project. We therefore recommend the following tutorials:
       </p>

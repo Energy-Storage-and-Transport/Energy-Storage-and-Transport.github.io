@@ -12,6 +12,7 @@ function setLinks() {
     setLink('sopv2', "https://canvas.tue.nl/courses/27554/assignments/118685"); // To be updated
     setLink('simulink', "https://canvas.tue.nl/courses/27554/assignments/118622"); // To be updated
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
+    setLink('githubdocs', "https://github.com/Energy-Storage-and-Transport/EST-model/#readme");
     setLink('infoskills', "https://canvas.tue.nl/courses/30390"); // To be updated
     //setLink('specsheets', "https://canvas.tue.nl/courses/27554/pages/toolbox-specifications"); TODO: Replace link in index.html. Was not working when deployed on github.
 }
