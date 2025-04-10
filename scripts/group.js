@@ -27,13 +27,15 @@ function setTeamData(team){
   selects.forEach((select) => { select.value = team; });
 
   // Only proceed if a team as been selected (i.e., team >= 0)
-  if (team < 0){ return; }
+  // if (team < 0){ return; }
 
   setTeamFiles(team);
   setTeamSchedule(team);
 }
 
 function setTeamFiles(team){
+  
+  if (team < 0){ return; }
   
   supplyObject = document.querySelector('#supplydescription');
   if (supplyObject === null){ return; }
