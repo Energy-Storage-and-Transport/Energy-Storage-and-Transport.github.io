@@ -106,7 +106,7 @@ async function setTeamSchedule(team){
       if(i==0){
         let cell = row.insertCell();
         cell.setAttribute("rowspan", filtered_schedule.length);
-        cell.innerHTML = activity_name;
+        cell.innerHTML = activity_key;
         firstEntry = false;
       }
       
@@ -119,8 +119,13 @@ async function setTeamSchedule(team){
       cell.innerHTML = activity.Slot;
 
       // Rooms
+      let rooms = activity.Rooms.split(',').map(room => room.trim());
+      let group = activity.Groups.indexOf(parseInt(groupKeys[team]));
+      let groups_per_room = activity.Groups.length / rooms.length;
+      let group_rooms = Math.floor(group / groups_per_room);
+
       cell = row.insertCell();
-      cell.innerHTML = activity.Rooms;
+      cell.innerHTML = rooms[group_rooms];
     }
   }
 }
