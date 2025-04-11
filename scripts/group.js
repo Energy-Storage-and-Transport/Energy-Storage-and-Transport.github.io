@@ -26,17 +26,29 @@ function setTeamData(team){
   const selects = document.querySelectorAll('select[name="group"]');
   selects.forEach((select) => { select.value = team; });
 
-  // Only proceed if a team as been selected (i.e., team >= 0)
-  // if (team < 0){ return; }
-
+  // Set the supply and demand data
   setTeamFiles(team);
+
+  // Set the team schedule
   setTeamSchedule(team);
 }
 
 function setTeamFiles(team){
   
-  if (team < 0){ return; }
-  
+  const table = document.getElementById("supplyanddemandtable");
+  if(table==null){
+    return;
+  }
+
+  // Hide the table if team == -1
+  if(team==-1){
+      table.style.display = "none";
+      return;
+  }
+
+  // Show the table if a team is selected
+  table.style.display = "table";
+
   supplyObject = document.querySelector('#supplydescription');
   if (supplyObject === null){ return; }
 
@@ -67,7 +79,10 @@ function setTeamFiles(team){
 async function setTeamSchedule(team){
 
   const table = document.getElementById("activities");
-    
+  if(table==null){
+    return;
+  }  
+
   // Hide the table if team == -1
   if(team==-1){
       table.style.display = "none";
