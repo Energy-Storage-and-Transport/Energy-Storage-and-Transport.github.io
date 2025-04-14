@@ -14,8 +14,13 @@ function setLinks() {
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
     setLink('githubdocs', "https://github.com/Energy-Storage-and-Transport/EST-model/#readme");
     setLink('infoskills', "https://canvas.tue.nl/courses/30390"); // To be updated
-    //setLink('specsheets', "https://canvas.tue.nl/courses/27554/pages/toolbox-specifications"); TODO: Replace link in index.html. Was not working when deployed on github.
+    setLink('interimstep1', "https://canvas.tue.nl/courses/27554/assignments/135754");
+    setLink('interimstep2', "https://canvas.tue.nl/courses/27554/assignments/135755");
+    setLink('finalstep1', "https://canvas.tue.nl/courses/27554/assignments/135855");
+    setLink('finalstep2', "https://canvas.tue.nl/courses/27554/assignments/135856");
 }
+
+
 
 function setLink(classname, url) {
     const selects = document.querySelectorAll('a.' + classname);

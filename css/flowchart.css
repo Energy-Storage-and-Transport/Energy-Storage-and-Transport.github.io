@@ -50,9 +50,12 @@
 }
 
 .stage1-deliver-container a, .stage2-deliver-container a, .stage3-deliver-container a{
-    font-weight: bold;
     color: white;
     padding-bottom: 0px;
+}
+
+.stage1-deliver-container div > a, .stage2-deliver-container div > a, .stage3-deliver-container div > a{
+    font-weight: bold;
 }
 
 .stage1-deliver-container i, .stage2-deliver-container i, .stage3-deliver-container i{
