@@ -7,8 +7,8 @@ function setLinks() {
     setLink('presentation', "https://canvas.tue.nl/courses/27554/assignments/135998");
     setLink('competition', "https://canvas.tue.nl/courses/27554/assignments/135991");
     setLink('contact', "https://canvas.tue.nl/courses/27554/pages/homepage/#contact");
-    setLink('practical', "https://canvas.tue.nl/courses/27554/assignments/118570"); // To be updated
-    setLink('measurementtheory', "https://canvas.tue.nl/courses/27554/quizzes/24284"); // To be updated
+    setLink('practical', "https://canvas.tue.nl/courses/27554/assignments/135992");
+    setLink('measurementtheory', "https://canvas.tue.nl/courses/27554/assignments/135398");
     setLink('sopv2', "https://canvas.tue.nl/courses/27554/assignments/118685"); // To be updated
     setLink('simulink', "https://canvas.tue.nl/courses/27554/assignments/118622"); // To be updated
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
