@@ -10,10 +10,9 @@ function setLinks() {
     setLink('practical', "https://canvas.tue.nl/courses/27554/assignments/135992");
     setLink('measurementtheory', "https://canvas.tue.nl/courses/27554/assignments/135398");
     setLink('sopv2', "https://canvas.tue.nl/courses/27554/assignments/118685"); // To be updated
-    setLink('simulink', "https://canvas.tue.nl/courses/27554/assignments/118622"); // To be updated
     setLink('github', "https://github.com/Energy-Storage-and-Transport/EST-model");
     setLink('githubdocs', "https://github.com/Energy-Storage-and-Transport/EST-model/#readme");
-    setLink('infoskills', "https://canvas.tue.nl/courses/30390"); // To be updated
+    setLink('infoskills', "https://canvas.tue.nl/courses/27554/pages/professional-skills-information-literacy-basics-for-me-students-only");
     setLink('interimstep1', "https://canvas.tue.nl/courses/27554/assignments/135754");
     setLink('interimstep2', "https://canvas.tue.nl/courses/27554/assignments/135755");
     setLink('finalstep1', "https://canvas.tue.nl/courses/27554/assignments/135855");
