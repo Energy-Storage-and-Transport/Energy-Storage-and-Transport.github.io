@@ -2,6 +2,7 @@ function setLinks() {
     setLink('gonogo', "https://canvas.tue.nl/courses/27554/assignments/135990");
     setLink('poster', "https://canvas.tue.nl/courses/27554/assignments/135993");
     setLink('sopv1', "https://canvas.tue.nl/courses/27554/assignments/135996");
+    setLink('sopfeedback', "https://canvas.tue.nl/courses/27554/assignments/137810");
     setLink('sopfinal', "https://canvas.tue.nl/courses/27554/assignments/135997");
     setLink('report', "https://canvas.tue.nl/courses/27554/assignments/135999");
     setLink('presentation', "https://canvas.tue.nl/courses/27554/assignments/135998");
