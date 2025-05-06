@@ -72,9 +72,13 @@ async function fillToolboxTable(toolbox) {
         if (r[2]) {
             let links = [];
             r[2].split(";").forEach((s) => {
-                const [name, url] = s.trim().slice(1, -1).split(",");
+                const [name, ref] = s.trim().slice(1, -1).split(",");
                 const link = document.createElement("a");
-                link.href = url.trim();
+                let url = ref.trim();
+                if(url.startsWith("http")==false){
+                    url = "data/components/" + url;
+                }
+                link.href = url;
                 link.textContent = name.trim();
                 link.target = "_blank";
                 links.push(link);
