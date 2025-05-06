@@ -70,11 +70,24 @@ async function fillToolboxTable(toolbox) {
         //Specs
         cell = row.insertCell();
         if (r[2]) {
-            const link = document.createElement("a");
-            link.href = r[2];
-            link.textContent = "(link)";
-            link.target = "_blank";
+            let links = [];
+            r[2].split(";").forEach((s) => {
+                const [name, url] = s.trim().slice(1, -1).split(",");
+                const link = document.createElement("a");
+                link.href = url.trim();
+                link.textContent = name.trim();
+                link.target = "_blank";
+                links.push(link);
+            });
+            
+            // Append links to the cell, separated by commas
+            links.forEach((link, index) => {
             cell.appendChild(link);
+            if (index < links.length - 1) {
+                cell.appendChild(document.createTextNode(", "));
+            }
+    });
+
         } else {
             cell.innerHTML = "-";
         }
