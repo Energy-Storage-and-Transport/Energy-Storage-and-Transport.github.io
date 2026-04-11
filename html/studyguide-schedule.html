@@ -36,76 +36,6 @@
         <th>Slot</th>
         <th>Room</th>
       </tr>
-      <tr>
-        <td>Opening lecture</td>
-        <td id="opening-weeks">1</td>
-        <td id="opening-slot"></td>
-        <td id="opening-room"></td>
-      </tr>        
-      <tr class="bgd">
-        <td>Kick-off with tutor</td>
-        <td id="kickoff-weeks">1</td>
-        <td id="kickoff-slot"></td>
-        <td id="kickoff-room"></td>
-      </tr>
-      <tr>
-        <td rowspan="2">Tutor meeting</td>
-        <td id="tutor1-weeks"></td>
-        <td id="tutor1-slot"></td>
-        <td id="tutor1-room"></td>
-      </tr>
-      <tr>
-        <td id="tutor2-weeks"></td>
-        <td id="tutor2-slot"></td>
-        <td id="tutor2-room"></td>
-      </tr>
-      <tr class="bgd">
-        <td rowspan="2">Team meeting with coach</td>
-        <td id="coachopening-weeks">1</td>
-        <td id="coachopening-slot"></td>
-        <td id="coachopening-room"></td>
-      </tr>             
-      <tr class="bgd">
-        <td id="coach-weeks">2-8</td>
-        <td id="coach-slot"></td>
-        <td id="coach-room"></td>
-      </tr>
-      <tr>
-        <td>Library training</td>
-        <td id="library-weeks">2</td>
-        <td id="library-slot"></td>
-        <td id="library-room"></td>
-      </tr>        
-      <tr class="bgd">
-        <td>Social safety training</td>
-        <td id="socialsafety-weeks">2</td>
-        <td id="socialsafety-slot"></td>
-        <td id="socialsafety-room"></td>
-      </tr>   
-      <tr>
-        <td>Measurement practical</td>
-        <td id="practical-weeks">1-7</td>
-        <td id="practical-slot"></td>
-        <td id="practical-room"></td>
-      </tr>   
-      <tr class="bgd">
-        <td>Technical briefing (presentation)</td>
-        <td id="presentation-weeks">9</td>
-        <td id="presentation-slot"></td>
-        <td id="presentation-room"></td>
-      </tr>              
-      <tr>
-        <td>Closure lecture</td>
-        <td id="closure-weeks">9</td>
-        <td id="closure-slot"></td>
-        <td id="closure-room"></td>
-      </tr>
-      <tr class="bgd">
-        <td>Individual assessment</td>
-        <td id="assessment-weeks">9</td>
-        <td id="assessment-slot"></td>
-        <td id="assessment-room"></td>
-      </tr>
     </table>
 
     <h2 id="course">Course schedule</h2>
@@ -130,7 +60,7 @@
       </tr>
     </table>
   
-    <h3>Lab meetings</h3>
+    <h3>Lab sessions</h3>
     <table id="SIM/zone meeting">
       <tr>
         <th>Groups</th>
@@ -140,9 +70,19 @@
       </tr>
     </table>
   
+    <h3>Theory sessions</h3>
+    <table id="Theory session">
+      <tr>
+        <th>Groups</th>
+        <th>Weeks</th>
+        <th>Time slot</th>
+        <th>Location</th>
+      </tr>
+    </table>
+
     <h3>Tutor-supervised meetings</h3>
   
-    <h4>Weekly meetings (two per week)</h4>
+    <h4>Weekly meetings</h4>
     <table id="Tutor-supervised meeting">
       <tr>
         <th>Groups</th>
@@ -164,6 +104,10 @@
   
     <h3>Measurement practical</h3>
   
+    <p>
+      Students have to register for time slots via <a class="practical">Canvas</a>. 
+    </p>
+
     <table id="Measurement practical">
       <tr>
         <th>Groups</th>
@@ -186,7 +130,7 @@
 	<!--SCRIPTS AT END OF BODY-->
 	<script>
 		initGroups();
-    fillScheduleTables("data/Schedule2425.xlsx");
+    fillScheduleTables("data/Schedule2526.xlsx");
 		setLinks();
 	</script>
 </body>

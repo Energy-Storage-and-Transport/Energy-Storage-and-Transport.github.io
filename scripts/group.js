@@ -101,14 +101,14 @@ async function setTeamSchedule(team){
     "Opening lecture": "Opening lecture",
     "Tutor-supervised meeting": "Tutor-supervised meeting",
     "Lab session": "SIM/zone meeting",
-    "Measurement practical": "Measurement practical",
+    "Theory session": "Theory session",
     "Technical briefing (presentation)": "Presentation",
     "Closure lecture": "Closure lecture",
     "Individual assessment": "Evaluation"
   };
 
   // Load the Excel schedule
-  let [schedule, activities] = await readExcelSchedule("data/Schedule2425.xlsx");
+  let [schedule, activities] = await readExcelSchedule("data/Schedule2526.xlsx");
   schedule = schedule.filter(r=>r.Groups.includes(parseInt(groupKeys[team])));
 
   for (const [activity_key, activity_name] of Object.entries(activity_names)) {
@@ -170,31 +170,6 @@ function groupCompare(a, b){
   };
 }
 
-// function slotCompare(a, b){
-
-//   const weekDays = {"monday":1, "tuesday":2, "wednesday":3, "thursday":4, "friday":5};
-//   let daya = weekDays[a["Slot"].split(' ')[0].trim().toLowerCase()];
-//   let dayb = weekDays[b["Slot"].split(' ')[0].trim().toLowerCase()];
-
-//   if(daya!=dayb){
-//     return daya-dayb;
-//   }
-
-//   let timea = a["Slot"].split(' ')[1].trim();
-//   let houra = parseInt(timea.split(':')[0].trim());
-//   let timeb = b["Slot"].split(' ')[1].trim();
-//   let hourb = parseInt(timeb.split(':')[0].trim());
-
-//   if(houra!=hourb){
-//     return houra-hourb;
-//   }
-  
-//   let mina  = parseInt(timea.split(':')[1].trim());
-//   let minb  = parseInt(timeb.split(':')[1].trim());
-
-//   return mina-minb;
-// }
-
 function groupsString(groups){
   let groupsets = [];
   let groupset = [];
@@ -253,6 +228,7 @@ async function fillScheduleTables(fname) {
 
     // Filter the schedule for the specific activity
     activity_schedule = schedule.filter(row=>(row["Activity"]==activity))
+
     // activity_schedule.sort(slotCompare);
     activity_schedule.sort(groupCompare);
 
@@ -367,10 +343,33 @@ async function readExcelSchedule(fname){
   // Get the schedule
   const schedule = XLSX.utils.sheet_to_json(workbook.Sheets["Schedule"]);
 
+  function normalizeWeeksValue(value) {
+    if (typeof value !== "number") {
+      return value;
+    }
+
+    if (Number.isInteger(value)) {
+      return String(value);
+    }
+
+    // Render decimals with comma separator for display (e.g. 2.3 -> 2,3)
+    return value.toLocaleString("nl-NL", {
+      useGrouping: false,
+      maximumFractionDigits: 15
+    });
+  }
+
   // Set the groups
   for(row of schedule){
+      row["Weeks"] = normalizeWeeksValue(row["Weeks"]);
+
       let label = row["Groups [1]"];
-      
+
+      // If the label is not defined, we assume it is "EST" (all groups)
+      if(label===undefined){
+          label = "EST";
+      }
+
       if(row["Groups [2]"]!==undefined){
           label += "\\." + row["Groups [2]"];
       }else{
