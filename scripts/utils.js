@@ -1,11 +1,10 @@
 const COURSE_ID = "31139";
 
 const ASSIGNMENT_IDS = {
+    home:              undefined,
     gonogo:            "153956",
     poster:            "153962",
-    sopv1:             "",
-    sopfeedback:       "",
-    sopfinal:          "",
+    sopfeedback:       "153965",
     report:            "153968",
     presentation:      "153967",
     competition:       "153958",
@@ -21,7 +20,11 @@ function setLinks() {
     const base = `https://canvas.tue.nl/courses/${COURSE_ID}`;
 
     for (const [name, id] of Object.entries(ASSIGNMENT_IDS)) {
-        setLink(name, `${base}/assignments/${id}`);
+        if (id === undefined){
+          setLink(name, base);
+        } else {    
+          setLink(name, `${base}/assignments/${id}`);
+        }
     }
 
     setLink('contact',    `${base}/pages/homepage/#contact`);
