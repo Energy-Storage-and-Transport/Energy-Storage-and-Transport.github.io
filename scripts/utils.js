@@ -11,9 +11,7 @@ const ASSIGNMENT_IDS = {
     practical:         "153963",
     measurementtheory: "153966",
     interimstep1:      "153959",
-    interimstep2:      "153960",
-    finalstep1:        "153954",
-    finalstep2:        "153955"
+    finalstep1:        "153954"
 };
 
 function setLinks() {
