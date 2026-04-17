@@ -54,7 +54,7 @@ async function fillToolboxTable(toolbox) {
 
     // Load the Excel inventory file
     const [toolboxes, components] = await readExcelComponents("data/components.xlsx");
-    const cols = {0:10, 1:11, 2:12, 3:13};
+    const cols = {0:10, 1:11, 2:12, 3:13, 4:14};
 
     components.filter(r=>(r[cols[toolbox]]>0)).forEach((r) => {
         const row = table.insertRow();
