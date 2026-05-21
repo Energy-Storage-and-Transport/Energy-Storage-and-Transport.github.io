@@ -162,14 +162,6 @@
             "links": [["The model development track", "html/tracks-model.html"]]
         },
         {
-            "id": "E3.1",
-            "col": 2,
-            "row": 0,
-            "title": "Reproducibility session",
-            "description": "Prepare your setup on the click board at the start of the reproducibility session. Conduct the experiment of another group (as assigned to you) and evaluate their experiment and SOP based on the provided rubric. Provide motivated feedback to the other group and reflect on the feedback provided to you.",
-            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
-        },
-        {
             "id": "S3.1",
             "col": 0,
             "row": 0,
@@ -194,25 +186,25 @@
             "links": [["The model development track", "html/tracks-model.html"]]
         },
         {
+            "id": "E3.1",
+            "col": 2,
+            "row": 0,
+            "title": "Measurement codes",
+            "description": "Develop the codes for the gathering and post-processing of the experimental data.",
+            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
+        },
+        {
             "id": "E3.2",
             "col": 2,
             "row": 1,
-            "title": "Measurement codes",
-            "description": "Develop the codes for the gathering and post-processing of the experimental data.",
+            "title": "Step-by-step measurement plan",
+            "description": "Create a measurement plan describing the steps required to execute your experiment and how to gather your experimental data. Include details regarding relevant sensor calibration steps.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         },
         {
             "id": "E3.3",
             "col": 2,
             "row": 2,
-            "title": "Step-by-step measurement plan",
-            "description": "Create a measurement plan describing the steps required to execute your experiment and how to gather your experimental data. Include details regarding relevant sensor calibration steps.",
-            "links": [["The experimental validation track", "html/tracks-experiment.html"]]
-        },
-        {
-            "id": "E3.4",
-            "col": 2,
-            "row": 3,
             "title": "Conduct measurements",
             "description": "Conduct experiments in accordance with the step-by-step measurement plan. Use the Arduino and post-processing scripts to visualize the experimental results. Make sure to perform the measurement multiple times and visualize the measurement uncertainty in the results.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
@@ -228,7 +220,7 @@
         {
             "id": "S3.3",
             "col": 0,
-            "row": 5,
+            "row": 4,
             "title": "Infographic finalization",
             "description": "Finalize the infographic based on the feedback received on the interim version. Make sure that the infographic is tailored to the interests of a panel of experts.",
             "links": [["The system definition track", "html/tracks-system.html"],
@@ -237,23 +229,23 @@
         {
             "id": "M3.3",
             "col": 1,
-            "row": 5,
+            "row": 4,
             "title": "Modeling process reflection",
             "description": "Reflect on the model development process by explaining the capabilities and limitations of your Simulink model, the relation between the validation process and the real-world EST Simulink model, and by discussion the lessons learned throughout the project.",
             "links": [["The model development track", "html/tracks-model.html"]]
         },
         {
-            "id": "E3.5",
+            "id": "E3.4",
             "col": 2,
-            "row": 4,
+            "row": 3,
             "title": "Validity assessment",
             "description": "Assess the validity of the considered physical law by comparing the experimental results with those based on the theory.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
         },
         {
-            "id": "E3.6",
+            "id": "E3.5",
             "col": 2,
-            "row": 5,
+            "row": 4,
             "title": "Demonstration session",
             "description": "At the start of the demo session, assemble the finalized version of your setup on the click board. Make sure that everything fits and connects well and that the setup looks neat. Make sure that the electronics and the software are ready to gather the experimental data and that safety precautions are taken into account. Demonstrate your validation experiment following the step-by-step measurement plan. Explain the quality of the gathered data in terms of resolution, range, sampling frequency etc. Show the postprocessing of the experimental data, with attention for repeatability and accuracy. After the demo, neatly disassemble your setup, clean the components, and return the toolbox in its original state.",
             "links": [["The experimental validation track", "html/tracks-experiment.html"]]
@@ -305,9 +297,8 @@
         {"from": "S3.2", "to": "S3.3"},
         {"from": "M3.2", "to": "M3.3"},
         {"from": "E3.4", "to": "E3.5"},
-        {"from": "E3.5", "fromOffset": -1, "to": "M3.3", "toOffset":1, "type": "zigzag"},
-        {"from": "E3.5", "to": "E3.6"},
-        {"from": "E3.6"},
+        {"from": "E3.4", "fromOffset": -1, "to": "M3.3", "toOffset":1, "type": "zigzag"},
+        {"from": "E3.5"},
         {"from": "M3.3"},
         {"from": "S3.3"}
     ]
